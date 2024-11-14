@@ -10,12 +10,25 @@ CONFIG += c++17
 
 SOURCES += \
     animationlabel.cpp \
+    attendanceentry.cpp \
+    attendancelog.cpp \
+    employee.cpp \
+    leaveapplication.cpp \
+    leavebalance.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    user.cpp
 
 HEADERS += \
     animationlabel.h \
-    mainwindow.h
+    attendanceentry.h \
+    attendancelog.h \
+    employee.h \
+    leaveapplication.h \
+    leavebalance.h \
+    mainwindow.h \
+    user.h \
+    utils.h
 
 FORMS += \
     animationlabel.ui \
