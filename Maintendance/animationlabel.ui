@@ -16,8 +16,8 @@
   <widget class="QLabel" name="mainMenuAnimationLabel">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>150</y>
+     <x>240</x>
+     <y>160</y>
      <width>291</width>
      <height>91</height>
     </rect>

@@ -11,6 +11,7 @@ private:
 public:
 
     AttendanceEntry(std::string, bool, int);
+
     bool _isPresent()const;
     std::string _getDate() const;
 

@@ -4,7 +4,7 @@ AttendanceLog::AttendanceLog() {}
 
 void AttendanceLog::_addEntry(const std::string date,const bool attendance, int hours)
 {
-    attEntries.emplace_back( new AttendanceEntry(date,attendance,hours));
+    attEntries.emplace_back(date,attendance,hours);
 }
 
 //this function will recieve a pointer for the entry
@@ -22,6 +22,7 @@ double AttendanceLog::_getAttendancePercentage()const
 {
     //to be implemented. make sure the entry class has an hours field
     //get clarity if this is attendance percentage in terms of hours or days?
+    return true;
 }
 
 
