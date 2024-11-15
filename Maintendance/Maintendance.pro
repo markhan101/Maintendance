@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,6 +15,7 @@ SOURCES += \
     employee.cpp \
     leaveapplication.cpp \
     leavebalance.cpp \
+    logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
     user.cpp
@@ -26,12 +27,14 @@ HEADERS += \
     employee.h \
     leaveapplication.h \
     leavebalance.h \
+    logindialog.h \
     mainwindow.h \
     user.h \
     utils.h
 
 FORMS += \
     animationlabel.ui \
+    logindialog.ui \
     mainwindow.ui
 
 # Default rules for deployment.

@@ -36,6 +36,16 @@
      <set>Qt::TextInteractionFlag::NoTextInteraction</set>
     </property>
    </widget>
+   <widget class="QPushButton" name="leaveRequestButton">
+    <property name="text">
+     <string>Request Leave</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="manageEmployeesButton">
+    <property name="text">
+     <string>Manage Employees</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

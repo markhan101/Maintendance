@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include <QPropertyAnimation>
+#include <QMessageBox>
+#include <QDialog>
+#include "logindialog.h"
+#include "utils.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,7 +24,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
-
-
+    void setupGuardUI();
+    void setupEmployeeUI();
+    void setupDirectorUI();
+    void showLoginDialog();
 };
 #endif // MAINWINDOW_H
