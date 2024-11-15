@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GuardWindow</class>
+ <widget class="QMainWindow" name="GuardWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Guard Portal - Attendance Management</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    
+    <!-- Header Section -->
+    <item>
+     <widget class="QLabel" name="headerLabel">
+      <property name="text">
+       <string>Employee Attendance Management</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+     </widget>
+    </item>
+
+    <!-- Control Buttons -->
+    <item>
+     <layout class="QHBoxLayout" name="controlLayout">
+      <item>
+       <widget class="QPushButton" name="loadEmployeesButton">
+        <property name="text">
+         <string>Load Employees</string>
+        </property>
+        <property name="minimumHeight">
+         <number>30</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="markAllPresentButton">
+        <property name="text">
+         <string>Mark All Present</string>
+        </property>
+        <property name="minimumHeight">
+         <number>30</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="saveAttendanceButton">
+        <property name="text">
+         <string>Save Attendance</string>
+        </property>
+        <property name="minimumHeight">
+         <number>30</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- Employee Table -->
+    <item>
+     <widget class="QTableWidget" name="employeeTable">
+      <property name="columnCount">
+       <number>5</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Department</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Status</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Mark Present</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+
+    <!-- Status Bar -->
+    <item>
+     <widget class="QLabel" name="statusLabel">
+      <property name="text">
+       <string>Ready</string>
+      </property>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+  
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

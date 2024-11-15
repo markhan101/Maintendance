@@ -33,6 +33,7 @@ HEADERS += \
     utils.h
 
 FORMS += \
+    guardlogin.ui \
     logindialog.ui \
     mainwindow.ui
 

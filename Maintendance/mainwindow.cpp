@@ -53,6 +53,9 @@ void MainWindow::_setupGuardUI(int userID)
 
 
     // Show guard-specific widgets
+    ui->loademployees->show();
+    connect(ui->manageEmployeesButton,  &QPushButton::clicked, [=]() {
+        _loadGuardAttendanceUI(userID));
 }
 
 void MainWindow::_setupEmployeeUI()
