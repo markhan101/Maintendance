@@ -9,7 +9,6 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    animationlabel.cpp \
     attendanceentry.cpp \
     attendancelog.cpp \
     employee.cpp \
@@ -20,7 +19,6 @@ SOURCES += \
     user.cpp
 
 HEADERS += \
-    animationlabel.h \
     attendanceentry.h \
     attendancelog.h \
     employee.h \
@@ -31,7 +29,6 @@ HEADERS += \
     utils.h
 
 FORMS += \
-    animationlabel.ui \
     mainwindow.ui
 
 # Default rules for deployment.

@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QPropertyAnimation>
+#include <QStackedWidget>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,6 +22,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
 
 
 };
