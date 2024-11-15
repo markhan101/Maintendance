@@ -5,10 +5,15 @@
 #include <QPropertyAnimation>
 #include <QStackedWidget>
 
+#include <QMessageBox>
+#include <QDialog>
+#include "logindialog.h"
+#include "utils.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui {
-class MainWindow;
+namespace Ui
+{
+    class MainWindow;
 }
 QT_END_NAMESPACE
 
@@ -22,8 +27,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
-
-
-
+    void setupGuardUI();
+    void setupEmployeeUI();
+    void setupDirectorUI();
+    void showLoginDialog();
 };
 #endif // MAINWINDOW_H
