@@ -12,6 +12,7 @@ SOURCES += \
     attendanceentry.cpp \
     attendancelog.cpp \
     employee.cpp \
+    guard.cpp \
     leaveapplication.cpp \
     leavebalance.cpp \
     logindialog.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     attendanceentry.h \
     attendancelog.h \
     employee.h \
+    guard.h \
     leaveapplication.h \
     leavebalance.h \
     logindialog.h \
@@ -31,7 +33,6 @@ HEADERS += \
     utils.h
 
 FORMS += \
-    animationlabel.ui \
     logindialog.ui \
     mainwindow.ui
 

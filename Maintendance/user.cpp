@@ -1,9 +1,7 @@
 #include "user.h"
 
-User::User()
-{
+User::User(int ID, std::string name):uID(ID), uName(name){}
 
-}
 void User::_set_uID(const int ID)
 {
     this->uID = ID;

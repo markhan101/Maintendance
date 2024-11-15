@@ -11,17 +11,19 @@ class Employee: public User
 {
 private:
     Position pos;
-    AttendanceLog log;
+    AttendanceLog attLog;
     LeaveBalance leaveBalance;
 
 public:
     Employee();
-    Employee(int ID, std::string name, Position pos, AttendanceLog att_log, LeaveBalance lb);
+    Employee(int, std::string, Position, AttendanceLog, LeaveBalance);
 
     void _login () override;
     void _logout () override;
+    void _storeInfo() override;
     void _applyForLeave();
     virtual void _viewAttendance();
+    virtual void _viewAttendance(int);
     virtual void _getAttendanceRecord();
     virtual void _getLeaveBalance();
 

@@ -1,6 +1,6 @@
 #include "employee.h"
 
-Employee::Employee() {}
+Employee::Employee(int id, std::string name, Position position, AttendanceLog attlog, LeaveBalance leaveb):User(id,name), pos(position), attLog(attlog),leaveBalance(leaveb) {}
 
 void Employee::_login()
 {
@@ -12,9 +12,18 @@ void Employee::_logout()
     //same here
 }
 
+void Employee::_storeInfo()
+{
+    //add to file text
+}
+
 void Employee::_applyForLeave() {
     // Logic for applying for leave
 }
+void Employee::_viewAttendance(int uID) {
+    // Logic for viewing attendance
+}
+
 
 void Employee::_viewAttendance() {
     // Logic for viewing attendance

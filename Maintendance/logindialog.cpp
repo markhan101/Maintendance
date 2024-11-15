@@ -21,14 +21,14 @@ void LoginDialog::on_loginButton_clicked()
     QString username = ui->usernameLineEdit->text();
     QString password = ui->passwordLineEdit->text();
 
-    if(validateCredentials(username, password)) {
+    if(_validateCredentials(username, password)) {
         accept();
     } else {
         QMessageBox::warning(this, "Login Failed", "Invalid username or password!");
     }
 }
 
-bool LoginDialog::validateCredentials(const QString& username, const QString& password)
+bool LoginDialog::_validateCredentials(const QString& username, const QString& password)
 {
     // ForExample we can later attach this with file handling as well
     if(username == "guard" && password == "guard123") {

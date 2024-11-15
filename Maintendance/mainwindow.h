@@ -27,9 +27,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    void setupGuardUI();
-    void setupEmployeeUI();
-    void setupDirectorUI();
-    void showLoginDialog();
+    void _setupGuardUI(int userID);
+    void _setupEmployeeUI();
+    void _setupDirectorUI();
+    void _showLoginDialog();
 };
 #endif // MAINWINDOW_H
