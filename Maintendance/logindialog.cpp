@@ -38,16 +38,17 @@ bool LoginDialog::_validateCredentials(const QString& username, const QString& p
         userID = 1;
         return true;
     }
-    if(username == "employee" && password == "emp123") {
+    else if(username == "employee" && password == "emp123") {
         userPosition = Position::normal_employee;
         userID = 2;
         return true;
     }
-    if(username == "director" && password == "dir123") {
+    else if(username == "director" && password == "dir123") {
         userPosition = Position::director;
         userID = 3;
         return true;
     }
+    else
     return false;
 }
 

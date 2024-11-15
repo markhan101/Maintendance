@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>GuardLogin</class>
- <widget class="QWidget" name="GuardLogin">
-  <property name="enabled">
-   <bool>true</bool>
-  </property>
+ <class>GeneralEmployeeLogin</class>
+ <widget class="QWidget" name="GeneralEmployeeLogin">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -16,6 +13,19 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QGraphicsView" name="genEmpPic">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>110</y>
+     <width>271</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/pic.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
   <widget class="QPushButton" name="viewAttendanceButton">
    <property name="geometry">
     <rect>
@@ -29,20 +39,7 @@
     <string>View Your Attendance</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="markAttendanceButton">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>380</y>
-     <width>191</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Mark Attendance</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="markAttendanceButton_2">
+  <widget class="QPushButton" name="requestLeaveButton">
    <property name="geometry">
     <rect>
      <x>730</x>
@@ -55,23 +52,10 @@
     <string>Request Leave</string>
    </property>
   </widget>
-  <widget class="QGraphicsView" name="guardPic">
+  <widget class="QPushButton" name="logoutButton">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>110</y>
-     <width>256</width>
-     <height>192</height>
-    </rect>
-   </property>
-   <property name="whatsThis">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/pic.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="logOutButton">
-   <property name="geometry">
-    <rect>
-     <x>920</x>
+     <x>910</x>
      <y>10</y>
      <width>191</width>
      <height>61</height>

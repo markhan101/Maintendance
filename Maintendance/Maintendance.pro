@@ -12,6 +12,7 @@ SOURCES += \
     attendanceentry.cpp \
     attendancelog.cpp \
     employee.cpp \
+    generalemployeelogin.cpp \
     guard.cpp \
     guardlogin.cpp \
     leaveapplication.cpp \
@@ -20,12 +21,14 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     markattendancescreen.cpp \
+    supervisorlogin.cpp \
     user.cpp
 
 HEADERS += \
     attendanceentry.h \
     attendancelog.h \
     employee.h \
+    generalemployeelogin.h \
     guard.h \
     guardlogin.h \
     leaveapplication.h \
@@ -33,14 +36,17 @@ HEADERS += \
     logindialog.h \
     mainwindow.h \
     markattendancescreen.h \
+    supervisorlogin.h \
     user.h \
     utils.h
 
 FORMS += \
+    generalemployeelogin.ui \
     guardlogin.ui \
     logindialog.ui \
     mainwindow.ui \
-    markattendancescreen.ui
+    markattendancescreen.ui \
+    supervisorlogin.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

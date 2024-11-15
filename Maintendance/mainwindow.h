@@ -19,6 +19,8 @@
 #include "logindialog.h"
 #include "utils.h"
 #include "guardlogin.h"
+#include "generalemployeelogin.h"
+#include "supervisorlogin.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -35,13 +37,18 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void _handleEmitLogout();
+
 private:
     Ui::MainWindow *ui;
     GuardLogin *guardlogin;
+    GeneralEmployeeLogin *genEmpLogin;
+    SupervisorLogin *supervisorLogin;
 
-    void _setupGuardUI(int userID);
-    void _setupEmployeeUI();
-    void _setupDirectorUI();
+    void _setupGuardUI(int);
+    void _setupEmployeeUI(int);
+    void _setupDirectorUI(int);
     void _showLoginDialog();
 };
 #endif // MAINWINDOW_H

@@ -22,6 +22,10 @@ public:
 
 private slots:
     void on_markAttendanceButton_clicked(); // No arguments in slot
+    void on_logOutButton_clicked();
+
+signals:
+    void emitLogout();
 
 private:
     Ui::GuardLogin *ui;
