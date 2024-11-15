@@ -7,7 +7,7 @@ class Guard : public Employee
 {
 public:
     Guard(int,std::string,Position,AttendanceLog, LeaveBalance);
-    void _markAttendance(Employee*, std::string, bool);
+    void _markAttendance(std::string);
     void _viewAttendance(int);
 
 };

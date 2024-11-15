@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow)
+    : QMainWindow(parent), ui(new Ui::MainWindow),guardlogin(nullptr)
 {
     ui->setupUi(this);
     _showLoginDialog();
@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    delete guardlogin;
     delete ui;
 }
 
@@ -48,26 +49,25 @@ void MainWindow::_setupGuardUI(int userID)
     // Show limited functionality for guard role
     // Guards have restricted access to certain features
     // Only basic monitoring and reporting features are available
-    ui->leaveRequestButton->hide();
-    ui->manageEmployeesButton->hide();
-
+    //ui->leaveRequestButton->hide();
+    //ui->manageEmployeesButton->hide();
 
     // Show guard-specific widgets
-    ui->loademployees->show();
-    connect(ui->manageEmployeesButton,  &QPushButton::clicked, [=]() {
-        _loadGuardAttendanceUI(userID));
+
+    guardlogin = new GuardLogin(this);
+    guardlogin->show();
+
+
 }
 
 void MainWindow::_setupEmployeeUI()
 {
     // Show employee functionality
-    ui->manageEmployeesButton->hide();
-    ui->leaveRequestButton->show();
+
 }
 
 void MainWindow::_setupDirectorUI()
 {
     // Show all functionality
-    ui->leaveRequestButton->show();
-    ui->manageEmployeesButton->show();
+
 }

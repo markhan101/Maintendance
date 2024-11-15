@@ -21,6 +21,8 @@ public:
 private slots:
     void on_loginButton_clicked();
 
+    //void on_usernameLineEdit_editingFinished();
+
 private:
     Ui::LoginDialog *ui;
     Position userPosition;

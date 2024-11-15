@@ -4,7 +4,7 @@ Guard::Guard(int ID, std::string name, Position pos, AttendanceLog att_log, Leav
     Employee(ID, name, pos, att_log, lb)
 {}
 
-void Guard::_markAttendance(Employee* emp, std::string date, bool isPresent)
+void Guard::_markAttendance(std::string id)
 {
 
 }

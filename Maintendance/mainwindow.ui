@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1022</width>
-    <height>598</height>
+    <width>1123</width>
+    <height>717</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -16,36 +16,13 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QStackedWidget" name="stackedWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>1021</width>
-      <height>571</height>
-     </rect>
-    </property>
-    <widget class="QWidget" name="page"/>
-    <widget class="QWidget" name="page_2"/>
-   </widget>
-   <widget class="QPushButton" name="leaveRequestButton">
-    <property name="text">
-     <string>Request Leave</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="manageEmployeesButton">
-    <property name="text">
-     <string>Manage Employees</string>
-    </property>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1022</width>
+     <width>1123</width>
      <height>25</height>
     </rect>
    </property>

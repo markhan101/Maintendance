@@ -50,3 +50,6 @@ bool LoginDialog::_validateCredentials(const QString& username, const QString& p
     }
     return false;
 }
+
+
+

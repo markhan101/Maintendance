@@ -7,8 +7,18 @@
 
 #include <QMessageBox>
 #include <QDialog>
+
+#include <QApplication>
+#include <QWidget>
+#include <QLabel>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QPixmap>
+
 #include "logindialog.h"
 #include "utils.h"
+#include "guardlogin.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -27,6 +37,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    GuardLogin *guardlogin;
+
     void _setupGuardUI(int userID);
     void _setupEmployeeUI();
     void _setupDirectorUI();
