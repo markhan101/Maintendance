@@ -9,6 +9,9 @@ LoginDialog::LoginDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle("Login");
+    if (parent) {
+        resize(parent->size());
+    }
 }
 
 LoginDialog::~LoginDialog()
@@ -30,7 +33,6 @@ void LoginDialog::on_loginButton_clicked()
 
 bool LoginDialog::validateCredentials(const QString& username, const QString& password)
 {
-    // ForExample we can later attach this with file handling as well
     if(username == "guard" && password == "guard123") {
         userPosition = Position::guard;
         userID = 1;

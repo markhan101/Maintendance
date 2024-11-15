@@ -51,6 +51,9 @@ void MainWindow::setupGuardUI()
     ui->leaveRequestButton->hide();
     ui->manageEmployeesButton->hide();
     // Show guard-specific widgets
+    ui->loademployees->show();
+    connect(ui->manageEmployeesButton,  &QPushButton::clicked, [=]() {
+        _loadGuardAttendanceUI(userID));
 }
 
 void MainWindow::setupEmployeeUI()

@@ -31,7 +31,7 @@ HEADERS += \
     utils.h
 
 FORMS += \
-    animationlabel.ui \
+    guardlogin.ui \
     logindialog.ui \
     mainwindow.ui
 
