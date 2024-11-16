@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>emp1.txt</file>
+        <file>emp2.txt</file>
+        <file>emp3.txt</file>
+        <file>emp4.txt</file>
+        <file>emp5.txt</file>
+        <file>emp6.txt</file>
+        <file>emp7.txt</file>
+        <file>emp8.txt</file>
+        <file>emp9.txt</file>
+        <file>emp10.txt</file>
+    </qresource>
+</RCC>

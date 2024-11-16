@@ -60,4 +60,5 @@ DISTFILES += \
     pic.png
 
 RESOURCES += \
+    attendancelogs.qrc \
     resources.qrc

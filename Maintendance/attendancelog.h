@@ -16,6 +16,7 @@ public:
 
     void _displayEntries();
     double _getAttendancePercentage() const;
+    std::vector<AttendanceEntry>& _getEntries() { return attEntries; }
 };
 
 #endif // ATTENDANCELOG_H

@@ -25,7 +25,7 @@ std::vector<std::string> Employee::_viewAttendance(int uID) {
 }
 
 
-std::vector<std::string>Employee::_viewAttendance() {
+AttendanceLog* Employee::_viewAttendance() {
     // Logic for viewing attendance
 }
 

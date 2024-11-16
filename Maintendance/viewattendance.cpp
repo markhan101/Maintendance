@@ -20,22 +20,27 @@ void ViewAttendance::setGuard(Guard *guard)
 {
    currentGuard = guard;
 }
-
 void ViewAttendance::displayList()
 {
-    if(!currentGuard)
-    {
+    if(!currentGuard) {
         qDebug() << "Error: currentGuard is null!";
         return;
     }
 
-    //example
-    std::vector<std::string> l1 = currentGuard->_viewAttendance();
-
-    for (std::string str : l1) {
-        ui->attendanceList->addItem(QString::fromStdString(str));
+    ui->attendanceList->clear();
+    
+    AttendanceLog* log = currentGuard->_viewAttendance();
+    qDebug() << log;
+    std::vector<AttendanceEntry>& entries = log->_getEntries();  //
+    
+    for (const auto& entry : entries) {
+        QString displayStr = QString("%1 | Present: %2 | Hours: %3")
+            .arg(QString::fromStdString(entry._getDate()))
+            .arg(entry._isPresent() ? "Yes" : "No")
+            .arg(entry._getHours());  // Add _getHours() to AttendanceEntry
+            
+        ui->attendanceList->addItem(displayStr);
     }
-
 }
 
 
