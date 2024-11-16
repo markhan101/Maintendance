@@ -7,7 +7,7 @@
 
 class LeaveApplication;
 
-class Employee: public User
+class Employee : public User
 {
 private:
     Position pos;
@@ -18,15 +18,14 @@ public:
     Employee();
     Employee(int, std::string, Position, AttendanceLog, LeaveBalance);
 
-    void _login () override;
-    void _logout () override;
+    void _login() override;
+    void _logout() override;
     void _storeInfo() override;
-    void _applyForLeave(LeaveApplication*);
-    virtual std::vector<std::string> _viewAttendance();
+    void _applyForLeave(LeaveApplication *);
+    virtual AttendanceLog *_viewAttendance();
     virtual std::vector<std::string> _viewAttendance(int);
     virtual void _getAttendanceRecord();
     virtual void _getLeaveBalance();
-
 };
 
 #endif // EMPLOYEE_H

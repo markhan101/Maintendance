@@ -20,7 +20,11 @@ public:
     void setGuard(Guard *guard);
 
 private slots:
-    void on_confirmAttendance_clicked();
+
+
+    void on_confirmAttendanceButton_clicked();
+
+    void on_MarkAbsent_clicked();
 
 private:
     Ui::MarkAttendanceScreen *ui;

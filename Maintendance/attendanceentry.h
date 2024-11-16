@@ -14,6 +14,7 @@ public:
 
     bool _isPresent()const;
     std::string _getDate() const;
+    int _getHours() const { return hours; }
 
 };
 

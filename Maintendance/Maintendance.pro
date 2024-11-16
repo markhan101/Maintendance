@@ -64,4 +64,4 @@ DISTFILES += \
 
 RESOURCES += \
     attendancelogs.qrc \
-    pics.qrc
+    resources.qrc
