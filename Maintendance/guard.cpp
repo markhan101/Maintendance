@@ -6,7 +6,7 @@ Guard::Guard(int ID, std::string name, Position pos, AttendanceLog att_log, Leav
 
 void Guard::_markAttendance(std::string id)
 {
-
+    //fopen(id+".txt")
 }
 
 std::vector<std::string> Guard::_viewAttendance()

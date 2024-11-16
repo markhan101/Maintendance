@@ -6,6 +6,7 @@
 #include "guard.h"
 #include "markattendancescreen.h"
 #include "viewattendance.h"
+#include <leaveapplicationform.h>
 
 namespace Ui {
 class GuardLogin;
@@ -26,6 +27,7 @@ private slots:
     void on_logOutButton_clicked();
 
     void on_viewAttendanceButton_clicked();
+    void on_requestLeaveButton_clicked();
 
 signals:
     void emitLogout();

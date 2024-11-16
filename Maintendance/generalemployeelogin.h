@@ -2,6 +2,7 @@
 #define GENERALEMPLOYEELOGIN_H
 
 #include <QWidget>
+#include "employee.h"
 
 namespace Ui {
 class GeneralEmployeeLogin;
@@ -17,6 +18,8 @@ public:
 
 private:
     Ui::GeneralEmployeeLogin *ui;
+    Employee *generalEmp;
+
 
 signals:
     void emitLogout();

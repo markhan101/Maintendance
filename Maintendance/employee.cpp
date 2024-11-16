@@ -17,7 +17,7 @@ void Employee::_storeInfo()
     //add to file text
 }
 
-void Employee::_applyForLeave() {
+void Employee::_applyForLeave(LeaveApplication *application) {
     // Logic for applying for leave
 }
 std::vector<std::string> Employee::_viewAttendance(int uID) {

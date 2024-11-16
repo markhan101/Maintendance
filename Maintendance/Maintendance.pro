@@ -16,6 +16,7 @@ SOURCES += \
     guard.cpp \
     guardlogin.cpp \
     leaveapplication.cpp \
+    leaveapplicationform.cpp \
     leavebalance.cpp \
     logindialog.cpp \
     main.cpp \
@@ -33,6 +34,7 @@ HEADERS += \
     guard.h \
     guardlogin.h \
     leaveapplication.h \
+    leaveapplicationform.h \
     leavebalance.h \
     logindialog.h \
     mainwindow.h \
@@ -45,6 +47,7 @@ HEADERS += \
 FORMS += \
     generalemployeelogin.ui \
     guardlogin.ui \
+    leaveapplicationform.ui \
     logindialog.ui \
     mainwindow.ui \
     markattendancescreen.ui \
@@ -60,4 +63,5 @@ DISTFILES += \
     pic.png
 
 RESOURCES += \
-    resources.qrc
+    attendancelogs.qrc \
+    pics.qrc

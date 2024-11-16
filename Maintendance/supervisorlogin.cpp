@@ -6,7 +6,9 @@ SupervisorLogin::SupervisorLogin(QWidget *parent)
     , ui(new Ui::SupervisorLogin)
 {
     ui->setupUi(this);
-     connect(ui->logOutButton, &QPushButton::clicked, this, &SupervisorLogin::on_logOutButton_clicked);
+    //ui->graphicsView->setBackgroundBrush(QImage("pics.qrc:/pic.png"));
+    //ui->graphicsView->setCacheMode(QGraphicsView::CacheBackground);
+    connect(ui->logOutButton, &QPushButton::clicked, this, &SupervisorLogin::on_logOutButton_clicked);
 }
 
 SupervisorLogin::~SupervisorLogin()

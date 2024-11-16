@@ -16,11 +16,14 @@
   <widget class="QGraphicsView" name="graphicsView">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>110</y>
+     <x>380</x>
+     <y>90</y>
      <width>256</width>
      <height>192</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/pic.png);</string>
    </property>
   </widget>
   <widget class="QPushButton" name="viewAttendanceButton">

@@ -42,7 +42,7 @@
     <string>Mark Attendance</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="markAttendanceButton_2">
+  <widget class="QPushButton" name="requestLeaveButton">
    <property name="geometry">
     <rect>
      <x>730</x>

@@ -5,7 +5,7 @@
 #include "leavebalance.h"
 #include "utils.h"
 
-
+class LeaveApplication;
 
 class Employee: public User
 {
@@ -21,7 +21,7 @@ public:
     void _login () override;
     void _logout () override;
     void _storeInfo() override;
-    void _applyForLeave();
+    void _applyForLeave(LeaveApplication*);
     virtual std::vector<std::string> _viewAttendance();
     virtual std::vector<std::string> _viewAttendance(int);
     virtual void _getAttendanceRecord();
