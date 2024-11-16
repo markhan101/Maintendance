@@ -56,7 +56,10 @@ void MainWindow::_setupGuardUI(int id)
     // Show guard-specific widgets
 
     guardlogin = new GuardLogin(this);
+    Guard *newGuard = new Guard(0,"random",guard,{},{});
+    guardlogin->setCurrentGuard(newGuard);
     connect(guardlogin, &GuardLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
+
     guardlogin->show();
 
 

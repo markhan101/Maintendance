@@ -3,7 +3,7 @@
 
 GuardLogin::GuardLogin(QWidget *parent)
     : QWidget(parent)
-    , ui(new Ui::GuardLogin), markAttendance(nullptr), currentGuard(nullptr)
+    , ui(new Ui::GuardLogin), currentGuard(nullptr)
 {
     ui->setupUi(this);
     connect(ui->logOutButton, &QPushButton::clicked, this, &GuardLogin::on_logOutButton_clicked);
@@ -33,5 +33,18 @@ void GuardLogin::on_markAttendanceButton_clicked()
 void GuardLogin::on_logOutButton_clicked()
 {
     emit emitLogout();
+}
+
+
+void GuardLogin::on_viewAttendanceButton_clicked()
+{
+    if (currentGuard) {
+        ViewAttendance *viewAttendance = new ViewAttendance(this);
+        viewAttendance->setGuard(currentGuard);
+        viewAttendance->displayList();
+        viewAttendance->exec();
+    } else {
+        qDebug() << "Error GuardLogin has no currentGuard set";
+    }
 }
 

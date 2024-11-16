@@ -2,13 +2,14 @@
 #define GUARD_H
 
 #include "employee.h"
+#include <QListWidget>
 
 class Guard : public Employee
 {
 public:
     Guard(int,std::string,Position,AttendanceLog, LeaveBalance);
     void _markAttendance(std::string);
-    void _viewAttendance(int);
+    std::vector<std::string> _viewAttendance();
 
 };
 

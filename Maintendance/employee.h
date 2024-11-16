@@ -22,8 +22,8 @@ public:
     void _logout () override;
     void _storeInfo() override;
     void _applyForLeave();
-    virtual void _viewAttendance();
-    virtual void _viewAttendance(int);
+    virtual std::vector<std::string> _viewAttendance();
+    virtual std::vector<std::string> _viewAttendance(int);
     virtual void _getAttendanceRecord();
     virtual void _getLeaveBalance();
 

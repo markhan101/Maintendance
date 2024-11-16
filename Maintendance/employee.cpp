@@ -20,12 +20,12 @@ void Employee::_storeInfo()
 void Employee::_applyForLeave() {
     // Logic for applying for leave
 }
-void Employee::_viewAttendance(int uID) {
+std::vector<std::string> Employee::_viewAttendance(int uID) {
     // Logic for viewing attendance
 }
 
 
-void Employee::_viewAttendance() {
+std::vector<std::string>Employee::_viewAttendance() {
     // Logic for viewing attendance
 }
 

@@ -5,6 +5,7 @@
 #include <QDialog>
 #include "guard.h"
 #include "markattendancescreen.h"
+#include "viewattendance.h"
 
 namespace Ui {
 class GuardLogin;
@@ -24,12 +25,14 @@ private slots:
     void on_markAttendanceButton_clicked(); // No arguments in slot
     void on_logOutButton_clicked();
 
+    void on_viewAttendanceButton_clicked();
+
 signals:
     void emitLogout();
 
 private:
     Ui::GuardLogin *ui;
-    MarkAttendanceScreen *markAttendance;
+
     Guard *currentGuard;
 };
 
