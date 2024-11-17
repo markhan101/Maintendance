@@ -2,11 +2,10 @@
 
 AttendanceLog::AttendanceLog() {}
 
-void AttendanceLog::_addEntry(const std::string date,const bool attendance, int hours)
+void AttendanceLog::_addEntry(std::string day, std::string date, bool attendance, int hours)
 {
-    attEntries.emplace_back(date,attendance,hours);
+    attEntries.emplace_back(day, date, attendance, hours);
 }
-
 //this function will recieve a pointer for the entry
 void AttendanceLog::_addEntry(AttendanceEntry &entry)
 {

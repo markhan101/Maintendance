@@ -16,21 +16,22 @@ Guard::Guard(int ID, std::string name, Position pos, AttendanceLog att_log, Leav
 
 void Guard::_markAttendance(std::string id, bool ispresent, int hours = 8)
 {
-    // Construct the file path
+    
     QString baseDir = "E:/SDA/Maintendance/Maintendance";
     QString filePath = QString("%1/%2.txt").arg(baseDir, QString::fromStdString(id));
 
     QFile file(filePath);
 
-    if (file.open(QIODevice::Append | QIODevice::Text))
+       if (file.open(QIODevice::Append | QIODevice::Text))
     {
         QTextStream stream(&file);
-
+    
         QDateTime current = QDateTime::currentDateTime();
-        QString dateStr = current.toString("d/M/yyyy");
-
-        stream << dateStr << " - " << ispresent << " - Hours: " << hours << Qt::endl;
-
+       
+        QString dateStr = current.toString("ddd - d/M/yyyy");
+    
+        stream << dateStr << " - " << ispresent << " - " << hours << Qt::endl;
+    
         std::cout << "Attendance marked in: " << filePath.toStdString() << std::endl;
         file.close();
     }
@@ -59,18 +60,19 @@ AttendanceLog *Guard::_viewAttendance()
         QString line = in.readLine();
         QStringList parts = line.split(" - ");
 
-        if (parts.size() >= 3)
+        if (parts.size() >= 4)
         {
+            QString day = parts[0];
 
-            QString date = parts[0];
+            QString date = parts[1];
 
-            bool isPresent = (parts[1].trimmed() == "1");
+            bool isPresent = (parts[2].trimmed() == "1");
 
-            QString hoursStr = parts[2];
+            QString hoursStr = parts[3];
             int hours = hoursStr.toInt();
             qDebug() << hours;
 
-            log->_addEntry(date.toStdString(), isPresent, hours);
+            log->_addEntry(day.toStdString(),date.toStdString(), isPresent, hours);
         }
     }
 
