@@ -24,6 +24,7 @@ SOURCES += \
     markattendancescreen.cpp \
     supervisorlogin.cpp \
     user.cpp \
+    loginpass.cpp \
     viewattendance.cpp
 
 HEADERS += \
