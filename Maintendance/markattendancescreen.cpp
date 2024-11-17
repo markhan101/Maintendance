@@ -14,8 +14,9 @@ MarkAttendanceScreen::MarkAttendanceScreen(QWidget *parent)
     ui->attendanceIDTextBox->setAlignment(Qt::AlignCenter);
 
     ui->attendanceDateDateEdit->setCalendarPopup(true);
+    ui->attendanceDateDateEdit->setMinimumDate(QDate::currentDate().addDays(-365));
 
-    ui->extraHoursComboBox->setPlaceholderText("Choose Hours");
+    ui->extraHoursComboBox->setPlaceholderText("By default this is 0");
     ui->extraHoursComboBox->setMaxCount(3);
     ui->extraHoursComboBox->addItem("1");
     ui->extraHoursComboBox->addItem("2");
@@ -32,6 +33,8 @@ void MarkAttendanceScreen::_setGuard(Guard *guard)
     currentGuard = guard;
 }
 
+
+
 QDate MarkAttendanceScreen::_getAttendanceDate(QDate date)
 {
     return date;
@@ -39,29 +42,85 @@ QDate MarkAttendanceScreen::_getAttendanceDate(QDate date)
 
 int MarkAttendanceScreen::_getHours (QString h)
 {
-    qDebug() << h;
+    if(h=="")
+        return 0;
     return h.toInt();
 }
 
-void MarkAttendanceScreen::_howToMark(bool isPresent)
+
+//TO BE ADDED IN UTILS.H
+QString _getDayStr(int dayOfWeek)
+{
+    if (dayOfWeek == 1) {
+        return "Monday";
+    } else if (dayOfWeek == 2) {
+        return "Tuesday";
+    } else if (dayOfWeek == 3) {
+        return "Wednesday";
+    } else if (dayOfWeek == 4) {
+        return "Thursday";
+    } else if (dayOfWeek == 5) {
+        return "Friday";
+    } else if (dayOfWeek == 6) {
+        return "Saturday";
+    } else if (dayOfWeek == 7) {
+        return "Sunday";
+    }
+
+    return "";
+}
+
+//TO BE ADDED IN UTILS
+QString _getDateStr(QDate date)
+{
+    return date.toString("yyyy/MM/dd");
+}
+
+
+
+
+bool MarkAttendanceScreen::_howToMark(bool isPresent)
 {
     QString id = ui->attendanceIDTextBox->toPlainText();
-    std::string id_str = id.toStdString();
-    currentGuard->_markAttendance(id_str, isPresent , ui->attendanceDateDateEdit->date(), 8 + _getHours(ui->extraHoursComboBox->currentText())); //missing the last date parameter
+    if (id == "")
+    {
+        QMessageBox::warning(this,"NO ID","Please Make sure ID is entered");
+        return false;
+    }
 
+    if(ui->attendanceDateDateEdit->date().isNull())
+    {
+        QMessageBox::warning(this,"No Date", "No Date Selected");
+        return false;
+    }
+
+
+    AttendanceEntry* obj = new AttendanceEntry(_getDayStr(ui->attendanceDateDateEdit->date().dayOfWeek()),_getDateStr(ui->attendanceDateDateEdit->date()),isPresent,8 + _getHours(ui->extraHoursComboBox->currentText()));
+    if (currentGuard->_markAttendance(id, obj)) {
+        QMessageBox::information(this, "Success", "Attendance marked successfully!");
+    } else {
+        QMessageBox::warning(this, "Error", "Failed to mark attendance.");
+    }
+
+    delete obj;
+    obj = nullptr;
+    return true;
 }
 
 
 void MarkAttendanceScreen::on_confirmAttendanceButton_clicked()
 {
-    _howToMark(true);
-    this->close();
+    if(_howToMark(false))
+        this->close();
+    else return;
 }
 
 
 void MarkAttendanceScreen::on_MarkAbsent_clicked()
 {
-    _howToMark(false);
-    this->close();
+
+    if(_howToMark(false))
+        this->close();
+    else return;
 }
 

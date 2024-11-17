@@ -4,23 +4,24 @@
 
 #include <QListWidget>
 #include <QStandardPaths>
-#include <iostream>
 #include <QFile>
 #include <QDateTime>
-#include<QDate>
+#include <QDate>
 #include <QString>
 #include <QFile>
 #include <QTextStream>
 #include <QCoreApplication>
 #include <QDir>
+#include <QMessageBox>
+
 #include "employee.h"
 #include "attendancelog.h"
 
 class Guard : public Employee
 {
 public:
-    Guard(int,std::string,Position,AttendanceLog, LeaveBalance);
-    void _markAttendance(std::string, bool , QDate,int  );
+    Guard(QString,QString,Position,AttendanceLog, LeaveBalance);
+    bool _markAttendance(QString, AttendanceEntry*);
     AttendanceLog* _viewAttendance();
 
 private:

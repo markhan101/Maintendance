@@ -1,22 +1,22 @@
 #ifndef USER_H
 #define USER_H
 #include <string>
-
+#include <QString>
 class User
 {
 private:
-    int uID;
-    std::string uName;
+    QString uID;
+    QString uName;
 public:
 
-    User(int, std::string);
+    User(QString, QString);
     virtual void _login() = 0;
     virtual void _logout() = 0;
     virtual void _storeInfo() = 0;
-    void _set_uID(const int ID);
-    int _get_uID() const;
-    void _set_uName(const std::string name);
-    std::string _get_uName() const;
+    void _set_uID(const QString ID);
+    QString _get_uID();
+    void _set_uName(const QString name);
+    QString _get_uName() const;
 
 };
 

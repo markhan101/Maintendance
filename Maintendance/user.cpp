@@ -1,20 +1,20 @@
 #include "user.h"
 
-User::User(int ID, std::string name):uID(ID), uName(name){}
+User::User(QString ID, QString name):uID(ID), uName(name){}
 
-void User::_set_uID(const int ID)
+void User::_set_uID(const QString ID)
 {
     this->uID = ID;
 }
-int User::_get_uID() const
+QString User::_get_uID()
 {
     return this->uID;
 }
-void User::_set_uName(const std::string name)
+void User::_set_uName(const QString name)
 {
     this->uName = name;
 }
-std::string User::_get_uName() const
+QString User::_get_uName() const
 {
     return this->uName;
 }

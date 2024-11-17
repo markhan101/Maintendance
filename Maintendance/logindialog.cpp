@@ -1,7 +1,7 @@
 // logindialog.cpp
 #include "logindialog.h"
 #include "ui_logindialog.h"
-#include <QSqlQuery>
+
 
 LoginDialog::LoginDialog(QWidget *parent) : 
     QDialog(parent),
@@ -35,17 +35,17 @@ bool LoginDialog::_validateCredentials(const QString& username, const QString& p
 {
     if(username == "guard" && password == "guard123") {
         userPosition = Position::guard;
-        userID = 1;
+        userID = "g1";
         return true;
     }
     else if(username == "employee" && password == "emp123") {
         userPosition = Position::normal_employee;
-        userID = 2;
+        userID = "e1";
         return true;
     }
     else if(username == "director" && password == "dir123") {
         userPosition = Position::director;
-        userID = 3;
+        userID = "s1";
         return true;
     }
     else

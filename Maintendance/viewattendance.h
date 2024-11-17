@@ -18,7 +18,7 @@ public:
     explicit ViewAttendance(QWidget *parent = nullptr);
     ~ViewAttendance();
     void setGuard(Guard *guard);
-    //void displayList(std::vector<std::string>);
+    void displayList(std::vector<QString>);
     void displayList();
 private:
     Ui::ViewAttendance *ui;

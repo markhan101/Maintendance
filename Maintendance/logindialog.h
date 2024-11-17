@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QMessageBox>
+#include <QSqlQuery>
 #include "utils.h"
 
 namespace Ui {
@@ -16,7 +17,7 @@ public:
     explicit LoginDialog(QWidget *parent = nullptr);
     ~LoginDialog();
     Position _getPosition() const { return userPosition; }
-    int _getUserID() const { return userID; }
+    QString _getUserID() const { return userID; }
 
 private slots:
     void on_loginButton_clicked();
@@ -26,7 +27,7 @@ private slots:
 private:
     Ui::LoginDialog *ui;
     Position userPosition;
-    int userID;
+    QString userID;
     bool _validateCredentials(const QString& username, const QString& password);
 };
 

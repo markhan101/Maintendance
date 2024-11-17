@@ -3,7 +3,9 @@
 
 #include <QWidget>
 #include <QDialog>
+#include <QMessageBox>
 #include "guard.h"
+#include "attendanceentry.h"
 
 namespace Ui {
 class MarkAttendanceScreen;
@@ -20,7 +22,7 @@ public:
     int _getHours(QString);
     void _setGuard(Guard *guard);
 
-    void _howToMark(bool);
+    bool _howToMark(bool);
 
 private slots:
 

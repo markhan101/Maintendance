@@ -21,7 +21,7 @@ void MainWindow::_showLoginDialog()
     if (loginDialog.exec() == QDialog::Accepted)
     {
         Position pos = loginDialog._getPosition();
-        int userID = loginDialog._getUserID();
+        QString userID = loginDialog._getUserID();
 
         switch (pos)
         {
@@ -45,7 +45,7 @@ void MainWindow::_showLoginDialog()
     }
 }
 
-void MainWindow::_setupGuardUI(int id)
+void MainWindow::_setupGuardUI(QString id)
 {
     // Show limited functionality for guard role
     // Guards have restricted access to certain features
@@ -56,7 +56,7 @@ void MainWindow::_setupGuardUI(int id)
     // Show guard-specific widgets
 
     guardlogin = new GuardLogin(this);
-    Guard *newGuard = new Guard(0,"random",guard,{},{});
+    Guard *newGuard = new Guard("g1","random",guard,{},{});
     guardlogin->setCurrentGuard(newGuard);
     connect(guardlogin, &GuardLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
 
@@ -65,7 +65,7 @@ void MainWindow::_setupGuardUI(int id)
 
 }
 
-void MainWindow::_setupEmployeeUI(int id)
+void MainWindow::_setupEmployeeUI(QString id)
 {
     // Show employee functionality
     genEmpLogin = new GeneralEmployeeLogin(this);
@@ -75,7 +75,7 @@ void MainWindow::_setupEmployeeUI(int id)
 
 }
 
-void MainWindow::_setupDirectorUI(int id)
+void MainWindow::_setupDirectorUI(QString id)
 {
     // Show all functionality
     supervisorLogin = new SupervisorLogin(this);

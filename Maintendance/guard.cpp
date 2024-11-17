@@ -1,59 +1,68 @@
 #include "guard.h"
 
-Guard::Guard(int ID, std::string name, Position pos, AttendanceLog att_log, LeaveBalance lb) : Employee(ID, name, pos, att_log, lb), log(nullptr)
+Guard::Guard(QString ID, QString name, Position pos, AttendanceLog att_log, LeaveBalance lb) : Employee(ID, name, pos, att_log, lb), log(nullptr)
 {
 }
 
-void Guard::_markAttendance(std::string id, bool ispresent, QDate date, int hours = 8)
+QString _getPreDir(QString id)
+{
+    if(id.at(0) == 'e')
+        return "emp";
+    else if (id.at(0) == 'g')
+        return "guard";
+    else if (id.at(0) == 's')
+        return "supervisor";
+    else if (id.at(0) == 'd')
+        return "director";
+    return "";
+}
+bool Guard::_markAttendance(QString id, AttendanceEntry* entry)
 {
     // Construct the file path
+    // reminder to create a fileSystem class to handle all these tasks
+
     QString baseDir = QCoreApplication::applicationDirPath();
-    qDebug() << baseDir;
     QDir dir(baseDir);
-    dir.cdUp();
-    dir.cdUp();
-    dir.cdUp();
+    dir.cd("../../..");
 
-    // dir.cd();
-    qDebug() << dir;
-
-    /*QString filePath = QString("%1/%2.txt").arg(baseDir, QString::fromStdString(id));
-
-    QString baseDir = "E:/SDA/Maintendance/Maintendance";
-    QString filePath = QString("%1/%2.txt").arg(baseDir, QString::fromStdString(id));
-
+    QString preDir = _getPreDir(id);
+    QString filePath = dir.absoluteFilePath("records/" + preDir + "/" + id + "/" + id + "_attendancelogs.txt");
     QFile file(filePath);
 
-       if (file.open(QIODevice::Append | QIODevice::Text))
+
+
+    if(file.open(QIODevice::Append | QIODevice::Text))
     {
         QTextStream stream(&file);
-
-        QDateTime current = QDateTime::currentDateTime();
-        QString dateStr = current.toString("d/M/yyyy");
-
-        stream << dateStr << " - " << ispresent << " - Hours: " << hours << Qt::endl;
-
-        std::cout << "Attendance marked in: " << filePath.toStdString() << std::endl;
-        file.close();
+        stream << entry->_getDay() << " - " << entry->_getDate() << " - " << entry->_isPresent() << " - " << entry->_getHours() << "\n";
+        return true;
     }
-    else
-    {
-        std::cerr << "Failed to open file for writing: " << filePath.toStdString() << std::endl;
-    }
-*/
+    return false;
 }
 
-AttendanceLog *Guard::_viewAttendance()
+AttendanceLog* Guard::_viewAttendance()
 {
     // use the attendance balance to populate ui
     log = new AttendanceLog();
-    QString baseDir = "E:/SDA/Maintendance/Maintendance";
-    QString filePath = baseDir + "/emp6.txt";
+    QString baseDir = QCoreApplication::applicationDirPath();
+    QDir dir(baseDir);
+    dir.cd("../../..");
+
+    QString preDir = _getPreDir(this->_get_uID());
+    //qDebug() << "The ID is: " << this->_get_uID();
+    // qDebug() << "The predir is: " << preDir;
+
+
+   QString filePath = dir.absoluteFilePath("records/" + preDir + "/" + this->_get_uID() + "/" + this->_get_uID() + "_attendancelogs.txt");
+
+    qDebug() << "The ID is: " << this->_get_uID();
+    qDebug() << "The filepath is: " << filePath;
+
 
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
-        std::cerr << "Could not open file: " << filePath.toStdString() << std::endl;
+        qDebug() << "ERRORRRRR.";
         return log;
     }
     QTextStream in(&file);
@@ -74,7 +83,7 @@ AttendanceLog *Guard::_viewAttendance()
             int hours = hoursStr.toInt();
             qDebug() << hours;
 
-            log->_addEntry(day.toStdString(), date.toStdString(), isPresent, hours);
+            log->_addEntry(day, date, isPresent, hours);
         }
     }
 
@@ -86,4 +95,6 @@ AttendanceLog *Guard::_viewAttendance()
     // in actual we will return something like
     // return this->_getAttendanceRecord();
     // and for that we will have to change the return type or write multiple functions
+
+
 }

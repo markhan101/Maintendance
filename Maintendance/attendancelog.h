@@ -1,9 +1,9 @@
 #ifndef ATTENDANCELOG_H
 #define ATTENDANCELOG_H
 #include <vector>
-
-
 #include "attendanceentry.h"
+
+
 class AttendanceLog
 {
 private:
@@ -11,7 +11,7 @@ private:
 
 public:
     AttendanceLog();
-    void _addEntry(std::string day, std::string date, bool attendance, int hours); // Update declaration
+    void _addEntry(QString day, QString date, bool attendance, int hours); // Update declaration
     void _addEntry(AttendanceEntry &entry);
     void _displayEntries();
     double _getAttendancePercentage() const;

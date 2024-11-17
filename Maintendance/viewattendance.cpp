@@ -6,9 +6,6 @@ ViewAttendance::ViewAttendance(QWidget *parent)
     , ui(new Ui::ViewAttendance)
 {
     ui->setupUi(this);
-
-
-    ui->attendanceList->addItem("hello");
 }
 
 ViewAttendance::~ViewAttendance()
@@ -28,14 +25,13 @@ void ViewAttendance::displayList()
         return;
     }
 
-    ui->attendanceList->clear();
-    
+    qDebug() << currentGuard->_get_uID();
     AttendanceLog* log = currentGuard->_viewAttendance();
     std::vector<AttendanceEntry>& entries = log->_getEntries();
     
     for (const auto& entry : entries) {
         QString displayStr = QString("%1 | Present: %2 | Hours: %3")
-            .arg(QString::fromStdString(entry._getDate())) 
+            .arg(entry._getDate())
             .arg(entry._isPresent() ? "Yes" : "No")
             .arg(entry._getHours());
             

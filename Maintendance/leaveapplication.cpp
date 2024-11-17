@@ -14,17 +14,17 @@ void LeaveApplication::apply()
 }
 
 
-void LeaveApplication::approve(std::string id)
+void LeaveApplication::approve(QString id)
 {
 
 }
 
-void LeaveApplication::reject(std::string id)
+void LeaveApplication::reject(QString id)
 {
 
 }
 
-std::string LeaveApplication::getStatus()const
+QString LeaveApplication::getStatus()const
 {
     return this->status;
 }

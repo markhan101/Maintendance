@@ -13,17 +13,17 @@ private:
     LeaveTypes leaveType;
     QDate fromDate;
     QDate toDate;
-    std::string reason;
+    QString reason;
     QDate applicationGeneratedDate;
-    std::string status;
+    QString status;
 
 public:
     LeaveApplication();
     ~LeaveApplication();
     void apply();
-    void approve(std::string);
-    void reject(std::string);
-    std::string getStatus()const;
+    void approve(QString);
+    void reject(QString);
+    QString getStatus()const;
 };
 
 #endif // LEAVEAPPLICATION_H

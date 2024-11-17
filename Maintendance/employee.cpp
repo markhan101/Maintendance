@@ -1,6 +1,6 @@
 #include "employee.h"
 
-Employee::Employee(int id, std::string name, Position position, AttendanceLog attlog, LeaveBalance leaveb):User(id,name), pos(position), attLog(attlog),leaveBalance(leaveb) {}
+Employee::Employee(QString id, QString name, Position position, AttendanceLog attlog, LeaveBalance leaveb):User(id,name), pos(position), attLog(attlog),leaveBalance(leaveb) {}
 
 void Employee::_login()
 {
@@ -20,12 +20,12 @@ void Employee::_storeInfo()
 void Employee::_applyForLeave(LeaveApplication *application) {
     // Logic for applying for leave
 }
-std::vector<std::string> Employee::_viewAttendance(int uID) {
+//std::vector<QString> Employee::_viewAttendance(QString uID) {
     // Logic for viewing attendance
-}
+//}
 
 
-AttendanceLog* Employee::_viewAttendance() {
+AttendanceLog* Employee::_viewAttendance( ) {
     // Logic for viewing attendance
 }
 

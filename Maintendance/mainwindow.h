@@ -46,9 +46,9 @@ private:
     GeneralEmployeeLogin *genEmpLogin;
     SupervisorLogin *supervisorLogin;
 
-    void _setupGuardUI(int);
-    void _setupEmployeeUI(int);
-    void _setupDirectorUI(int);
+    void _setupGuardUI(QString);
+    void _setupEmployeeUI(QString);
+    void _setupDirectorUI(QString);
     void _showLoginDialog();
 };
 #endif // MAINWINDOW_H
