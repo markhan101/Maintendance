@@ -20,6 +20,7 @@ void ViewAttendance::setGuard(Guard *guard)
 {
    currentGuard = guard;
 }
+
 void ViewAttendance::displayList()
 {
     if(!currentGuard) {
@@ -30,14 +31,13 @@ void ViewAttendance::displayList()
     ui->attendanceList->clear();
     
     AttendanceLog* log = currentGuard->_viewAttendance();
-    qDebug() << log;
-    std::vector<AttendanceEntry>& entries = log->_getEntries();  //
+    std::vector<AttendanceEntry>& entries = log->_getEntries();
     
     for (const auto& entry : entries) {
         QString displayStr = QString("%1 | Present: %2 | Hours: %3")
-            .arg(QString::fromStdString(entry._getDate()))
+            .arg(QString::fromStdString(entry._getDate())) 
             .arg(entry._isPresent() ? "Yes" : "No")
-            .arg(entry._getHours());  // Add _getHours() to AttendanceEntry
+            .arg(entry._getHours());
             
         ui->attendanceList->addItem(displayStr);
     }
