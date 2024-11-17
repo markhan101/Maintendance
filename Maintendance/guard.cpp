@@ -1,24 +1,24 @@
 #include "guard.h"
-#include <QStandardPaths>
-#include "attendancelog.h"
 
-#include <iostream>
-#include <QFile>
-#include <QDateTime>
-#include <QString>
-#include <QFile>
-#include <QTextStream>
-using namespace std;
+
 
 Guard::Guard(int ID, std::string name, Position pos, AttendanceLog att_log, LeaveBalance lb) : Employee(ID, name, pos, att_log, lb), log(nullptr)
-{
-}
+{}
 
-void Guard::_markAttendance(std::string id, bool ispresent, int hours = 8)
+void Guard::_markAttendance(std::string id, bool ispresent, QDate date, int hours = 8)
 {
     // Construct the file path
-    QString baseDir = "E:/SDA/Maintendance/Maintendance";
-    QString filePath = QString("%1/%2.txt").arg(baseDir, QString::fromStdString(id));
+    QString baseDir = QCoreApplication::applicationDirPath();
+    qDebug() << baseDir;
+    QDir dir(baseDir);
+    dir.cdUp();
+    dir.cdUp();
+    dir.cdUp();
+
+    //dir.cd();
+    qDebug() << dir;
+
+    /*QString filePath = QString("%1/%2.txt").arg(baseDir, QString::fromStdString(id));
 
     QFile file(filePath);
 
@@ -29,15 +29,16 @@ void Guard::_markAttendance(std::string id, bool ispresent, int hours = 8)
         QDateTime current = QDateTime::currentDateTime();
         QString dateStr = current.toString("d/M/yyyy");
 
-        stream << dateStr << " - " << ispresent << " - Hours: " << hours << Qt::endl;
+        stream << dateStr << " - " << ispresent << " - " << hours << Qt::endl;
 
-        std::cout << "Attendance marked in: " << filePath.toStdString() << std::endl;
+        qDebug() << "Attendance marked in: " << filePath.toStdString();
         file.close();
     }
     else
     {
         std::cerr << "Failed to open file for writing: " << filePath.toStdString() << std::endl;
     }
+*/
 }
 
 AttendanceLog *Guard::_viewAttendance()

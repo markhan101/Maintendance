@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="confirmAttendanceButton">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>400</y>
+     <x>150</x>
+     <y>460</y>
      <width>271</width>
      <height>101</height>
     </rect>
@@ -29,24 +29,48 @@
   <widget class="QTextEdit" name="attendanceIDTextBox">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>110</y>
+     <x>70</x>
+     <y>160</y>
      <width>431</width>
      <height>131</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 26pt &quot;Segoe UI&quot;;
+color: rgb(170, 0, 0);</string>
    </property>
   </widget>
   <widget class="QPushButton" name="MarkAbsent">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>400</y>
+     <x>550</x>
+     <y>460</y>
      <width>271</width>
      <height>101</height>
     </rect>
    </property>
    <property name="text">
     <string>Absent</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="attendanceDateDateEdit">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>190</y>
+     <width>241</width>
+     <height>71</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="extraHoursComboBox">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>200</y>
+     <width>161</width>
+     <height>51</height>
+    </rect>
    </property>
   </widget>
  </widget>

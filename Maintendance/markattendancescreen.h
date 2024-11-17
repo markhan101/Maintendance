@@ -3,7 +3,6 @@
 
 #include <QWidget>
 #include <QDialog>
-
 #include "guard.h"
 
 namespace Ui {
@@ -17,6 +16,8 @@ class MarkAttendanceScreen : public QDialog
 public:
     explicit MarkAttendanceScreen(QWidget *parent = nullptr);
     ~MarkAttendanceScreen();
+    QDate _getAttendanceDate(QDate date);
+    int _getHours(QString);
     void _setGuard(Guard *guard);
 
     void _howToMark(bool);
@@ -25,7 +26,6 @@ private slots:
 
 
     void on_confirmAttendanceButton_clicked();
-
     void on_MarkAbsent_clicked();
 
 private:
