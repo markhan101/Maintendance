@@ -2,8 +2,8 @@
 #include <QDebug>
 
 // Credential implementation
-Credential::Credential(QString u, QString p, Position pos) 
-    : username(u), password(p), position(pos) {}
+Credential::Credential(QString u, QString cu, QString p, Position pos)
+    : username(u), password(p), position(pos) ,currentuser(cu) {}
 
 QString Credential::_getUsername() const { 
     return username; 
@@ -45,7 +45,7 @@ void LoginPass::loadCredentials() {
             QString password = parts[1].trimmed();
             qDebug () << username << password;
             Position position = determinePosition(username);
-            credentials.emplace_back(username, password, position);
+            credentials.emplace_back(username, username, password, position);
         }
     }
     file.close();
@@ -63,6 +63,7 @@ bool LoginPass::validateCredentials(const QString& username, const QString& pass
     for (const auto& cred : credentials) {
         if (cred._getUsername() == username && cred._getPassword() == password) {
             pos = cred._getPosition();
+           // currentuser = username;
             return true;
         }
     }

@@ -26,10 +26,12 @@ class LoginPass {
 private:
     std::vector<Credential> credentials;
     void loadCredentials();
+
     Position determinePosition(const QString& username) const;
 
 public:
     LoginPass();
+    QString currentuser;
     bool validateCredentials(const QString& username, const QString& password, Position& pos) const;
 };
 

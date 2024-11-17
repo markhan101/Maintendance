@@ -39,7 +39,7 @@ bool LoginDialog::_validateCredentials(const QString &username, const QString &p
     if (loginPass.validateCredentials(username, password, pos))
     {
         userPosition = pos;
-        userID = username.toInt();
+        userID = username;
         return true;
     }
     return false;
