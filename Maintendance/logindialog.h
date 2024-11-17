@@ -5,9 +5,10 @@
 #include <QMessageBox>
 #include <QSqlQuery>
 #include "utils.h"
+#include "loginpass.h"
 
 namespace Ui {
-class LoginDialog;
+    class LoginDialog;
 }
 
 class LoginDialog : public QDialog {
@@ -22,13 +23,12 @@ public:
 private slots:
     void on_loginButton_clicked();
 
-    //void on_usernameLineEdit_editingFinished();
-
 private:
     Ui::LoginDialog *ui;
+    LoginPass loginPass;
     Position userPosition;
     QString userID;
     bool _validateCredentials(const QString& username, const QString& password);
 };
 
-#endif
+#endif // LOGINDIALOG_H
