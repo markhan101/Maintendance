@@ -17,7 +17,9 @@ class MarkAttendanceScreen : public QDialog
 public:
     explicit MarkAttendanceScreen(QWidget *parent = nullptr);
     ~MarkAttendanceScreen();
-    void setGuard(Guard *guard);
+    void _setGuard(Guard *guard);
+
+    void _howToMark(bool);
 
 private slots:
 

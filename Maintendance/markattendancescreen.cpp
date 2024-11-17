@@ -15,60 +15,30 @@ MarkAttendanceScreen::~MarkAttendanceScreen()
     delete ui;
 }
 
-void MarkAttendanceScreen::setGuard(Guard *guard)
+void MarkAttendanceScreen::_setGuard(Guard *guard)
 {
     currentGuard = guard;
 }
 
-//void MarkAttendanceScreen::on_confirmAttendance_clicked()
-/*
+void MarkAttendanceScreen::_howToMark(bool isPresent)
+{
     QString id = ui->attendanceIDTextBox->toPlainText();
-    //covert Qstring to normal string
-    //unorder set. add and before if it is already present
     std::string id_str = id.toStdString();
+    currentGuard->_markAttendance(id_str, isPresent , 8);
 
-
-
-    //std::cout<<id<<std::endl;
-    
-    currentGuard->_markAttendance(id_str,8);
-    this->close();
-*/
+}
 
 
 void MarkAttendanceScreen::on_confirmAttendanceButton_clicked()
 {
-    QString id = ui->attendanceIDTextBox->toPlainText();
-    //covert Qstring to normal string
-    //unorder set. add and before if it is already present
-    std::string id_str = id.toStdString();
-
-    bool ispresent = true;
-
-
-
-    //std::cout<<id<<std::endl;
-
-    currentGuard->_markAttendance(id_str, ispresent , 8);
+    _howToMark(true);
     this->close();
 }
 
 
 void MarkAttendanceScreen::on_MarkAbsent_clicked()
 {
-    //absent wala
-    QString id = ui->attendanceIDTextBox->toPlainText();
-    //covert Qstring to normal string
-    //unorder set. add and before if it is already present
-    std::string id_str = id.toStdString();
-
-    bool ispresent = false;
-
-
-
-    //std::cout<<id<<std::endl;
-
-    currentGuard->_markAttendance(id_str, ispresent , 0);
+    _howToMark(false);
     this->close();
 }
 
