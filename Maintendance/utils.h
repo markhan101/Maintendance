@@ -13,6 +13,7 @@ enum LeaveTypes
 
 enum Position
 {
+    none = -1,
     guard = 0,
     normal_employee = 1,
     supervisor = 2,
