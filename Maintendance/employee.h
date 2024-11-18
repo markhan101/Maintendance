@@ -29,6 +29,7 @@ private:
 public:
     Employee();
     Employee(QString, QString, Position, AttendanceLog*, LeaveBalance);
+    virtual ~Employee();
 
     void _login() override;
     void _logout() override;

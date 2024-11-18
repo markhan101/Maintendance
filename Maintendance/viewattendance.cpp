@@ -10,6 +10,10 @@ ViewAttendance::ViewAttendance(QWidget *parent)
 
 ViewAttendance::~ViewAttendance()
 {
+    delete currentGuard;
+    currentGuard = nullptr;
+    delete currentEmp;
+    currentEmp = nullptr;
     delete ui;
 }
 
