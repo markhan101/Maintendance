@@ -20,3 +20,9 @@ void SupervisorLogin::on_logOutButton_clicked()
     emit emitLogout();
 }
 
+
+void SupervisorLogin::on_viewAttendanceButton_clicked()
+{
+
+}
+

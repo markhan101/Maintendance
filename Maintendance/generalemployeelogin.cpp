@@ -19,3 +19,22 @@ void GeneralEmployeeLogin::on_logoutButton_clicked()
     emit emitLogout();
 }
 
+void GeneralEmployeeLogin::_setEmployee(Employee* emp)
+{
+    generalEmp = emp;
+}
+
+
+void GeneralEmployeeLogin::on_viewAttendanceButton_clicked()
+{
+    if (generalEmp) {
+        ViewAttendance *viewAttendance = new ViewAttendance(this);
+        viewAttendance->_setEmployee(generalEmp);
+        viewAttendance->_displayList();
+        viewAttendance->exec();
+    } else {
+        qDebug() << "Error GuardLogin has no currentGuard set";
+    }
+
+}
+

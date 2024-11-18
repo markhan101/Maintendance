@@ -1,21 +1,15 @@
 #include "guard.h"
 
-Guard::Guard(QString ID, QString name, Position pos, AttendanceLog att_log, LeaveBalance lb) : Employee(ID, name, pos, att_log, lb), log(nullptr)
+Guard::Guard(QString ID, QString name, Position pos, AttendanceLog *att_log, LeaveBalance lb) : Employee(ID, name, pos, att_log, lb), log(nullptr)
 {
 }
 
-QString _getPreDir(QString id)
+Guard::~Guard()
 {
-    if(id.at(0) == 'e')
-        return "emp";
-    else if (id.at(0) == 'g')
-        return "guard";
-    else if (id.at(0) == 's')
-        return "supervisor";
-    else if (id.at(0) == 'd')
-        return "director";
-    return "";
+    delete log;
+    log = nullptr;
 }
+
 bool Guard::_markAttendance(QString id, AttendanceEntry* entry)
 {
     // Construct the file path
@@ -40,6 +34,9 @@ bool Guard::_markAttendance(QString id, AttendanceEntry* entry)
     return false;
 }
 
+
+//redundancy needs to be fixed later....
+// return this->_getAttendanceRecord();
 AttendanceLog* Guard::_viewAttendance()
 {
     // use the attendance balance to populate ui
@@ -94,7 +91,7 @@ AttendanceLog* Guard::_viewAttendance()
     return log;
 
     // in actual we will return something like
-    // return this->_getAttendanceRecord();
+
     // and for that we will have to change the return type or write multiple functions
 
 

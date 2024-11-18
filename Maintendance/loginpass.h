@@ -15,7 +15,6 @@ class Credential {
 private:
     QString username;
     QString password;
-   
     Position position;
     
 public:

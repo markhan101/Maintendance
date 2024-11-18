@@ -12,6 +12,9 @@ GuardLogin::GuardLogin(QWidget *parent)
 
 GuardLogin::~GuardLogin()
 {
+
+    delete currentGuard;
+    currentGuard = nullptr;
     delete ui;
 }
 
@@ -40,8 +43,8 @@ void GuardLogin::on_viewAttendanceButton_clicked()
 {
     if (currentGuard) {
         ViewAttendance *viewAttendance = new ViewAttendance(this);
-        viewAttendance->setGuard(currentGuard);
-        viewAttendance->displayList();
+        viewAttendance->_setGuard(currentGuard);
+        viewAttendance->_displayList();
         viewAttendance->exec();
     } else {
         qDebug() << "Error GuardLogin has no currentGuard set";

@@ -71,6 +71,8 @@ void MainWindow::_setupEmployeeUI(QString id)
 {
     // Show employee functionality
     genEmpLogin = new GeneralEmployeeLogin(this);
+    Employee *newEmp = new Employee(id,"random",normal_employee,{},{});
+    genEmpLogin->_setEmployee(newEmp);
     connect(genEmpLogin, &GeneralEmployeeLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
     genEmpLogin->show();
 

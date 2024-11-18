@@ -1,6 +1,8 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <QString>
+
 enum LeaveTypes
 {
     Casual = 0,
@@ -16,5 +18,7 @@ enum Position
     supervisor = 2,
     director = 3
 };
+
+QString _getPreDir(QString);
 
 #endif // UTILS_H

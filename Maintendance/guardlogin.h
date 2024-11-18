@@ -18,7 +18,7 @@ class GuardLogin : public QWidget
 
 public:
     explicit GuardLogin(QWidget *parent = nullptr);
-    ~GuardLogin();
+    virtual ~GuardLogin();
 
     void setCurrentGuard(Guard *guard); // Setter for currentGuard
 

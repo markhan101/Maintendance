@@ -3,7 +3,7 @@
 
 ViewAttendance::ViewAttendance(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::ViewAttendance)
+    , ui(new Ui::ViewAttendance), currentGuard(nullptr), currentEmp(nullptr)
 {
     ui->setupUi(this);
 }
@@ -13,20 +13,41 @@ ViewAttendance::~ViewAttendance()
     delete ui;
 }
 
-void ViewAttendance::setGuard(Guard *guard)
+void ViewAttendance::_setGuard(Guard *guard)
 {
    currentGuard = guard;
 }
 
-void ViewAttendance::displayList()
+void ViewAttendance::_setEmployee(Employee* emp)
 {
-    if(!currentGuard) {
-        qDebug() << "Error: currentGuard is null!";
-        return;
+    currentEmp = emp;
+}
+
+Position ViewAttendance::_getUserPos()
+{
+    if(currentGuard)
+    { qDebug() << currentGuard->_get_uID();
+        return Position::guard;
+    }
+    else if (currentEmp)
+    { qDebug()<< currentEmp->_get_uID();
+        return Position::normal_employee;
     }
 
-    qDebug() << currentGuard->_get_uID();
-    AttendanceLog* log = currentGuard->_viewAttendance();
+}
+
+
+void ViewAttendance::_displayList()
+{
+
+    AttendanceLog* log;
+    // for now add supervisor and director once those classes have been made
+    Position pos = _getUserPos();
+    if(pos == guard)
+        log = currentGuard->_viewAttendance();
+    else
+        log = currentEmp->_viewAttendance();
+
     std::vector<AttendanceEntry>& entries = log->_getEntries();
     
     for (const auto& entry : entries) {

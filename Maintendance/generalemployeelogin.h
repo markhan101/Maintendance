@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "employee.h"
+#include "viewattendance.h"
 
 namespace Ui {
 class GeneralEmployeeLogin;
@@ -15,6 +16,7 @@ class GeneralEmployeeLogin : public QWidget
 public:
     explicit GeneralEmployeeLogin(QWidget *parent = nullptr);
     ~GeneralEmployeeLogin();
+    void _setEmployee(Employee*);
 
 private:
     Ui::GeneralEmployeeLogin *ui;
@@ -25,6 +27,7 @@ signals:
     void emitLogout();
 private slots:
     void on_logoutButton_clicked();
+    void on_viewAttendanceButton_clicked();
 };
 
 #endif // GENERALEMPLOYEELOGIN_H

@@ -8,7 +8,6 @@
 #include <QDateTime>
 #include <QDate>
 #include <QString>
-
 #include <QTextStream>
 #include <QCoreApplication>
 #include <QDir>
@@ -17,12 +16,14 @@
 #include "employee.h"
 #include "attendancelog.h"
 
+
 class Guard : public Employee
 {
 public:
-    Guard(QString,QString,Position,AttendanceLog, LeaveBalance);
+    Guard(QString,QString,Position,AttendanceLog*, LeaveBalance);
     bool _markAttendance(QString, AttendanceEntry*);
     AttendanceLog* _viewAttendance();
+    virtual ~Guard();
 
 private:
     AttendanceLog *log;

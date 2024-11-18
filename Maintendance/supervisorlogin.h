@@ -2,6 +2,7 @@
 #define SUPERVISORLOGIN_H
 
 #include <QWidget>
+#include "viewattendance.h"
 
 namespace Ui {
 class SupervisorLogin;
@@ -17,6 +18,8 @@ public:
 
 private slots:
     void on_logOutButton_clicked();
+
+    void on_viewAttendanceButton_clicked();
 
 private:
     Ui::SupervisorLogin *ui;

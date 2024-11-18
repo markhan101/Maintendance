@@ -6,6 +6,7 @@
 #include <QString>
 #include "guard.h"
 
+
 namespace Ui {
 class ViewAttendance;
 }
@@ -17,12 +18,15 @@ class ViewAttendance : public QDialog
 public:
     explicit ViewAttendance(QWidget *parent = nullptr);
     ~ViewAttendance();
-    void setGuard(Guard *guard);
-    void displayList(std::vector<QString>);
-    void displayList();
+    void _setGuard(Guard *guard);
+    void _setEmployee(Employee *emp);
+    void _displayList(std::vector<QString>);
+    void _displayList();
+    Position _getUserPos();
 private:
     Ui::ViewAttendance *ui;
     Guard *currentGuard;
+    Employee* currentEmp;
 };
 
 #endif // VIEWATTENDANCE_H

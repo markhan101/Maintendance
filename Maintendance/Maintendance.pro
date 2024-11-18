@@ -25,6 +25,7 @@ SOURCES += \
     supervisorlogin.cpp \
     user.cpp \
     loginpass.cpp \
+    utils.cpp \
     viewattendance.cpp
 
 HEADERS += \
