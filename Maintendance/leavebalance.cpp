@@ -17,8 +17,19 @@ void LeaveBalance::loadBalanceFromFile(){
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
     dir.cd("../../..");
+    QString folder;
+    if (userId.startsWith('g')) {
+        folder = "guard";
+    } else if (userId.startsWith('d')) {
+        folder = "director";
+    } else if (userId.startsWith('e')) {
+        folder = "emp";
+    } else {
+       folder = "supervisor";
+        return;
+    }
     QString filePath = dir.absoluteFilePath(
-        QString("records/guard/%1/%1_leavebalance.txt").arg(userId)
+        QString("records/%1/%2/%2_leavebalance.txt").arg(folder).arg(userId)
     );
 
     QFile file(filePath);
