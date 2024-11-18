@@ -6,7 +6,7 @@
 class Supervisor : public Employee
 {
 public:
-    Supervisor(QString,QString,Position,AttendanceLog*, LeaveBalance);
+    Supervisor(QString, QString, Position, AttendanceLog*, LeaveBalance*);
     virtual ~Supervisor();
 
 private:

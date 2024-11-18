@@ -9,9 +9,9 @@ class LeaveBalance
 {
 private:
     std::unordered_map<LeaveTypes,int> balance;
-    const LoginPass* loginPass;
+    QString userId; 
 public:
-    LeaveBalance(const LoginPass* lp = nullptr);
+     LeaveBalance(const QString& userId);
 
     void _updateLeaveBalance(LeaveTypes, int);
     int _getLeaveBalance(LeaveTypes);

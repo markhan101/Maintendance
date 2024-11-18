@@ -38,3 +38,19 @@ void GeneralEmployeeLogin::on_viewAttendanceButton_clicked()
 
 }
 
+void GeneralEmployeeLogin::on_viewLeaveBalanceButton_clicked()
+{
+    if (generalEmp)
+    {
+        LeaveBalance* leaveBalance = generalEmp->getLeaveBalance();
+        
+        int casualLeaves = leaveBalance->_getLeaveBalance(LeaveTypes::Casual);
+       
+        qDebug()<< casualLeaves;
+    }
+    else
+    {
+        qDebug() << "Error: generalEmp is nullptr";
+    }
+}
+

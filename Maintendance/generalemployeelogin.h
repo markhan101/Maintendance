@@ -28,6 +28,7 @@ signals:
 private slots:
     void on_logoutButton_clicked();
     void on_viewAttendanceButton_clicked();
+    void on_viewLeaveBalanceButton_clicked();
 };
 
 #endif // GENERALEMPLOYEELOGIN_H

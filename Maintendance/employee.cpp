@@ -1,11 +1,16 @@
 #include "employee.h"
 
-Employee::Employee(QString id, QString name, Position position, AttendanceLog* attlog, LeaveBalance leaveb):User(id,name), pos(position), attLog(attlog),leaveBalance(leaveb) {}
+Employee::Employee(QString id, QString name, Position position, AttendanceLog* attlog, LeaveBalance* leaveb)
+    : User(id, name), pos(position), attLog(attlog), leaveBalance(leaveb)
+{
+}
+
+
 
 Employee::~Employee()
 {
     delete attLog;
-    attLog = nullptr;
+    delete leaveBalance;
 }
 
 

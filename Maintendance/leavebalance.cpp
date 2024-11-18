@@ -1,24 +1,24 @@
 #include "leavebalance.h"
+#include <QCoreApplication>
+#include <QDir>
+#include <QFile>
+#include <QTextStream>
+#include <QDebug>
 
-LeaveBalance::LeaveBalance(const LoginPass* lp) : loginPass(lp)
+LeaveBalance::LeaveBalance(const QString& userId) : userId(userId)
 {
-    
-
-    if (loginPass){
-        QString currentUser = loginPass->getCurrentUser();
-        if (!currentUser.isEmpty()){
-            loadBalanceFromFile();
-        }
+    if (!userId.isEmpty())
+    {
+        loadBalanceFromFile();
     }
 }
 
 void LeaveBalance::loadBalanceFromFile(){
-    QString userId = loginPass->getCurrentUser();
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
     dir.cd("../../..");
     QString filePath = dir.absoluteFilePath(
-        QString("records/emp/%1/%1_leavebalance.txt").arg(userId)
+        QString("records/guard/%1/%1_leavebalance.txt").arg(userId)
     );
 
     QFile file(filePath);

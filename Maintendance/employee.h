@@ -24,11 +24,11 @@ class Employee : public User
 private:
     Position pos;
     AttendanceLog *attLog;
-    LeaveBalance leaveBalance;
+    LeaveBalance* leaveBalance;
 
 public:
     Employee();
-    Employee(QString, QString, Position, AttendanceLog*, LeaveBalance);
+    Employee(QString, QString, Position, AttendanceLog*, LeaveBalance*);
 
     virtual ~Employee();
     void _applyForLeave(LeaveApplication *);
@@ -36,6 +36,8 @@ public:
    // virtual AttendanceLog *_viewAttendance(QString);
     virtual void _getAttendanceRecord();
     virtual void _getLeaveBalance();
+    LeaveBalance* getLeaveBalance() const { return leaveBalance; }
+
 };
 
 #endif // EMPLOYEE_H

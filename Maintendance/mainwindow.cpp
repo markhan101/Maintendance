@@ -49,44 +49,47 @@ void MainWindow::_showLoginDialog()
 
 void MainWindow::_setupGuardUI(QString id)
 {
-    // Show limited functionality for guard role
-    // Guards have restricted access to certain features
-    // Only basic monitoring and reporting features are available
-    //ui->leaveRequestButton->hide();
-    //ui->manageEmployeesButton->hide();
-
-    // Show guard-specific widgets
-
     guardlogin = new GuardLogin(this);
-    Guard *newGuard = new Guard(id,"random",guard,{},{});
+
+    AttendanceLog* attLog = new AttendanceLog();
+    LeaveBalance* leaveBalance = new LeaveBalance(id);
+
+    Guard* newGuard = new Guard(id, "random", Position::guard, attLog, leaveBalance);
     guardlogin->setCurrentGuard(newGuard);
+
     connect(guardlogin, &GuardLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
 
     guardlogin->show();
-
-
 }
 
 void MainWindow::_setupEmployeeUI(QString id)
 {
-    // Show employee functionality
     genEmpLogin = new GeneralEmployeeLogin(this);
-    Employee *newEmp = new Employee(id,"random",normal_employee,{},{});
+
+    AttendanceLog* attLog = new AttendanceLog();
+    LeaveBalance* leaveBalance = new LeaveBalance(id);
+
+    Employee* newEmp = new Employee(id, "random", Position::normal_employee, attLog, leaveBalance);
     genEmpLogin->_setEmployee(newEmp);
+
     connect(genEmpLogin, &GeneralEmployeeLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
+
     genEmpLogin->show();
-
-
 }
 
 void MainWindow::_setupSupervisorUI(QString id)
 {
-    // Show all functionality
     supervisorLogin = new SupervisorLogin(this);
-    Supervisor *newSup = new Supervisor(id,"random",supervisor,{},{});
-    supervisorLogin ->_setCurrentSup(newSup);
+
+    AttendanceLog* attLog = new AttendanceLog();
+    LeaveBalance* leaveBalance = new LeaveBalance(id);
+
+    Supervisor* newSup = new Supervisor(id, "random", Position::supervisor, attLog, leaveBalance);
+    supervisorLogin->_setCurrentSup(newSup);
+
     connect(supervisorLogin, &SupervisorLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
-    supervisorLogin -> show();
+
+    supervisorLogin->show();
 }
 
 void MainWindow::_handleEmitLogout()
