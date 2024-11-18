@@ -2,74 +2,92 @@
 #include <QDebug>
 
 // Credential implementation
-Credential::Credential(QString userID, QString password, QString currentUser,Position pos)
-    : username(userID), password(password),currentuser(currentUser) ,position(pos) {}
+Credential::Credential(QString u, QString p, Position pos)
+    : username(u), password(p), position(pos) {}
 
-QString Credential::_getUsername() const {
+QString Credential::_getUsername() const
+{
     return username;
 }
 
-QString Credential::_getPassword() const {
+QString Credential::_getPassword() const
+{
     return password;
 }
 
-Position Credential::_getPosition() const {
+Position Credential::_getPosition() const
+{
     return position;
 }
 
 // LoginPass implementation
-LoginPass::LoginPass() {
+LoginPass::LoginPass()
+{
     loadCredentials();
 }
 
-void LoginPass::loadCredentials() {
-   // QString baseDir = "E:/SDA/Maintendance/Maintendance";
-    //QString filePath = QString("%1/login.txt").arg(baseDir);
+void LoginPass::loadCredentials()
+{
+    // QString baseDir = "E:/SDA/Maintendance/Maintendance";
+    // QString filePath = QString("%1/login.txt").arg(baseDir);
 
-    //qDebug() << "Loading credentials from:" << filePath;
-   QString baseDir = QCoreApplication::applicationDirPath();
-   QDir dir(baseDir);
-   dir.cd("../../.."); // Maintendance/Maintendance
+    // qDebug() << "Loading credentials from:" << filePath;
+    QString baseDir = QCoreApplication::applicationDirPath();
+    QDir dir(baseDir);
+    dir.cd("../../.."); // Maintendance/Maintendance
 
-   QString filePath = dir.absoluteFilePath("records/users.txt");
-
-
+    QString filePath = dir.absoluteFilePath("records/users.txt");
 
     QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
         qDebug() << "Error: Cannot open credentials file.";
         return;
     }
 
     QTextStream in(&file);
-    while (!in.atEnd()) {
+    while (!in.atEnd())
+    {
         QString line = in.readLine().trimmed();
-        if (line.isEmpty()) continue;
+        if (line.isEmpty())
+            continue;
 
         QStringList parts = line.split('-');
-        if (parts.size() >= 2) {
+        if (parts.size() >= 2)
+        {
             QString username = parts[0].trimmed();
             QString password = parts[1].trimmed();
-            qDebug () << username << password;
+            qDebug() << username << password;
             Position position = determinePosition(username);
-            credentials.emplace_back(username, password, username, position);
+            credentials.emplace_back(username, password, position);
         }
     }
     file.close();
 }
 
-Position LoginPass::determinePosition(const QString& username) const {
-    if (username.startsWith("g")) return Position::guard;
-    if (username.startsWith("e")) return Position::normal_employee;
-    if (username.startsWith("s")) return Position::supervisor;
-    if (username.startsWith("d")) return Position::director;
+Position LoginPass::determinePosition(const QString &username) const
+{
+    if (username.startsWith("g"))
+        return Position::guard;
+    if (username.startsWith("e"))
+        return Position::normal_employee;
+    if (username.startsWith("s"))
+        return Position::supervisor;
+    if (username.startsWith("d"))
+        return Position::director;
     return Position::guard;
 }
 
-bool LoginPass::validateCredentials(const QString& username, const QString& password, Position& pos) const {
-    for (const auto& cred : credentials) {
-        if (cred._getUsername() == username && cred._getPassword() == password) {
+// loginpass.cpp
+bool LoginPass::validateCredentials(const QString &username, const QString &password, Position &pos)
+{
+    for (const auto &cred : credentials)
+    {
+        if (cred._getUsername() == username && cred._getPassword() == password)
+        {
             pos = cred._getPosition();
+            currentuser = username;
+            qDebug() << currentuser;
             return true;
         }
     }
