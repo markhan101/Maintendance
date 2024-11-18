@@ -11,28 +11,28 @@ class Credential {
 private:
     QString username;
     QString password;
-    QString currentuser;
+   
     Position position;
     
 public:
-    Credential(QString u, QString cu, QString p, Position pos);
+    Credential(QString u,  QString p, Position pos);
     QString _getUsername() const;
     QString _getPassword() const;
     Position _getPosition() const;
-    QString _getCurrentUser() const;
+   
 };
 
 class LoginPass {
 private:
     std::vector<Credential> credentials;
     void loadCredentials();
-
+    QString currentuser;
     Position determinePosition(const QString& username) const;
 
 public:
     LoginPass();
-    QString currentuser;
-    bool validateCredentials(const QString& username, const QString& password, Position& pos) const;
+    bool validateCredentials(const QString& username, const QString& password, Position& pos); // Remove const, change first param to const ref
+    QString getCurrentUser() const { return currentuser; }
 };
 
 #endif // LOGINPASS_H
