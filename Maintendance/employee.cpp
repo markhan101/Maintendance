@@ -8,20 +8,7 @@ Employee::~Employee()
     attLog = nullptr;
 }
 
-void Employee::_login()
-{
-    //nothing yet
-}
 
-void Employee::_logout()
-{
-    //same here
-}
-
-void Employee::_storeInfo()
-{
-    //add to file text
-}
 
 void Employee::_applyForLeave(LeaveApplication *application) {
     // Logic for applying for leave

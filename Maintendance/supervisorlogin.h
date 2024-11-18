@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "viewattendance.h"
+#include "supervisor.h"
 
 namespace Ui {
 class SupervisorLogin;
@@ -15,6 +16,7 @@ class SupervisorLogin : public QWidget
 public:
     explicit SupervisorLogin(QWidget *parent = nullptr);
     ~SupervisorLogin();
+    void _setCurrentSup(Supervisor*);
 
 private slots:
     void on_logOutButton_clicked();
@@ -23,6 +25,7 @@ private slots:
 
 private:
     Ui::SupervisorLogin *ui;
+    Supervisor * currentSup;
 
 
 signals:

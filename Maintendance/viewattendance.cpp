@@ -3,7 +3,7 @@
 
 ViewAttendance::ViewAttendance(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::ViewAttendance), currentGuard(nullptr), currentEmp(nullptr)
+    , ui(new Ui::ViewAttendance), currentGuard(nullptr), currentEmp(nullptr), currentSup(nullptr)
 {
     ui->setupUi(this);
 }
@@ -23,6 +23,11 @@ void ViewAttendance::_setEmployee(Employee* emp)
     currentEmp = emp;
 }
 
+void ViewAttendance::_setSup(Supervisor* sup)
+{
+    currentSup = sup;
+}
+
 Position ViewAttendance::_getUserPos()
 {
     if(currentGuard)
@@ -33,6 +38,8 @@ Position ViewAttendance::_getUserPos()
     { qDebug()<< currentEmp->_get_uID();
         return Position::normal_employee;
     }
+    else
+        return Position::supervisor;
 
 }
 
@@ -68,8 +75,11 @@ void ViewAttendance::_displayList()
     // Retrieve the attendance log based on the user's position
     if(pos == guard)
         log = currentGuard->_viewAttendance();
-    else
+    else if(pos == normal_employee)
         log = currentEmp->_viewAttendance();
+    else
+        log = currentSup->_viewAttendance();
+
 
     std::vector<AttendanceEntry>& entries = log->_getEntries();
 

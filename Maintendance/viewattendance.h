@@ -4,7 +4,9 @@
 #include <QWidget>
 #include <QDialog>
 #include <QString>
+
 #include "guard.h"
+#include "supervisor.h"
 
 
 namespace Ui {
@@ -20,6 +22,7 @@ public:
     ~ViewAttendance();
     void _setGuard(Guard *guard);
     void _setEmployee(Employee *emp);
+    void _setSup(Supervisor *sup);
     void _displayList(std::vector<QString>);
     void _displayList();
     Position _getUserPos();
@@ -31,6 +34,7 @@ private:
     //deleting and deallocation them will cause the previous screen to have a null object resulting in segFault
     Guard *currentGuard;
     Employee* currentEmp;
+    Supervisor* currentSup;
 };
 
 #endif // VIEWATTENDANCE_H

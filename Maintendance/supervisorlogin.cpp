@@ -15,6 +15,11 @@ SupervisorLogin::~SupervisorLogin()
     delete ui;
 }
 
+void SupervisorLogin::_setCurrentSup(Supervisor* sup)
+{
+    currentSup = sup;
+}
+
 void SupervisorLogin::on_logOutButton_clicked()
 {
     emit emitLogout();
@@ -23,6 +28,16 @@ void SupervisorLogin::on_logOutButton_clicked()
 
 void SupervisorLogin::on_viewAttendanceButton_clicked()
 {
+
+    if (currentSup) {
+        ViewAttendance *viewAttendance = new ViewAttendance(this);
+        viewAttendance->_setSup(currentSup);
+        viewAttendance->_displayList();
+        viewAttendance->exec();
+    } else {
+        qDebug() << "Error SupervisorLogin has no supervisor set";
+    }
+
 
 }
 

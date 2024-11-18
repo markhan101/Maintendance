@@ -17,6 +17,7 @@
 #include "attendancelog.h"
 
 
+
 class Guard : public Employee
 {
 public:

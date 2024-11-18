@@ -48,7 +48,7 @@ private:
 
     void _setupGuardUI(QString);
     void _setupEmployeeUI(QString);
-    void _setupDirectorUI(QString);
+    void _setupSupervisorUI(QString);
     void _showLoginDialog();
 };
 #endif // MAINWINDOW_H

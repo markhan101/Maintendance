@@ -22,6 +22,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     markattendancescreen.cpp \
+    supervisor.cpp \
     supervisorlogin.cpp \
     user.cpp \
     loginpass.cpp \
@@ -41,6 +42,7 @@ HEADERS += \
     logindialog.h \
     mainwindow.h \
     markattendancescreen.h \
+    supervisor.h \
     supervisorlogin.h \
     user.h \
     utils.h \

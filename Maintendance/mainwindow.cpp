@@ -33,8 +33,8 @@ void MainWindow::_showLoginDialog()
         case Position::normal_employee:
             _setupEmployeeUI(userID);
             break;
-        case Position::director:
-            _setupDirectorUI(userID);
+        case Position::supervisor:
+            _setupSupervisorUI(userID);
             break;
         default:
             QMessageBox::critical(this, "Error", "Invalid user role!");
@@ -79,10 +79,12 @@ void MainWindow::_setupEmployeeUI(QString id)
 
 }
 
-void MainWindow::_setupDirectorUI(QString id)
+void MainWindow::_setupSupervisorUI(QString id)
 {
     // Show all functionality
     supervisorLogin = new SupervisorLogin(this);
+    Supervisor *newSup = new Supervisor(id,"random",supervisor,{},{});
+    supervisorLogin ->_setCurrentSup(newSup);
     connect(supervisorLogin, &SupervisorLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
     supervisorLogin -> show();
 }

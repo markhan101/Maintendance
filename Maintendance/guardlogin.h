@@ -20,7 +20,7 @@ public:
     explicit GuardLogin(QWidget *parent = nullptr);
     virtual ~GuardLogin();
 
-    void setCurrentGuard(Guard *guard); // Setter for currentGuard
+    void setCurrentGuard(Guard *); // Setter for currentGuard
 
 private slots:
     void on_markAttendanceButton_clicked(); // No arguments in slot

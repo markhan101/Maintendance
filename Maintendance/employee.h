@@ -29,14 +29,11 @@ private:
 public:
     Employee();
     Employee(QString, QString, Position, AttendanceLog*, LeaveBalance);
-    virtual ~Employee();
 
-    void _login() override;
-    void _logout() override;
-    void _storeInfo() override;
+    virtual ~Employee();
     void _applyForLeave(LeaveApplication *);
     AttendanceLog *_viewAttendance();
-    //virtual std::vector<QString> _viewAttendance(QString);
+   // virtual AttendanceLog *_viewAttendance(QString);
     virtual void _getAttendanceRecord();
     virtual void _getLeaveBalance();
 };
