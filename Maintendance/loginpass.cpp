@@ -2,19 +2,19 @@
 #include <QDebug>
 
 // Credential implementation
-Credential::Credential(QString u, QString cu, QString p, Position pos)
-    : username(u), password(p), position(pos) ,currentuser(cu) {}
+Credential::Credential(QString userID, QString password, QString currentUser,Position pos)
+    : username(userID), password(password),currentuser(currentUser) ,position(pos) {}
 
-QString Credential::_getUsername() const { 
-    return username; 
+QString Credential::_getUsername() const {
+    return username;
 }
 
-QString Credential::_getPassword() const { 
-    return password; 
+QString Credential::_getPassword() const {
+    return password;
 }
 
-Position Credential::_getPosition() const { 
-    return position; 
+Position Credential::_getPosition() const {
+    return position;
 }
 
 // LoginPass implementation
@@ -23,11 +23,18 @@ LoginPass::LoginPass() {
 }
 
 void LoginPass::loadCredentials() {
-    QString baseDir = "E:/SDA/Maintendance/Maintendance";
-    QString filePath = QString("%1/login.txt").arg(baseDir);
+   // QString baseDir = "E:/SDA/Maintendance/Maintendance";
+    //QString filePath = QString("%1/login.txt").arg(baseDir);
 
     //qDebug() << "Loading credentials from:" << filePath;
-    
+   QString baseDir = QCoreApplication::applicationDirPath();
+   QDir dir(baseDir);
+   dir.cd("../../.."); // Maintendance/Maintendance
+
+   QString filePath = dir.absoluteFilePath("records/users.txt");
+
+
+
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Error: Cannot open credentials file.";
@@ -45,7 +52,7 @@ void LoginPass::loadCredentials() {
             QString password = parts[1].trimmed();
             qDebug () << username << password;
             Position position = determinePosition(username);
-            credentials.emplace_back(username, username, password, position);
+            credentials.emplace_back(username, password, username, position);
         }
     }
     file.close();
@@ -63,7 +70,6 @@ bool LoginPass::validateCredentials(const QString& username, const QString& pass
     for (const auto& cred : credentials) {
         if (cred._getUsername() == username && cred._getPassword() == password) {
             pos = cred._getPosition();
-           // currentuser = username;
             return true;
         }
     }

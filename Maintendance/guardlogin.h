@@ -34,7 +34,6 @@ signals:
 
 private:
     Ui::GuardLogin *ui;
-
     Guard *currentGuard;
 };
 

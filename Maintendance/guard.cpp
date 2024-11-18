@@ -53,6 +53,7 @@ AttendanceLog* Guard::_viewAttendance()
     // qDebug() << "The predir is: " << preDir;
 
 
+
    QString filePath = dir.absoluteFilePath("records/" + preDir + "/" + this->_get_uID() + "/" + this->_get_uID() + "_attendancelogs.txt");
 
     qDebug() << "The ID is: " << this->_get_uID();

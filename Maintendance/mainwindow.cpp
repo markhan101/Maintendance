@@ -23,6 +23,7 @@ void MainWindow::_showLoginDialog()
     {
         Position pos = loginDialog._getPosition();
         QString userID = loginDialog._getUserID();
+        qDebug() << userID;
 
         switch (pos)
         {
@@ -57,7 +58,7 @@ void MainWindow::_setupGuardUI(QString id)
     // Show guard-specific widgets
 
     guardlogin = new GuardLogin(this);
-    Guard *newGuard = new Guard("g1","random",guard,{},{});
+    Guard *newGuard = new Guard(id,"random",guard,{},{});
     guardlogin->setCurrentGuard(newGuard);
     connect(guardlogin, &GuardLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
 

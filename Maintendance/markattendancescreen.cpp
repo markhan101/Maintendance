@@ -94,8 +94,19 @@ bool MarkAttendanceScreen::_howToMark(bool isPresent)
         return false;
     }
 
+    int hours;
 
-    AttendanceEntry* obj = new AttendanceEntry(_getDayStr(ui->attendanceDateDateEdit->date().dayOfWeek()),_getDateStr(ui->attendanceDateDateEdit->date()),isPresent,8 + _getHours(ui->extraHoursComboBox->currentText()));
+    if (!isPresent)
+    {
+        hours= 0;
+
+    }
+    else
+    {
+        hours = 8;
+    }
+
+    AttendanceEntry* obj = new AttendanceEntry(_getDayStr(ui->attendanceDateDateEdit->date().dayOfWeek()),_getDateStr(ui->attendanceDateDateEdit->date()),isPresent,hours + _getHours(ui->extraHoursComboBox->currentText()));
     if (currentGuard->_markAttendance(id, obj)) {
         QMessageBox::information(this, "Success", "Attendance marked successfully!");
     } else {
@@ -110,7 +121,7 @@ bool MarkAttendanceScreen::_howToMark(bool isPresent)
 
 void MarkAttendanceScreen::on_confirmAttendanceButton_clicked()
 {
-    if(_howToMark(false))
+    if(_howToMark(true))
         this->close();
     else return;
 }
