@@ -25,6 +25,10 @@ public:
     Position _getUserPos();
 private:
     Ui::ViewAttendance *ui;
+
+    //!!!!!!WARNING!!!!!!!
+    //no need to delete these objects since they are not dynamically allocated and are coming from the previous screen
+    //deleting and deallocation them will cause the previous screen to have a null object resulting in segFault
     Guard *currentGuard;
     Employee* currentEmp;
 };

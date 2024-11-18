@@ -16,11 +16,12 @@ MarkAttendanceScreen::MarkAttendanceScreen(QWidget *parent)
     ui->attendanceDateDateEdit->setCalendarPopup(true);
     ui->attendanceDateDateEdit->setMinimumDate(QDate::currentDate().addDays(-365));
 
-    ui->extraHoursComboBox->setPlaceholderText("By default this is 0");
+    ui->extraHoursComboBox->setPlaceholderText("0");
     ui->extraHoursComboBox->setMaxCount(3);
     ui->extraHoursComboBox->addItem("1");
     ui->extraHoursComboBox->addItem("2");
     ui->extraHoursComboBox->addItem("3");
+
 }
 
 MarkAttendanceScreen::~MarkAttendanceScreen()

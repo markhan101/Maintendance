@@ -11,67 +11,149 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Mark Attendance</string>
   </property>
-  <widget class="QPushButton" name="confirmAttendanceButton">
+  <widget class="QGroupBox" name="attendanceDetailsGroup">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>460</y>
-     <width>271</width>
-     <height>101</height>
+     <x>50</x>
+     <y>50</y>
+     <width>1020</width>
+     <height>300</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Present</string>
+   <property name="title">
+    <string>Attendance Details</string>
    </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+   <widget class="QLabel" name="attendanceIDLabel">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>50</y>
+      <width>150</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Attendance ID:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="attendanceIDTextBox">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>50</y>
+      <width>431</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 600 16pt &quot;Segoe UI&quot;; color: rgb(170, 0, 0);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dateLabel">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>50</y>
+      <width>100</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Date:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="attendanceDateDateEdit">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>50</y>
+      <width>161</width>
+      <height>40</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="extraHoursLabel">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>120</y>
+      <width>150</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Extra Hours:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="extraHoursComboBox">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>120</y>
+      <width>161</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox { text-align: center; }</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QTextEdit" name="attendanceIDTextBox">
+  <widget class="QGroupBox" name="attendanceActionsGroup">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>160</y>
-     <width>431</width>
-     <height>131</height>
+     <x>50</x>
+     <y>380</y>
+     <width>1020</width>
+     <height>180</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">font: 600 26pt &quot;Segoe UI&quot;;
-color: rgb(170, 0, 0);</string>
+   <property name="title">
+    <string>Mark Attendance</string>
    </property>
-  </widget>
-  <widget class="QPushButton" name="MarkAbsent">
-   <property name="geometry">
-    <rect>
-     <x>550</x>
-     <y>460</y>
-     <width>271</width>
-     <height>101</height>
-    </rect>
+   <property name="flat">
+    <bool>true</bool>
    </property>
-   <property name="text">
-    <string>Absent</string>
-   </property>
-  </widget>
-  <widget class="QDateEdit" name="attendanceDateDateEdit">
-   <property name="geometry">
-    <rect>
-     <x>820</x>
-     <y>190</y>
-     <width>241</width>
-     <height>71</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="extraHoursComboBox">
-   <property name="geometry">
-    <rect>
-     <x>580</x>
-     <y>200</y>
-     <width>161</width>
-     <height>51</height>
-    </rect>
-   </property>
+   <widget class="QPushButton" name="confirmAttendanceButton">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>60</y>
+      <width>271</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Present</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MarkAbsent">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>60</y>
+      <width>271</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Absent</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

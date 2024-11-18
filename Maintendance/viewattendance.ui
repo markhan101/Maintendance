@@ -22,7 +22,28 @@
     </widget>
    </item>
    <item>
-    <widget class="QListWidget" name="attendanceList"/>
+    <widget class="QTableWidget" name="attendanceTable">
+     <column>
+      <property name="text">
+       <string>Date</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Day</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Attendance</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Hours Worked</string>
+      </property>
+     </column>
+    </widget>
    </item>
   </layout>
  </widget>
