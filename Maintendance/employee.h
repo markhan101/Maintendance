@@ -35,7 +35,7 @@ public:
     void _logout() override;
     void _storeInfo() override;
     void _applyForLeave(LeaveApplication *);
-    virtual AttendanceLog *_viewAttendance();
+    AttendanceLog *_viewAttendance();
     //virtual std::vector<QString> _viewAttendance(QString);
     virtual void _getAttendanceRecord();
     virtual void _getLeaveBalance();

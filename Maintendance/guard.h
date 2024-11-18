@@ -22,7 +22,6 @@ class Guard : public Employee
 public:
     Guard(QString,QString,Position,AttendanceLog*, LeaveBalance);
     bool _markAttendance(QString, AttendanceEntry*);
-    AttendanceLog* _viewAttendance();
     virtual ~Guard();
 
 private:
