@@ -43,9 +43,11 @@ void LeaveBalance::loadBalanceFromFile(){
             else if (type == "earned") balance[LeaveTypes::Earned] = days;
             else if (type == "official") balance[LeaveTypes::Official] = days;
             else if (type == "unpaid") balance[LeaveTypes::Unpaid] = days;
+            qDebug() << "Loaded leave balance:" << type << days;
         }
     }
     file.close();
+
 
 
 }
