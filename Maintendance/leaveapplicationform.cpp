@@ -78,17 +78,7 @@ void LeaveApplicationForm::on_applyConfirmButton_clicked()
         LeaveBalance* balance = currentGuard->getLeaveBalance();
         
         // Display current balance before proceeding
-        QString balanceMsg = QString("Current Leave Balances:\n"
-                                   "Casual: %1\n"
-                                   "Earned: %2\n"
-                                   "Official: %3\n"
-                                   "Unpaid: %4")
-                                   .arg(balance->_getLeaveBalance(LeaveTypes::Casual))
-                                   .arg(balance->_getLeaveBalance(LeaveTypes::Earned))
-                                   .arg(balance->_getLeaveBalance(LeaveTypes::Official))
-                                   .arg(balance->_getLeaveBalance(LeaveTypes::Unpaid));
-                                   
-        QMessageBox::information(this, "Leave Balance", balanceMsg);
+
 
         if(balance->_getLeaveBalance(type) >= daysRequested) {
             // Proceed with leave application
@@ -98,6 +88,22 @@ void LeaveApplicationForm::on_applyConfirmButton_clicked()
             QMessageBox::warning(this, "Insufficient Balance", 
                 "You don't have enough leave balance of this type.");
         }
+
+        QString balanceMsg = QString("Remaining Leave Balances:\n"
+                                     "Casual: %1\n"
+                                     "Earned: %2\n"
+                                     "Official: %3\n"
+                                     "Unpaid: %4")
+                                 .arg(balance->_getLeaveBalance(LeaveTypes::Casual))
+                                 .arg(balance->_getLeaveBalance(LeaveTypes::Earned))
+                                 .arg(balance->_getLeaveBalance(LeaveTypes::Official))
+                                 .arg(balance->_getLeaveBalance(LeaveTypes::Unpaid));
+
+        QMessageBox::information(this, "Leave Balance", balanceMsg);
+
+
+
+
     }
 }
 
