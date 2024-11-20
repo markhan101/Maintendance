@@ -66,6 +66,7 @@ void LeaveBalance::loadBalanceFromFile(){
 void LeaveBalance::_updateLeaveBalance(LeaveTypes type, int days)
 {
     balance[type] -= days;
+    saveBalanceToFile();
 }
 
 int LeaveBalance::_getLeaveBalance(LeaveTypes type)
@@ -76,4 +77,41 @@ int LeaveBalance::_getLeaveBalance(LeaveTypes type)
 void LeaveBalance::displayLeaveBalance()
 {
     //to be implemented and connected with UI
+}
+
+
+bool LeaveBalance::saveBalanceToFile() {
+    QString baseDir = QCoreApplication::applicationDirPath();
+    QDir dir(baseDir);
+    dir.cd("../../..");
+    
+    QString folder;
+    if (userId.startsWith('g')) {
+        folder = "guard";
+    } else if (userId.startsWith('d')) {
+        folder = "director";
+    } else if (userId.startsWith('e')) {
+        folder = "emp";
+    } else {
+        folder = "supervisor";
+    }
+
+    QString filePath = dir.absoluteFilePath(
+        QString("records/%1/%2/%2_leavebalance.txt").arg(folder).arg(userId)
+    );
+
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Could not open leave balance file for writing:" << filePath;
+        return false;
+    }
+
+    QTextStream out(&file);
+    out << "casual-" << balance[LeaveTypes::Casual] << "\n";
+    out << "earned-" << balance[LeaveTypes::Earned] << "\n";
+    out << "official-" << balance[LeaveTypes::Official] << "\n";
+    out << "unpaid-" << balance[LeaveTypes::Unpaid] << "\n";
+
+    file.close();
+    return true;
 }

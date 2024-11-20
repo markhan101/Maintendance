@@ -16,6 +16,8 @@ private:
     QString reason;
     QDate applicationGeneratedDate;
     QString status;
+    
+
 
 public:
     LeaveApplication();

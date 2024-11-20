@@ -53,4 +53,3 @@ void GeneralEmployeeLogin::on_viewLeaveBalanceButton_clicked()
         qDebug() << "Error: generalEmp is nullptr";
     }
 }
-

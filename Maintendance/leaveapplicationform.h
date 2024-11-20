@@ -28,14 +28,18 @@ public:
     QString _getToDate(QDate);
     QString _getReason();
     void _setEmployee(Employee*);
+    
 
 private slots:
     void on_applyConfirmButton_clicked();
+   
 
 private:
     Ui::LeaveApplicationForm *ui;
     Guard *currentGuard;
     Employee *currentEmployee;
+    void handleOtherLeaveTypes(LeaveTypes, int);
+    void handleCasualShortLeave(int );
 
 
 };

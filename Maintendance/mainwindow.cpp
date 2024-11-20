@@ -18,32 +18,34 @@ MainWindow::~MainWindow()
 
 void MainWindow::_showLoginDialog()
 {
-    LoginDialog loginDialog(this);
-    if (loginDialog.exec() == QDialog::Accepted)
-    {
-        Position pos = loginDialog._getPosition();
-        QString userID = loginDialog._getUserID();
-        qDebug() << userID;
+    while (true) {  
+        LoginDialog loginDialog(this);
+        int result = loginDialog.exec();
+        
+        if (result == QDialog::Accepted) {
+            Position pos = loginDialog._getPosition();
+            QString userID = loginDialog._getUserID();
+            qDebug() << userID;
 
-        switch (pos)
-        {
-        case Position::guard:
-            _setupGuardUI(userID);
-            break;
-        case Position::normal_employee:
-            _setupEmployeeUI(userID);
-            break;
-        case Position::supervisor:
-            _setupSupervisorUI(userID);
-            break;
-        default:
-            QMessageBox::critical(this, "Error", "Invalid user role!");
-            close();
+            switch (pos) {
+                case Position::guard:
+                    _setupGuardUI(userID);
+                    return;  
+                case Position::normal_employee:
+                    _setupEmployeeUI(userID);
+                    return;  
+                case Position::supervisor:
+                    _setupSupervisorUI(userID);
+                    return; 
+                default:
+                    QMessageBox::critical(this, "Error", "Invalid user role!");
+                   
+            }
+        } else {
+           
+            close();  
+            return;   
         }
-    }
-    else
-    {
-        close();
     }
 }
 

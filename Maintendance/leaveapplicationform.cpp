@@ -68,28 +68,30 @@ QString LeaveApplicationForm::_getReason()
 void LeaveApplicationForm::on_applyConfirmButton_clicked()
 {
     LeaveTypes type = _getTypeOfLeave(ui->typeOfLeaveComboBox->currentText());
-    
-    // Get days requested
     QDate fromDate = ui->fromDateDateEdit->date();
     QDate toDate = ui->toDateDateEdit->date();
     int daysRequested = fromDate.daysTo(toDate) + 1;
     
-    if(currentGuard) {
+    if(!currentGuard) {
+        return;
+    }
+
+    // causal leaves less than 4 days
+    if(type == LeaveTypes::Casual && daysRequested <= 4) {
+        handleCasualShortLeave(daysRequested);
+    } else {
+        handleOtherLeaveTypes(type, daysRequested);
+    }
+}
+
+void LeaveApplicationForm::handleCasualShortLeave(int daysRequested)
+    {
         LeaveBalance* balance = currentGuard->getLeaveBalance();
         
-        // Display current balance before proceeding
-
-
-        if(balance->_getLeaveBalance(type) >= daysRequested) {
-            // Proceed with leave application
-            balance->_updateLeaveBalance(type, daysRequested);
-            // Create and submit LeaveApplication
-        } else {
-            QMessageBox::warning(this, "Insufficient Balance", 
-                "You don't have enough leave balance of this type.");
-        }
-
-        QString balanceMsg = QString("Remaining Leave Balances:\n"
+        if(balance->_getLeaveBalance(LeaveTypes::Casual) >= daysRequested) {
+            balance->_updateLeaveBalance(LeaveTypes::Casual, daysRequested);
+            
+            QString balanceMsg = QString("Remaining Leave Balances:\n"
                                      "Casual: %1\n"
                                      "Earned: %2\n"
                                      "Official: %3\n"
@@ -99,11 +101,23 @@ void LeaveApplicationForm::on_applyConfirmButton_clicked()
                                  .arg(balance->_getLeaveBalance(LeaveTypes::Official))
                                  .arg(balance->_getLeaveBalance(LeaveTypes::Unpaid));
 
-        QMessageBox::information(this, "Leave Balance", balanceMsg);
-
-
-
-
+            QMessageBox::information(this, "Leave Balance", balanceMsg);
+            this->accept();
+        } else {
+            QMessageBox::warning(this, "Insufficient Balance", 
+                "You don't have enough casual leave balance.");
+        }
     }
-}
+
+    void LeaveApplicationForm::handleOtherLeaveTypes(LeaveTypes type, int daysRequested)
+    {
+        // Placeholder for different leave approval process
+        QMessageBox::information(this, "Leave Application", 
+            "This type of leave requires special approval process.\n"
+            "Feature coming soon.");
+        // TODO: Implement different approval workflow
+    }
+
+
+
 

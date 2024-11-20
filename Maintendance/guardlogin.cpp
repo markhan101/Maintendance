@@ -13,8 +13,7 @@ GuardLogin::GuardLogin(QWidget *parent)
 GuardLogin::~GuardLogin()
 {
 
-    delete currentGuard;
-    currentGuard = nullptr;
+   
     delete ui;
 }
 

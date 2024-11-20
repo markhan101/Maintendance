@@ -17,6 +17,7 @@ public:
     int _getLeaveBalance(LeaveTypes);
     void displayLeaveBalance();
     void loadBalanceFromFile();
+    bool saveBalanceToFile();
 };
 
 #endif // LEAVEBALANCE_H
