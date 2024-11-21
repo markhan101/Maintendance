@@ -17,7 +17,7 @@
 #include "leavebalance.h"
 #include "utils.h"
 
-class LeaveApplication;
+
 
 class Employee : public User
 {
@@ -31,7 +31,7 @@ public:
     Employee(QString, QString, Position, AttendanceLog*, LeaveBalance*);
 
     virtual ~Employee();
-    void _applyForLeave(LeaveApplication *);
+    void _applyForLeave();
     AttendanceLog *_viewAttendance();
    // virtual AttendanceLog *_viewAttendance(QString);
     virtual void _getAttendanceRecord();

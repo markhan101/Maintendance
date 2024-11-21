@@ -79,21 +79,43 @@ void LeaveApplicationForm::on_applyConfirmButton_clicked()
     QDate toDate = ui->toDateDateEdit->date();
     int daysRequested = fromDate.daysTo(toDate) + 1;
     QString reason = _getReason();
+    LeaveBalance* balance = currentGuard->getLeaveBalance();
 
-    if(!currentGuard) {
-        return;
+    //constructor
+
+    if(currentGuard)
+    {
+        LeaveApplication *lv = new LeaveApplication(currentGuard->_get_uID(), type, balance, _getDateStr(fromDate), _getDateStr(toDate), reason, _getDateStr(QDate::currentDate()),"approved", daysRequested);
+
+        if(type == LeaveTypes::Casual && daysRequested <= 4) {
+
+            if(lv->handleCasualShortLeave())
+                this->accept();
+
+        } else {
+
+            //this will also come in if
+            handleOtherLeaveTypes(type, daysRequested);
+        }
+
     }
+    else if(currentEmployee)
+    {
+        //same if here
+        if(type == LeaveTypes::Casual && daysRequested <= 4) {
 
-    // causal leaves less than 4 days
-    if(type == LeaveTypes::Casual && daysRequested <= 4) {
+            handleCasualShortLeave(daysRequested, reason);
+        } else {
 
-        handleCasualShortLeave(daysRequested, reason);
-    } else {
+            handleOtherLeaveTypes(type, daysRequested);
+        }
 
-        handleOtherLeaveTypes(type, daysRequested);
     }
+    else return;
 }
 
+
+//implement this in leaveapplication all the date is goin there including balance reason and id. it is the whole package all you need to do is write in their respective txt files
 void LeaveApplicationForm::handleCasualShortLeave(int daysRequested, QString reason)
     {
         LeaveBalance* balance = currentGuard->getLeaveBalance();

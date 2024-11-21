@@ -15,7 +15,7 @@ Employee::~Employee()
 
 
 
-void Employee::_applyForLeave(LeaveApplication *application) {
+void Employee::_applyForLeave() {
     // Logic for applying for leave
 }
 //std::vector<QString> Employee::_viewAttendance(QString uID) {

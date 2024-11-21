@@ -1,5 +1,5 @@
-casual-10
+casual-6
 earned-21
 official-21
 unpaid-21
-Reason
+ReasonHello

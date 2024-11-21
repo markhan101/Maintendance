@@ -12,3 +12,8 @@ QString _getPreDir(QString id)
         return "director";
     return "";
 }
+
+QString _getDateStr(QDate date)
+{
+    return date.toString("yyyy/MM/dd");
+}

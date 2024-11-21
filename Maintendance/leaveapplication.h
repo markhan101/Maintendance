@@ -9,14 +9,13 @@
 class LeaveApplication
 {
 private:
-    Employee *employee;
+    QString ID;
     LeaveTypes leaveType;
     LeaveBalance* balance;
-
     QString fromDate;
     QString toDate;
     QString reason;
-    QDate applicationGeneratedDate;
+    QString applicationGeneratedDate;
     QString status;
     int days;
 
@@ -25,13 +24,13 @@ private:
 
 public:
     LeaveApplication();
-    LeaveApplication(QString fromDate, QString toDate, QString reason, QDate applicationGeneratedDate, QString status, int days);
+    LeaveApplication(QString,LeaveTypes, LeaveBalance* ,QString , QString , QString , QString , QString , int );
     ~LeaveApplication();
     void apply();
     void approve(QString);
     void reject(QString);
     QString getStatus()const;
-    bool  handleCasualShortLeave(int daysRequested, LeaveBalance *balance);
+    bool  handleCasualShortLeave();
 };
 
 #endif // LEAVEAPPLICATION_H

@@ -72,10 +72,7 @@ QString _getDayStr(int dayOfWeek)
 }
 
 //TO BE ADDED IN UTILS
-QString _getDateStr(QDate date)
-{
-    return date.toString("yyyy/MM/dd");
-}
+
 
 
 

@@ -2,6 +2,7 @@
 #define UTILS_H
 
 #include <QString>
+#include <QDate>
 
 enum LeaveTypes
 {
@@ -21,5 +22,7 @@ enum Position
 };
 
 QString _getPreDir(QString);
+
+QString _getDateStr(QDate);
 
 #endif // UTILS_H
