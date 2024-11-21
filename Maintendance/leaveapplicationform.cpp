@@ -90,7 +90,11 @@ void LeaveApplicationForm::on_applyConfirmButton_clicked()
         if(type == LeaveTypes::Casual && daysRequested <= 4) {
 
             if(lv->handleCasualShortLeave())
+            {
+                //!!!!make sure to delete the lv before closing the dialog box
+                delete lv;
                 this->accept();
+            }
 
         } else {
 
