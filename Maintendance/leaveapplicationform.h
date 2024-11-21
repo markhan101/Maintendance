@@ -7,6 +7,7 @@
 #include <employee.h>
 #include <QString>
 #include "utils.h"
+
 // this class needs to be created
 //#include <supervisor.h>
 
@@ -39,8 +40,9 @@ private:
     Ui::LeaveApplicationForm *ui;
     Guard *currentGuard;
     Employee *currentEmployee;
+
     void handleOtherLeaveTypes(LeaveTypes, int);
-    void handleCasualShortLeave(int );
+    void handleCasualShortLeave(int , QString);
 
 
 };

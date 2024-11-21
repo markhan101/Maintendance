@@ -28,3 +28,4 @@ QString LeaveApplication::getStatus()const
 {
     return this->status;
 }
+

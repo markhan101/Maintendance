@@ -11,21 +11,27 @@ class LeaveApplication
 private:
     Employee *employee;
     LeaveTypes leaveType;
-    QDate fromDate;
-    QDate toDate;
+    LeaveBalance* balance;
+
+    QString fromDate;
+    QString toDate;
     QString reason;
     QDate applicationGeneratedDate;
     QString status;
+    int days;
+
     
 
 
 public:
     LeaveApplication();
+    LeaveApplication(QString fromDate, QString toDate, QString reason, QDate applicationGeneratedDate, QString status, int days);
     ~LeaveApplication();
     void apply();
     void approve(QString);
     void reject(QString);
     QString getStatus()const;
+    bool  handleCasualShortLeave(int daysRequested, LeaveBalance *balance);
 };
 
 #endif // LEAVEAPPLICATION_H

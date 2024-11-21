@@ -1,4 +1,5 @@
-casual-20
+casual-10
 earned-21
 official-21
 unpaid-21
+Reason

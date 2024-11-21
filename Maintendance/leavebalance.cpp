@@ -63,10 +63,10 @@ void LeaveBalance::loadBalanceFromFile(){
 
 }
 
-void LeaveBalance::_updateLeaveBalance(LeaveTypes type, int days)
+void LeaveBalance::_updateLeaveBalance(LeaveTypes type, int days, QString reason)
 {
     balance[type] -= days;
-    saveBalanceToFile();
+    saveBalanceToFile(reason);
 }
 
 int LeaveBalance::_getLeaveBalance(LeaveTypes type)
@@ -80,7 +80,7 @@ void LeaveBalance::displayLeaveBalance()
 }
 
 
-bool LeaveBalance::saveBalanceToFile() {
+bool LeaveBalance::saveBalanceToFile(QString Reason) {
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
     dir.cd("../../..");
@@ -111,6 +111,7 @@ bool LeaveBalance::saveBalanceToFile() {
     out << "earned-" << balance[LeaveTypes::Earned] << "\n";
     out << "official-" << balance[LeaveTypes::Official] << "\n";
     out << "unpaid-" << balance[LeaveTypes::Unpaid] << "\n";
+    out << "Reason"<< Reason << "\n";
 
     file.close();
     return true;
