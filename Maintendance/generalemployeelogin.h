@@ -7,6 +7,7 @@
 
 namespace Ui {
 class GeneralEmployeeLogin;
+
 }
 
 class GeneralEmployeeLogin : public QWidget

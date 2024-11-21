@@ -13,11 +13,11 @@ private:
 public:
      LeaveBalance(const QString& userId);
 
-    void _updateLeaveBalance(LeaveTypes, int);
+    void _updateLeaveBalance(LeaveTypes, int, QString);
     int _getLeaveBalance(LeaveTypes);
     void displayLeaveBalance();
     void loadBalanceFromFile();
-    bool saveBalanceToFile();
+    bool saveBalanceToFile(QString="");
 };
 
 #endif // LEAVEBALANCE_H

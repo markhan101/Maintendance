@@ -67,29 +67,33 @@ QString LeaveApplicationForm::_getReason()
 
 void LeaveApplicationForm::on_applyConfirmButton_clicked()
 {
+
     LeaveTypes type = _getTypeOfLeave(ui->typeOfLeaveComboBox->currentText());
     QDate fromDate = ui->fromDateDateEdit->date();
     QDate toDate = ui->toDateDateEdit->date();
     int daysRequested = fromDate.daysTo(toDate) + 1;
-    
+    QString reason = _getReason();
+
     if(!currentGuard) {
         return;
     }
 
     // causal leaves less than 4 days
     if(type == LeaveTypes::Casual && daysRequested <= 4) {
-        handleCasualShortLeave(daysRequested);
+
+        handleCasualShortLeave(daysRequested, reason);
     } else {
+
         handleOtherLeaveTypes(type, daysRequested);
     }
 }
 
-void LeaveApplicationForm::handleCasualShortLeave(int daysRequested)
+void LeaveApplicationForm::handleCasualShortLeave(int daysRequested, QString reason)
     {
         LeaveBalance* balance = currentGuard->getLeaveBalance();
         
         if(balance->_getLeaveBalance(LeaveTypes::Casual) >= daysRequested) {
-            balance->_updateLeaveBalance(LeaveTypes::Casual, daysRequested);
+            balance->_updateLeaveBalance(LeaveTypes::Casual, daysRequested, reason);
             
             QString balanceMsg = QString("Remaining Leave Balances:\n"
                                      "Casual: %1\n"
@@ -109,8 +113,20 @@ void LeaveApplicationForm::handleCasualShortLeave(int daysRequested)
         }
     }
 
+
+
     void LeaveApplicationForm::handleOtherLeaveTypes(LeaveTypes type, int daysRequested)
     {
+         LeaveBalance* balance = currentGuard->getLeaveBalance();
+
+        if(balance->_getLeaveBalance(type)>=daysRequested){
+            
+
+        }
+        
+       
+        
+
         // Placeholder for different leave approval process
         QMessageBox::information(this, "Leave Application", 
             "This type of leave requires special approval process.\n"
