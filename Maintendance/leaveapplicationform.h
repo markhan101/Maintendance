@@ -28,6 +28,7 @@ public:
     QString _getToDate(QDate);
     QString _getReason();
     void _setEmployee(Employee*);
+    void _updateToDateMinimum(QDate);
     
 
 private slots:

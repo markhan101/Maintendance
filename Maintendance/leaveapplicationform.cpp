@@ -13,8 +13,8 @@ LeaveApplicationForm::LeaveApplicationForm(QWidget *parent)
     ui->toDateDateEdit->setMinimumDate(QDate::currentDate());
 
     connect(ui->typeOfLeaveComboBox, &QComboBox::textActivated, this, &LeaveApplicationForm::_getTypeOfLeave);
-    connect(ui->fromDateDateEdit, &QDateEdit::dateChanged, this, &LeaveApplicationForm::_getFromDate);
-    connect(ui->toDateDateEdit, &QDateEdit::dateChanged, this, &LeaveApplicationForm::_getToDate);
+    connect(ui->fromDateDateEdit, &QDateEdit::dateChanged, this, &LeaveApplicationForm::_updateToDateMinimum);
+
    // connect(ui->applyConfirmButton, &QPushButton::clicked, this,  &LeaveApplicationForm::on_applyConfirmButton_clicked);
 }
 
@@ -31,6 +31,12 @@ void LeaveApplicationForm::_setGuard(Guard* guard)
 void LeaveApplicationForm::_setEmployee(Employee * emp)
 {
     currentEmployee = emp;
+}
+
+void LeaveApplicationForm:: _updateToDateMinimum(QDate fromDate)
+{
+    ui->toDateDateEdit->setMinimumDate(fromDate);
+
 }
 
 

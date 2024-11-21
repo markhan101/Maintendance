@@ -25,6 +25,9 @@ bool Guard::_markAttendance(QString id, AttendanceEntry* entry)
     QFile file(filePath);
 
 
+    qDebug() << filePath;
+
+
 
     if(file.open(QIODevice::Append | QIODevice::Text))
     {
