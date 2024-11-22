@@ -109,7 +109,7 @@ void LeaveApplicationForm::on_applyConfirmButton_clicked()
             _getDateStr(toDate),
             reason,
             _getDateStr(QDate::currentDate()),
-            "approved",
+            "pending",
             daysRequested
         );
 

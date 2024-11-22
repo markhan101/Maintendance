@@ -35,6 +35,7 @@ public:
     QString _getId(){
         return ID;
     }
+    QString FolderSelection(QString id);
 };
 
 #endif // LEAVEAPPLICATION_H
