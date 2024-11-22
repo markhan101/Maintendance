@@ -41,11 +41,8 @@ private:
     Ui::LeaveApplicationForm *ui;
     Guard *currentGuard;
     Employee *currentEmployee;
-
-    void handleOtherLeaveTypes(LeaveTypes, int);
-    void handleCasualShortLeave(int , QString);
-
-
+    
+   
 };
 
 #endif // LEAVEAPPLICATIONFORM_H

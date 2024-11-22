@@ -26,11 +26,15 @@ public:
     LeaveApplication();
     LeaveApplication(QString,LeaveTypes, LeaveBalance* ,QString , QString , QString , QString , QString , int );
     ~LeaveApplication();
-    void apply();
+    bool apply();
     void approve(QString);
     void reject(QString);
     QString getStatus()const;
     bool  handleCasualShortLeave();
+    bool handleOtherLeaveTypes(LeaveTypes, int);
+    QString _getId(){
+        return ID;
+    }
 };
 
 #endif // LEAVEAPPLICATION_H

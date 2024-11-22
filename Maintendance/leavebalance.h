@@ -18,6 +18,9 @@ public:
     void displayLeaveBalance();
     void loadBalanceFromFile();
     bool saveBalanceToFile(QString="");
+    QString _getUserId(){
+        return userId;
+    }
 };
 
 #endif // LEAVEBALANCE_H

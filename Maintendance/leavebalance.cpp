@@ -77,6 +77,7 @@ int LeaveBalance::_getLeaveBalance(LeaveTypes type)
 void LeaveBalance::displayLeaveBalance()
 {
     //to be implemented and connected with UI
+
 }
 
 
@@ -111,7 +112,7 @@ bool LeaveBalance::saveBalanceToFile(QString Reason) {
     out << "earned-" << balance[LeaveTypes::Earned] << "\n";
     out << "official-" << balance[LeaveTypes::Official] << "\n";
     out << "unpaid-" << balance[LeaveTypes::Unpaid] << "\n";
-    out << "Reason"<< Reason << "\n";
+   
 
     file.close();
     return true;
