@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "employee.h"
 #include "viewattendance.h"
+#include "leaveapplicationform.h"
 
 namespace Ui {
 class GeneralEmployeeLogin;
@@ -30,6 +31,7 @@ private slots:
     void on_logoutButton_clicked();
     void on_viewAttendanceButton_clicked();
     void on_viewLeaveBalanceButton_clicked();
+    void on_requestLeaveButton_clicked();
 };
 
 #endif // GENERALEMPLOYEELOGIN_H

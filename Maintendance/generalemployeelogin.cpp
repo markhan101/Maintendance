@@ -53,3 +53,14 @@ void GeneralEmployeeLogin::on_viewLeaveBalanceButton_clicked()
         qDebug() << "Error: generalEmp is nullptr";
     }
 }
+
+void GeneralEmployeeLogin::on_requestLeaveButton_clicked()
+{
+    if (generalEmp) {
+        LeaveApplicationForm *leaveapplication = new LeaveApplicationForm(this);
+        leaveapplication->_setEmployee(generalEmp);
+        leaveapplication->show();
+    } else {
+        qDebug() << "Error: GeneralEmployeeLogin has no employee set";
+    }
+}

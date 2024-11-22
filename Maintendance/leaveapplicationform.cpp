@@ -94,54 +94,59 @@ void LeaveApplicationForm::on_applyConfirmButton_clicked()
         return;
     }
 
+    // Get balance and user ID based on current user type
+    LeaveBalance* balance = nullptr;
+    QString userID;
+    
     if (currentGuard) {
-        LeaveBalance* balance = currentGuard->getLeaveBalance();
-        if (!balance) {
-            QMessageBox::warning(this, "Error", "Could not retrieve leave balance");
-            return;
+        balance = currentGuard->getLeaveBalance();
+        userID = currentGuard->_get_uID();
+    } else {
+        balance = currentEmployee->getLeaveBalance();
+        userID = currentEmployee->_get_uID();
+    }
+
+    if (!balance) {
+        QMessageBox::warning(this, "Error", "Could not retrieve leave balance");
+        return;
+    }
+
+    LeaveApplication* lv = new LeaveApplication(
+        userID,
+        type,
+        balance,
+        _getDateStr(fromDate),
+        _getDateStr(toDate),
+        reason,
+        _getDateStr(QDate::currentDate()),
+        "pending",
+        daysRequested
+    );
+
+    bool success = false;
+    if (type == LeaveTypes::Casual && daysRequested <= 4) {
+        success = lv->handleCasualShortLeave();
+        if (success) {
+            QMessageBox::information(this, "Success", 
+                "Short leave application approved");
         }
-
-        LeaveApplication* lv = new LeaveApplication(
-            currentGuard->_get_uID(),
-            type,
-            balance,
-            _getDateStr(fromDate),
-            _getDateStr(toDate),
-            reason,
-            _getDateStr(QDate::currentDate()),
-            "pending",
-            daysRequested
-        );
-
-        if (type == LeaveTypes::Casual && daysRequested <= 4) {
-            if (lv->handleCasualShortLeave()) {
-                QMessageBox::information(this, "Success", 
-                    "Short leave application approved");
-                delete lv;
-               
-                this->accept();
-            } else {
-                
-            }
-        } else {
-            
-            if(lv->handleOtherLeaveTypes(type, daysRequested)){
+    } else {
+        success = lv->handleOtherLeaveTypes(type, daysRequested);
+        if (success) {
             QMessageBox::information(this, "Success", 
                 "Leave application submitted for approval");
-            this->accept();
-            delete lv;
-            }
-            else{
-                    QMessageBox::warning(this, "Error",
-                    "Failed to process leave application");
-                delete lv;
-            }
-
         }
-    } //else if (currentEmployee) {
-        // Handle employee leave logic similarly
-        //handleOtherLeaveTypes(type, daysRequested);
-    //}
+    }
+
+    if (!success) {
+        QMessageBox::warning(this, "Error",
+            "Failed to process leave application");
+    }
+
+    delete lv;
+    if (success) {
+        this->accept();
+    }
 }
 
 
