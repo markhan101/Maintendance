@@ -143,9 +143,66 @@ void MarkAttendanceScreen::on_confirmAttendanceButton_clicked()
 
 void MarkAttendanceScreen::on_MarkAbsent_clicked()
 {
+    
+    QString id = ui->attendanceIDTextBox->toPlainText();
+    if (id.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Please enter an ID.");
+        return;
+    }
 
-    if(_howToMark(false))
+    QDate attendanceDate = ui->attendanceDateDateEdit->date();
+    if (!attendanceDate.isValid()) {
+        QMessageBox::warning(this, "Error", "Please select a valid date.");
+        return;
+    }
+
+    qDebug()<<id<<attendanceDate;
+
+    
+    QString baseDir = QCoreApplication::applicationDirPath();
+    QDir dir(baseDir);
+    dir.cd("../../..");
+
+    QString preDir = _getPreDir(id);
+    QString leaveFilePath = dir.absoluteFilePath("records/" + preDir + "/" + id + "/" + id + "_leave.txt");
+
+    
+    QFile leaveFile(leaveFilePath);
+    if (leaveFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&leaveFile);
+        bool hasApprovedLeave = false;
+
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            QStringList parts = line.split(" - ");
+            if (parts.size() >= 7) {
+                QString status = parts[6].trimmed();
+                QDate fromDate = QDate::fromString(parts[2].trimmed(), "yyyy/MM/dd");
+                QDate toDate = QDate::fromString(parts[3].trimmed(), "yyyy/MM/dd");
+
+               
+                QDate earlierDate = fromDate < toDate ? fromDate : toDate;
+                QDate laterDate = fromDate < toDate ? toDate : fromDate;
+
+                if (status == "approved" && 
+                    attendanceDate >= earlierDate && 
+                    attendanceDate <= laterDate) {
+                    hasApprovedLeave = true;
+                    break;
+                }
+            }
+        }
+        leaveFile.close();
+
+        if (hasApprovedLeave) {
+            QMessageBox::warning(this, "Leave Approved", 
+                "Employee has an approved leave on this date.");
+            return;
+        }
+    }
+    
+
+    // Proceed with marking absent
+    if (_howToMark(false))
         this->close();
-    else return;
 }
-
