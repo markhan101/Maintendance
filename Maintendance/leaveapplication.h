@@ -38,8 +38,8 @@ public:
     ~LeaveApplication();
     bool apply();
     
-    QVector<LeaveRecord>* ApprovedApplication(QString Id);
-    QVector<LeaveRecord>* RejectedApplication(QString Id);
+    QVector<LeaveRecord>* _readApprovedApplication(QString Id);
+    QVector<LeaveRecord>* _readRejectedApplication(QString Id);
 
     
     QString getStatus()const;

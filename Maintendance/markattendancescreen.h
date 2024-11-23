@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include "guard.h"
 #include "attendanceentry.h"
+#include "utils.h"
 
 namespace Ui {
 class MarkAttendanceScreen;

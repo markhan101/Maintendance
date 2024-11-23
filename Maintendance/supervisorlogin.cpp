@@ -49,10 +49,5 @@ void SupervisorLogin::on_viewEmployeeAttendanceButton_clicked()
     empAttDialog._setSup(currentSup);
     empAttDialog.exec();
 
-
-
-
-
-
 }
 

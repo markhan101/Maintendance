@@ -17,3 +17,11 @@ QString _getDateStr(QDate date)
 {
     return date.toString("yyyy/MM/dd");
 }
+
+
+bool _sanitizeInput(QString id)
+{
+    if (id[0] == 'e' || id[0] == 'g' || id[0] == 's' || id[0] == 'd')
+        return true;
+    return false;
+}
