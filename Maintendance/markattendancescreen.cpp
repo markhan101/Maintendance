@@ -24,6 +24,7 @@ MarkAttendanceScreen::MarkAttendanceScreen(QWidget *parent)
 
 
     ui->toTimeTimeEdit->setDisplayFormat("HH:mm");
+    ui->toTimeTimeEdit->setMinimumTime(QTime(17,0));
     ui->toTimeTimeEdit->setMaximumTime(QTime(22,0));
 
 
