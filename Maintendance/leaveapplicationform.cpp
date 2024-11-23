@@ -111,8 +111,11 @@ void LeaveApplicationForm::on_applyConfirmButton_clicked()
         return;
     }
 
+    QString AID = _generateApplicationID(userID);
+
     LeaveApplication* lv = new LeaveApplication(
         userID,
+        AID,
         type,
         balance,
         _getDateStr(fromDate),

@@ -7,6 +7,7 @@
 #include <employee.h>
 #include <QString>
 #include "utils.h"
+#include <QUuid>
 #include "leaveapplication.h"
 
 // this class needs to be created

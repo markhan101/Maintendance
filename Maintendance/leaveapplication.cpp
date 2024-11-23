@@ -1,7 +1,7 @@
 #include "leaveapplication.h"
 
-LeaveApplication::LeaveApplication(QString ID, LeaveTypes type, LeaveBalance* balance,QString fromDate,QString toDate, QString reason,QString genDate, QString status, int days):
-    ID(ID), leaveType(type), balance(balance), fromDate(fromDate), toDate(toDate), reason(reason), applicationGeneratedDate(genDate), status(status),days(days){}
+LeaveApplication::LeaveApplication(QString ID, QString aid,LeaveTypes type, LeaveBalance* balance,QString fromDate,QString toDate, QString reason,QString genDate, QString status, int days):
+    ID(ID), AID(aid), leaveType(type), balance(balance), fromDate(fromDate), toDate(toDate), reason(reason), applicationGeneratedDate(genDate), status(status),days(days){}
 
 
 LeaveApplication::~LeaveApplication()
@@ -17,37 +17,29 @@ bool LeaveApplication::apply()
     dir.cd("../../..");
 
     // Director file handling
+    //Assuming only one directors
     QString dfilePath = dir.absoluteFilePath("records/director/d1/d1_pending.txt");
     QFile dFile(dfilePath);
-    if (!dFile.open(QIODevice::Append | QIODevice::Text)) {
+    if (!dFile.open(QIODevice::Append | QIODevice::Text))
+    {
         qWarning() << "Failed to open director pending file:" << dfilePath;
         return false;
     }
     QTextStream dOut(&dFile);
-    dOut << ID << " - " 
-         << static_cast<int>(leaveType) << " - " 
-         << fromDate << " - " 
-         << toDate << " - " 
-         << days << " - " 
-         << reason << " - " 
-         << status << "\n";
+    dOut << AID << "\n";
     dFile.close();
 
     // Supervisor file handling
+    //Assuming there is only one supervisor in this company
     QString sfilePath = dir.absoluteFilePath("records/supervisor/s1/s1_pending.txt");
     QFile sFile(sfilePath);
-    if (!sFile.open(QIODevice::Append | QIODevice::Text)) {
+    if (!sFile.open(QIODevice::Append | QIODevice::Text))
+    {
         qWarning() << "Failed to open supervisor pending file:" << sfilePath;
         return false;
     }
     QTextStream sOut(&sFile);
-    sOut << ID << " - " 
-         << static_cast<int>(leaveType) << " - " 
-         << fromDate << " - " 
-         << toDate << " - " 
-         << days << " - " 
-         << reason << " - " 
-         << status << "\n";
+    sOut << AID << "\n";
     sFile.close();
 
     return true;
@@ -73,6 +65,8 @@ QString LeaveApplication::FolderSelection(QString id){
 
 
 
+//to be fixed
+
 QVector<LeaveRecord>* LeaveApplication::_readApprovedApplication(QString id) {
     QVector<LeaveRecord>* approvedLeaves = new QVector<LeaveRecord>();
     
@@ -86,7 +80,8 @@ QVector<LeaveRecord>* LeaveApplication::_readApprovedApplication(QString id) {
     );
 
     QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
         qWarning() << "Could not open leave file:" << filePath;
         return approvedLeaves;
     }
@@ -97,7 +92,8 @@ QVector<LeaveRecord>* LeaveApplication::_readApprovedApplication(QString id) {
         QStringList parts = line.split(" - ");
         
        
-        if (parts.size() >= 7 && parts[6].trimmed() == "approved") {
+        if (parts.size() >= 7 && parts[6].trimmed() == "approved")
+        {
             LeaveRecord record;
             record.ID = parts[0];
             
@@ -124,7 +120,10 @@ QVector<LeaveRecord>* LeaveApplication::_readApprovedApplication(QString id) {
     return approvedLeaves;
 }
 
-QVector<LeaveRecord>* LeaveApplication::_readRejectedApplication(QString id) {
+
+//to be fixed
+QVector<LeaveRecord>* LeaveApplication::_readRejectedApplication(QString id)
+{
     QVector<LeaveRecord>* rejectedLeaves = new QVector<LeaveRecord>();
     
     QString baseDir = QCoreApplication::applicationDirPath();
@@ -137,7 +136,8 @@ QVector<LeaveRecord>* LeaveApplication::_readRejectedApplication(QString id) {
     );
 
     QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
         qWarning() << "Could not open leave file:" << filePath;
         return rejectedLeaves;
     }
@@ -148,7 +148,8 @@ QVector<LeaveRecord>* LeaveApplication::_readRejectedApplication(QString id) {
         QStringList parts = line.split(" - ");
         
        
-        if (parts.size() >= 7 && parts[6].trimmed() == "rejected") {
+        if (parts.size() >= 7 && parts[6].trimmed() == "rejected")
+        {
             LeaveRecord record;
             record.ID = parts[0];
             
@@ -178,19 +179,22 @@ QVector<LeaveRecord>* LeaveApplication::_readRejectedApplication(QString id) {
 
 
 
-
-
 QString LeaveApplication::getStatus()const
 {
     return this->status;
 }
 
-bool LeaveApplication::handleOtherLeaveTypes(LeaveTypes type, int daysRequested) {
-    if (!balance) {
+bool LeaveApplication::handleOtherLeaveTypes(LeaveTypes type, int daysRequested)
+{
+    if (!balance)
+    {
         return false;
     }
 
-    if (balance->_getLeaveBalance(type) >= daysRequested) {
+
+
+    if (balance->_getLeaveBalance(type) >= daysRequested)
+    {
        
 
         // Save application to file
@@ -202,20 +206,14 @@ bool LeaveApplication::handleOtherLeaveTypes(LeaveTypes type, int daysRequested)
        
         
         QString filePath = dir.absoluteFilePath(
-            QString("records/%1/%2/%2_leave.txt").arg(Folder).arg(ID)
+            QString("records/%1/%2/leaves/%3.txt").arg(Folder).arg(ID).arg(AID)
         );
 
-        if(apply()){
-            qDebug() << "Application sent for approval";
-        }
-
         QFile file(filePath);
-        if (!file.open(QIODevice::Append | QIODevice::Text)) {
-            return false;
-        }
+        file.open(QIODevice::Append | QIODevice::Text);
 
         QTextStream out(&file);
-        out << ID << " - ";
+        out << AID << " - ";
         out << static_cast<int>(type) << " - "; 
         out << fromDate << " - ";
         out << toDate << " - ";
@@ -224,8 +222,10 @@ bool LeaveApplication::handleOtherLeaveTypes(LeaveTypes type, int daysRequested)
         out << status << "\n";
         file.close();
 
-        return true;
+        if (apply())
+            return true;
     }
+
     return false;
 }
 
@@ -233,13 +233,15 @@ bool LeaveApplication::handleOtherLeaveTypes(LeaveTypes type, int daysRequested)
 
 bool LeaveApplication::handleCasualShortLeave()
 {
-    if (!balance) {
+    if (!balance)
+    {
      
         return false;
     }
    
 
-    if (balance->_getLeaveBalance(LeaveTypes::Casual) >= days) {
+    if (balance->_getLeaveBalance(LeaveTypes::Casual) >= days)
+    {
         balance->_updateLeaveBalance(LeaveTypes::Casual, days, reason);
 
         
@@ -254,17 +256,15 @@ bool LeaveApplication::handleCasualShortLeave()
         status = "approved";
         
         QString filePath = dir.absoluteFilePath(
-            QString("records/%1/%2/%2_leave.txt").arg(Folder).arg(ID)
+            QString("records/%1/%2/leaves/%3.txt").arg(Folder).arg(ID).arg(AID)
         );
 
         QFile file(filePath);
-        if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-              
-            return false;
-        }
+
+        file.open(QIODevice::Append | QIODevice::Text);
 
         QTextStream out(&file);
-        out << ID << " - ";
+        out << AID << " - ";
         out << leaveType << " - ";
         out << fromDate << " - ";
         out << toDate << " - ";

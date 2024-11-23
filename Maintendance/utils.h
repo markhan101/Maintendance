@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QDate>
+#include <QUuid>
 
 enum LeaveTypes
 {
@@ -26,5 +27,7 @@ QString _getPreDir(QString);
 QString _getDateStr(QDate);
 
 bool _sanitizeInput(QString);
+
+QString _generateApplicationID(QString);
 
 #endif // UTILS_H

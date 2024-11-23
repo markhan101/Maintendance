@@ -46,6 +46,7 @@ AttendanceLog* Employee::_viewAttendance( ) {
     {
         qDebug() << "ERRORRRRR.";
         return attLog;
+
     }
     QTextStream in(&file);
     while (!in.atEnd())

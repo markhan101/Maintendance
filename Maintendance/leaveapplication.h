@@ -1,10 +1,11 @@
 #ifndef LEAVEAPPLICATION_H
 #define LEAVEAPPLICATION_H
 
-#include "employee.h"
+
 #include "utils.h"
+#include "leavebalance.h"
 #include <QDate>
-//needs to be done still
+
 
 struct LeaveRecord{
     QString ID;
@@ -20,6 +21,7 @@ class LeaveApplication
 {
 private:
     QString ID;
+    QString AID;
     LeaveTypes leaveType;
     LeaveBalance* balance;
     QString fromDate;
@@ -34,7 +36,7 @@ private:
 
 public:
     LeaveApplication();
-    LeaveApplication(QString,LeaveTypes, LeaveBalance* ,QString , QString , QString , QString , QString , int );
+    LeaveApplication(QString,QString,LeaveTypes, LeaveBalance* ,QString , QString , QString , QString , QString , int );
     ~LeaveApplication();
     bool apply();
     
@@ -45,7 +47,8 @@ public:
     QString getStatus()const;
     bool  handleCasualShortLeave();
     bool handleOtherLeaveTypes(LeaveTypes, int);
-    QString _getId(){
+    QString _getId()
+    {
         return ID;
     }
     QString FolderSelection(QString id);

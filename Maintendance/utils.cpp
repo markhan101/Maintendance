@@ -25,3 +25,14 @@ bool _sanitizeInput(QString id)
         return true;
     return false;
 }
+
+QString _generateApplicationID(QString ID)
+{
+    QString prefix = ID;
+
+    QString uuidPart = QUuid::createUuid().toString(QUuid::WithoutBraces).left(8);
+
+    QString applicationID = QString("%1_%2").arg(prefix).arg(uuidPart);
+
+    return applicationID;
+}
