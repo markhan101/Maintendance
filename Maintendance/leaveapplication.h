@@ -6,6 +6,16 @@
 #include <QDate>
 //needs to be done still
 
+struct LeaveRecord{
+    QString ID;
+    QString leaveType;
+    QString fromDate;
+    QString toDate;
+    QString days;
+    QString reason;
+    QString status;
+};
+
 class LeaveApplication
 {
 private:
@@ -27,8 +37,11 @@ public:
     LeaveApplication(QString,LeaveTypes, LeaveBalance* ,QString , QString , QString , QString , QString , int );
     ~LeaveApplication();
     bool apply();
-    void approve(QString);
-    void reject(QString);
+    
+    QVector<LeaveRecord>* AprrovedApplication(QString Id);
+    QVector<LeaveRecord>* RejectedApplication(QString Id);
+
+    
     QString getStatus()const;
     bool  handleCasualShortLeave();
     bool handleOtherLeaveTypes(LeaveTypes, int);

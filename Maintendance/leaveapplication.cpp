@@ -72,16 +72,113 @@ QString LeaveApplication::FolderSelection(QString id){
 }
 
 
-void LeaveApplication::approve(QString id)
-{
-   
 
+QVector<LeaveRecord>* LeaveApplication::ApprovedApplication(QString id) {
+    QVector<LeaveRecord>* approvedLeaves = new QVector<LeaveRecord>();
+    
+    QString baseDir = QCoreApplication::applicationDirPath();
+    QDir dir(baseDir);
+    dir.cd("../../..");
+    
+    QString Folder = FolderSelection(id);
+    QString filePath = dir.absoluteFilePath(
+        QString("records/%1/%2/%2_leave.txt").arg(Folder).arg(id)
+    );
+
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qWarning() << "Could not open leave file:" << filePath;
+        return approvedLeaves;
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList parts = line.split(" - ");
+        
+       
+        if (parts.size() >= 7 && parts[6].trimmed() == "approved") {
+            LeaveRecord record;
+            record.ID = parts[0];
+            
+       
+            switch(parts[1].toInt()) {
+                case 0: record.leaveType = "Casual"; break;
+                case 1: record.leaveType = "Earned"; break;
+                case 2: record.leaveType = "Official"; break;
+                case 3: record.leaveType = "Unpaid"; break;
+                default: record.leaveType = "Unknown";
+            }
+            
+            record.fromDate = parts[2];
+            record.toDate = parts[3];
+            record.days = parts[4];
+            record.reason = parts[5];
+            record.status = parts[6];
+            
+            approvedLeaves->push_back(record);
+        }
+    }
+    file.close();
+    
+    return approvedLeaves;
 }
 
-void LeaveApplication::reject(QString id)
-{
+QVector<LeaveRecord>* LeaveApplication::RejectedApplication(QString id) {
+    QVector<LeaveRecord>* rejectedLeaves = new QVector<LeaveRecord>();
+    
+    QString baseDir = QCoreApplication::applicationDirPath();
+    QDir dir(baseDir);
+    dir.cd("../../..");
+    
+    QString Folder = FolderSelection(id);
+    QString filePath = dir.absoluteFilePath(
+        QString("records/%1/%2/%2_leave.txt").arg(Folder).arg(id)
+    );
 
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qWarning() << "Could not open leave file:" << filePath;
+        return rejectedLeaves;
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList parts = line.split(" - ");
+        
+       
+        if (parts.size() >= 7 && parts[6].trimmed() == "rejected") {
+            LeaveRecord record;
+            record.ID = parts[0];
+            
+       
+            switch(parts[1].toInt()) {
+                case 0: record.leaveType = "Casual"; break;
+                case 1: record.leaveType = "Earned"; break;
+                case 2: record.leaveType = "Official"; break;
+                case 3: record.leaveType = "Unpaid"; break;
+                default: record.leaveType = "Unknown";
+            }
+            
+            record.fromDate = parts[2];
+            record.toDate = parts[3];
+            record.days = parts[4];
+            record.reason = parts[5];
+            record.status = parts[6];
+            
+            rejectedLeaves->push_back(record);
+        }
+    }
+    file.close();
+    
+    return rejectedLeaves;
 }
+
+
+
+
+
 
 QString LeaveApplication::getStatus()const
 {
