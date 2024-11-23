@@ -14,7 +14,7 @@ MarkAttendanceScreen::MarkAttendanceScreen(QWidget *parent)
     ui->attendanceIDTextBox->setAlignment(Qt::AlignCenter);
 
     ui->attendanceDateDateEdit->setCalendarPopup(true);
-    ui->attendanceDateDateEdit->setMinimumDate(QDate::currentDate().addDays(-365)); //to be changed
+    ui->attendanceDateDateEdit->setMinimumDate(QDate::currentDate()); //to be changed
 
     ui->fromTimeTimeEdit->setDisplayFormat("HH:mm");
     ui->fromTimeTimeEdit->setMinimumTime(QTime(8,0));
