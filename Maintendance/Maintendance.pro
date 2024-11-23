@@ -19,10 +19,12 @@ SOURCES += \
     leaveapplication.cpp \
     leaveapplicationform.cpp \
     leavebalance.cpp \
+    leavedetaildialog.cpp \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
     markattendancescreen.cpp \
+    pendingleavestable.cpp \
     supervisor.cpp \
     supervisorlogin.cpp \
     user.cpp \
@@ -41,9 +43,11 @@ HEADERS += \
     leaveapplication.h \
     leaveapplicationform.h \
     leavebalance.h \
+    leavedetaildialog.h \
     logindialog.h \
     mainwindow.h \
     markattendancescreen.h \
+    pendingleavestable.h \
     supervisor.h \
     supervisorlogin.h \
     user.h \
@@ -55,9 +59,11 @@ FORMS += \
     generalemployeelogin.ui \
     guardlogin.ui \
     leaveapplicationform.ui \
+    leavedetaildialog.ui \
     logindialog.ui \
     mainwindow.ui \
     markattendancescreen.ui \
+    pendingleavestable.ui \
     supervisorlogin.ui \
     viewattendance.ui
 

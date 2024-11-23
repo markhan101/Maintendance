@@ -5,6 +5,7 @@
 #include "viewattendance.h"
 #include "supervisor.h"
 #include "empattbysupdialogbox.h"
+#include "pendingleavestable.h"
 
 namespace Ui {
 class SupervisorLogin;
@@ -25,6 +26,8 @@ private slots:
     void on_viewAttendanceButton_clicked();
 
     void on_viewEmployeeAttendanceButton_clicked();
+
+    void on_approveRejectLeaveButton_clicked();
 
 private:
     Ui::SupervisorLogin *ui;

@@ -51,3 +51,12 @@ void SupervisorLogin::on_viewEmployeeAttendanceButton_clicked()
 
 }
 
+
+void SupervisorLogin::on_approveRejectLeaveButton_clicked()
+{
+    PendingLeavesTable leavesTable (this);
+    leavesTable._setSup(currentSup);
+    leavesTable._displayList();
+    leavesTable.exec();
+}
+

@@ -26,7 +26,7 @@ bool LeaveApplication::apply()
         return false;
     }
     QTextStream dOut(&dFile);
-    dOut << AID << "\n";
+    dOut << AID << " - " << QDate::currentDate().toString("yyyy-MM-dd") << "\n";
     dFile.close();
 
     // Supervisor file handling
@@ -39,7 +39,7 @@ bool LeaveApplication::apply()
         return false;
     }
     QTextStream sOut(&sFile);
-    sOut << AID << "\n";
+    sOut << AID << " - " << QDate::currentDate().toString("yyyy-MM-dd") << "\n";
     sFile.close();
 
     return true;

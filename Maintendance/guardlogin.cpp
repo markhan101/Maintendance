@@ -54,9 +54,9 @@ void GuardLogin::on_viewAttendanceButton_clicked()
 void GuardLogin::on_requestLeaveButton_clicked()
 {
     if (currentGuard) {
-        LeaveApplicationForm leaveapplication (this);
-        leaveapplication._setGuard(currentGuard);
-        leaveapplication.show();
+        LeaveApplicationForm *leaveapplication = new LeaveApplicationForm(this);
+        leaveapplication->_setGuard(currentGuard);
+        leaveapplication->show();
     } else {
         qDebug() << "Error GuardLogin has no currentGuard set";
     }
