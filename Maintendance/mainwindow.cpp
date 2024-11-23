@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow),guardlogin(nullptr),genEmpLogin(nullptr),supervisorLogin(nullptr)
 {
     ui->setupUi(this);
-    this->setFixedSize(1123,717);
+    this->setFixedSize(900,600);
     _showLoginDialog();
 }
 

@@ -18,7 +18,7 @@ void EmpAttBySupDialogBox::_setSup(Supervisor* sup)
     currentSup = sup;
 }
 
-void EmpAttBySupDialogBox::on_pushButton_clicked()
+void EmpAttBySupDialogBox::on_viewButton_clicked()
 {
     QString ID = ui->EmpIDTextEdit->toPlainText();
     if(!_sanitizeInput(ID))
