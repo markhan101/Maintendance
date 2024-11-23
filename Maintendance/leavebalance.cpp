@@ -35,7 +35,7 @@ void LeaveBalance::loadBalanceFromFile(){
     QFile file(filePath);
     qDebug() << "Attempting load leave balance txt" << filePath;
 
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) { //why it is not working
         qDebug() << "Could not load leave balance file:" << filePath;
         return;
     }
