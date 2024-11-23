@@ -14,14 +14,25 @@ MarkAttendanceScreen::MarkAttendanceScreen(QWidget *parent)
     ui->attendanceIDTextBox->setAlignment(Qt::AlignCenter);
 
     ui->attendanceDateDateEdit->setCalendarPopup(true);
-    ui->attendanceDateDateEdit->setMinimumDate(QDate::currentDate().addDays(-365));
+    ui->attendanceDateDateEdit->setMinimumDate(QDate::currentDate().addDays(-365)); //to be changed
 
-    ui->extraHoursComboBox->setPlaceholderText("0");
-    ui->extraHoursComboBox->setMaxCount(3);
-    ui->extraHoursComboBox->addItem("1");
-    ui->extraHoursComboBox->addItem("2");
-    ui->extraHoursComboBox->addItem("3");
+    ui->fromTimeTimeEdit->setDisplayFormat("HH:mm");
+    ui->fromTimeTimeEdit->setMinimumTime(QTime(8,0));
+    ui->fromTimeTimeEdit->setMaximumTime(QTime(17,0));
 
+    connect(ui->fromTimeTimeEdit, &QTimeEdit::timeChanged, this, &MarkAttendanceScreen::_setMinToTime);
+
+
+    ui->toTimeTimeEdit->setDisplayFormat("HH:mm");
+    ui->toTimeTimeEdit->setMaximumTime(QTime(22,0));
+
+
+}
+
+
+void MarkAttendanceScreen::_setMinToTime(QTime time)
+{
+    ui->toTimeTimeEdit->setMinimumTime(time.addSecs(3600));
 }
 
 MarkAttendanceScreen::~MarkAttendanceScreen()
@@ -41,12 +52,6 @@ QDate MarkAttendanceScreen::_getAttendanceDate(QDate date)
     return date;
 }
 
-int MarkAttendanceScreen::_getHours (QString h)
-{
-    if(h=="")
-        return 0;
-    return h.toInt();
-}
 
 
 //TO BE ADDED IN UTILS.H
@@ -75,7 +80,13 @@ QString _getDayStr(int dayOfWeek)
 
 
 
+double MarkAttendanceScreen::_calculateHours()
+{
+    QTime fromTime = ui->fromTimeTimeEdit->time();
+    QTime toTime = ui->toTimeTimeEdit->time();
 
+    return (fromTime.secsTo(toTime) / 3600.0);
+}
 
 bool MarkAttendanceScreen::_howToMark(bool isPresent)
 {
@@ -92,16 +103,16 @@ bool MarkAttendanceScreen::_howToMark(bool isPresent)
         return false;
     }
 
-    int hours;
+    double hours;
 
     if (!isPresent)
     {
-        hours= 0;
+        hours = 0.0;
 
     }
     else
     {
-        hours = 8 + _getHours(ui->extraHoursComboBox->currentText());
+        hours =  _calculateHours();
     }
 
 

@@ -43,7 +43,7 @@ void MainWindow::_showLoginDialog()
             }
         } else {
            
-            close();  
+            this->close();
             return;   
         }
     }

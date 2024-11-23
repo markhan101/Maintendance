@@ -21,8 +21,9 @@ public:
     QDate _getAttendanceDate(QDate date);
     int _getHours(QString);
     void _setGuard(Guard *guard);
-
+    void _setMinToTime (QTime);
     bool _howToMark(bool);
+    double _calculateHours();
 
 private slots:
 
