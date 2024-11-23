@@ -32,4 +32,4 @@
 *.app
 
 # Current folder / Maintendance / builds
-build/
+Maintendance/build/
