@@ -38,7 +38,7 @@ public:
     ~LeaveApplication();
     bool apply();
     
-    QVector<LeaveRecord>* AprrovedApplication(QString Id);
+    QVector<LeaveRecord>* ApprovedApplication(QString Id);
     QVector<LeaveRecord>* RejectedApplication(QString Id);
 
     
