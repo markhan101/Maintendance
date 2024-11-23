@@ -41,10 +41,10 @@ void GuardLogin::on_logOutButton_clicked()
 void GuardLogin::on_viewAttendanceButton_clicked()
 {
     if (currentGuard) {
-        ViewAttendance *viewAttendance = new ViewAttendance(this);
-        viewAttendance->_setGuard(currentGuard);
-        viewAttendance->_displayList();
-        viewAttendance->exec();
+        ViewAttendance viewAttendance(this);
+        viewAttendance._setGuard(currentGuard);
+        viewAttendance._displayList();
+        viewAttendance.exec();
     } else {
         qDebug() << "Error GuardLogin has no currentGuard set";
     }
@@ -54,9 +54,9 @@ void GuardLogin::on_viewAttendanceButton_clicked()
 void GuardLogin::on_requestLeaveButton_clicked()
 {
     if (currentGuard) {
-        LeaveApplicationForm *leaveapplication = new LeaveApplicationForm(this);
-        leaveapplication->_setGuard(currentGuard);
-        leaveapplication->show();
+        LeaveApplicationForm leaveapplication (this);
+        leaveapplication._setGuard(currentGuard);
+        leaveapplication.show();
     } else {
         qDebug() << "Error GuardLogin has no currentGuard set";
     }

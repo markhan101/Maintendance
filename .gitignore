@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# Current folder / Maintendance / builds
+build/

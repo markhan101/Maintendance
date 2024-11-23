@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "viewattendance.h"
 #include "supervisor.h"
+#include "empattbysupdialogbox.h"
 
 namespace Ui {
 class SupervisorLogin;
@@ -22,6 +23,8 @@ private slots:
     void on_logOutButton_clicked();
 
     void on_viewAttendanceButton_clicked();
+
+    void on_viewEmployeeAttendanceButton_clicked();
 
 private:
     Ui::SupervisorLogin *ui;

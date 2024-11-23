@@ -30,13 +30,28 @@ void SupervisorLogin::on_viewAttendanceButton_clicked()
 {
 
     if (currentSup) {
-        ViewAttendance *viewAttendance = new ViewAttendance(this);
-        viewAttendance->_setSup(currentSup);
-        viewAttendance->_displayList();
-        viewAttendance->exec();
+        ViewAttendance viewAttendance (this);
+        viewAttendance._setSup(currentSup);
+        viewAttendance._displayList();
+        viewAttendance.exec();
     } else {
         qDebug() << "Error SupervisorLogin has no supervisor set";
     }
+
+
+}
+
+
+void SupervisorLogin::on_viewEmployeeAttendanceButton_clicked()
+{
+
+    EmpAttBySupDialogBox  empAttDialog (this);
+    empAttDialog._setSup(currentSup);
+    empAttDialog.exec();
+
+
+
+
 
 
 }

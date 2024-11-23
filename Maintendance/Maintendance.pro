@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     attendanceentry.cpp \
     attendancelog.cpp \
+    empattbysupdialogbox.cpp \
     employee.cpp \
     generalemployeelogin.cpp \
     guard.cpp \
@@ -32,6 +33,7 @@ SOURCES += \
 HEADERS += \
     attendanceentry.h \
     attendancelog.h \
+    empattbysupdialogbox.h \
     employee.h \
     generalemployeelogin.h \
     guard.h \
@@ -49,6 +51,7 @@ HEADERS += \
     viewattendance.h
 
 FORMS += \
+    empattbysupdialogbox.ui \
     generalemployeelogin.ui \
     guardlogin.ui \
     leaveapplicationform.ui \
@@ -63,9 +66,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    pic.png
 
-RESOURCES += \
-    attendancelogs.qrc \
-    resources.qrc

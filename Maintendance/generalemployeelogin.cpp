@@ -28,10 +28,10 @@ void GeneralEmployeeLogin::_setEmployee(Employee* emp)
 void GeneralEmployeeLogin::on_viewAttendanceButton_clicked()
 {
     if (generalEmp) {
-        ViewAttendance *viewAttendance = new ViewAttendance(this);
-        viewAttendance->_setEmployee(generalEmp);
-        viewAttendance->_displayList();
-        viewAttendance->exec();
+        ViewAttendance viewAttendance (this);
+        viewAttendance._setEmployee(generalEmp);
+        viewAttendance._displayList();
+        viewAttendance.exec();
     } else {
         qDebug() << "Error GuardLogin has no currentGuard set";
     }
