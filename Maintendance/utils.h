@@ -25,4 +25,6 @@ QString _getPreDir(QString);
 
 QString _getDateStr(QDate);
 
+bool _sanitizeInput(QString);
+
 #endif // UTILS_H

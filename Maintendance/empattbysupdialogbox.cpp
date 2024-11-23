@@ -21,6 +21,11 @@ void EmpAttBySupDialogBox::_setSup(Supervisor* sup)
 void EmpAttBySupDialogBox::on_pushButton_clicked()
 {
     QString ID = ui->EmpIDTextEdit->toPlainText();
+    if(!_sanitizeInput(ID))
+    {
+        QMessageBox::warning(this,"Wrong ID","Please make sure the correct ID is entered.");
+        return;
+    }
     Employee * emp = new Employee(ID, "random", Position::normal_employee,{},{});
     ViewAttendance viewAttendance (this);
     viewAttendance._setEmployee(emp);

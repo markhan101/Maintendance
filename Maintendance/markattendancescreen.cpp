@@ -76,9 +76,6 @@ QString _getDayStr(int dayOfWeek)
     return "";
 }
 
-//TO BE ADDED IN UTILS
-
-
 
 double MarkAttendanceScreen::_calculateHours()
 {
@@ -93,8 +90,14 @@ bool MarkAttendanceScreen::_howToMark(bool isPresent)
     QString id = ui->attendanceIDTextBox->toPlainText();
     if (id == "")
     {
-        QMessageBox::warning(this,"NO ID","Please Make sure ID is entered");
+        QMessageBox::warning(this,"NO ID","Please make sure ID is entered.");
         return false;
+    }
+    else if(!_sanitizeInput(id))
+    {
+        QMessageBox::warning(this,"Wrong ID","Please make sure the correct ID is entered.");
+        return false;
+
     }
 
     if(ui->attendanceDateDateEdit->date().isNull())

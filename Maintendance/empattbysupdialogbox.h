@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "supervisor.h"
 #include "viewattendance.h"
+#include "utils.h"
 
 namespace Ui {
 class EmpAttBySupDialogBox;

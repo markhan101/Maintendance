@@ -73,7 +73,7 @@ QString LeaveApplication::FolderSelection(QString id){
 
 
 
-QVector<LeaveRecord>* LeaveApplication::ApprovedApplication(QString id) {
+QVector<LeaveRecord>* LeaveApplication::_readApprovedApplication(QString id) {
     QVector<LeaveRecord>* approvedLeaves = new QVector<LeaveRecord>();
     
     QString baseDir = QCoreApplication::applicationDirPath();
@@ -124,7 +124,7 @@ QVector<LeaveRecord>* LeaveApplication::ApprovedApplication(QString id) {
     return approvedLeaves;
 }
 
-QVector<LeaveRecord>* LeaveApplication::RejectedApplication(QString id) {
+QVector<LeaveRecord>* LeaveApplication::_readRejectedApplication(QString id) {
     QVector<LeaveRecord>* rejectedLeaves = new QVector<LeaveRecord>();
     
     QString baseDir = QCoreApplication::applicationDirPath();
