@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     attendanceentry.cpp \
     attendancelog.cpp \
+    director.cpp \
     empattbysupdialogbox.cpp \
     employee.cpp \
     generalemployeelogin.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
 HEADERS += \
     attendanceentry.h \
     attendancelog.h \
+    director.h \
     empattbysupdialogbox.h \
     employee.h \
     generalemployeelogin.h \

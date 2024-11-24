@@ -1,19 +1,21 @@
-#include "supervisor.h"
+#include "director.h"
+
+#include "Director.h"
 #include "leaveapplication.h"
 #include "utils.h"
 
-Supervisor::Supervisor(QString ID, QString name, Position pos, AttendanceLog* att_log, LeaveBalance* lb)
+Director::Director(QString ID, QString name, Position pos, AttendanceLog* att_log, LeaveBalance* lb)
     : Employee(ID, name, pos, att_log, lb), log(nullptr)
 {
     //read the pending list txt
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
     dir.cd("../../..");
-    QString sfilePath = dir.absoluteFilePath("records/supervisor/s1/s1_pending.txt");
+    QString sfilePath = dir.absoluteFilePath("records/Director/s1/s1_pending.txt");
     QFile sFile(sfilePath);
     if (!sFile.open(QIODevice::ReadOnly))
     {
-        qWarning() << "Failed to open supervisor pending file:" << sfilePath;
+        qWarning() << "Failed to open Director pending file:" << sfilePath;
     }
 
     QTextStream in(&sFile);
@@ -32,21 +34,21 @@ Supervisor::Supervisor(QString ID, QString name, Position pos, AttendanceLog* at
     sFile.close();
 }
 
-Supervisor::~Supervisor()
+Director::~Director()
 {
     delete log;
     log = nullptr;
 }
 
 
-QVector<PendingList> Supervisor::_getPendingList() {
-    pendingList.clear(); // Clear existing data
+QVector<PendingList> Director::_getPendingList() {
+    pendingList.clear();
 
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
     dir.cd("../../..");
 
-    QString sPendingPath = dir.absoluteFilePath("records/supervisor/s1/s1_pending.txt");
+    QString sPendingPath = dir.absoluteFilePath("records/Director/s1/s1_pending.txt");
     QFile sFile(sPendingPath);
 
     if (sFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -68,25 +70,25 @@ QVector<PendingList> Supervisor::_getPendingList() {
     return pendingList;
 }
 
-void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
+void Director::_approveOrRejectLeave(QString AID, bool isApprove) {
     QString ID = AID.split('_').first();
     LeaveRecord record = _getRecord(AID);
-    
+
     LeaveTypes type;
-    if (record.leaveType == "0") type = LeaveTypes::Casual;
-    else if (record.leaveType == "1") type = LeaveTypes::Earned;
-    else if (record.leaveType == "2") type = LeaveTypes::Official;
-    else type = LeaveTypes::Unpaid;
-    
-    
+
+    if(record.leaveType == "3"){
+            type = LeaveTypes::Unpaid;
+    }
+
+
     LeaveBalance* balance = nullptr;
     LeaveApplication* leaveApp = nullptr;
-    
+
     if (isApprove) {
         balance = new LeaveBalance(ID);
         leaveApp = new LeaveApplication(
             ID,
-            AID, 
+            AID,
             type,
             balance,
             record.fromDate,
@@ -95,7 +97,7 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
             QDate::currentDate().toString("yyyy-MM-dd"),
             "approved",
             record.days.toInt()
-        );
+            );
 
         balance->_updateLeaveBalance(type, record.days.toInt(), record.reason);
 
@@ -109,29 +111,18 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
 
 
 
-    
+
     addtofile(record, isApprove);
-    
-    
+
+
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
     dir.cd("../../..");
-    QStringList pendingFiles;
-    
-    if (type == LeaveTypes::Unpaid){
-     pendingFiles = {
-        "records/supervisor/s1/s1_pending.txt",
 
-        };
-    }
-    else{
 
-        pendingFiles = {
-        "records/supervisor/s1/s1_pending.txt",
+    QStringList pendingFiles = {
         "records/director/d1/d1_pending.txt"
-        };
-    }
-
+    };
 
     for (const QString& pendingPath : pendingFiles) {
         QString filePath = dir.absoluteFilePath(pendingPath);
@@ -142,7 +133,7 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
             lines.removeIf([AID](const QString& line) {
                 return line.startsWith(AID);
             });
-            
+
             file.resize(0);
             QTextStream out(&file);
             out << lines.join('\n');
@@ -150,53 +141,49 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
         }
     }
 
-    
+
     QString folder = _getPreDir(ID);
     QString filePath = dir.absoluteFilePath(
         QString("records/%1/%2/%2_leaves.txt").arg(folder).arg(ID)
-    );
-    
+        );
+
     QFile file(filePath);
     if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
         QString content = file.readAll();
         QStringList lines = content.split('\n');
-        
+
         for (int i = 0; i < lines.size(); i++) {
             if (lines[i].startsWith(AID)) {
                 QStringList parts = lines[i].split(" - ");
                 if (parts.size() >= 7) {
-                if(type == LeaveTypes::Unpaid){
-                        parts[6] = "pending";
-                    }
-                else{
                     parts[6] = isApprove ? "approved" : "rejected";
-                        lines[i] = parts.join(" - ");}
+                    lines[i] = parts.join(" - ");
                 }
                 break;
             }
         }
-        
+
         file.resize(0);
         QTextStream out(&file);
         out << lines.join('\n');
         file.close();
     }
 
-    
+
     if (balance) delete balance;
     if (leaveApp) delete leaveApp;
 }
 
 
-void Supervisor::addtofile(const LeaveRecord& record, bool isApproved) {
+void Director::addtofile(const LeaveRecord& record, bool isApproved) {
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
     dir.cd("../../..");
-    
+
     QString statusFileName = isApproved ? "approved.txt" : "rejected.txt";
     QString filePath = dir.absoluteFilePath(
-        QString("records/supervisor/s1/s1_%1").arg(statusFileName)
-    );
+        QString("records/Director/s1/s1_%1").arg(statusFileName)
+        );
 
     QFile file(filePath);
     if (file.open(QIODevice::Append | QIODevice::Text)) {
