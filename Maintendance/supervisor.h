@@ -27,7 +27,7 @@ public:
         }
 
     }
-    void approvedLeaves(const QString AID);
+    void addtofile(const LeaveRecord& record, bool isApproved);
 
 
 

@@ -101,6 +101,8 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
         balance->_updateLeaveBalance(type, record.days.toInt(), record.reason);
     }
 
+    addtofile(record, isApprove);
+
     
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
@@ -157,6 +159,31 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
         file.close();
     }
 
-    delete leaveApp;
-    delete balance;
+    if (balance) delete balance;
+    if (leaveApp) delete leaveApp;
+}
+
+
+void Supervisor::addtofile(const LeaveRecord& record, bool isApproved) {
+    QString baseDir = QCoreApplication::applicationDirPath();
+    QDir dir(baseDir);
+    dir.cd("../../..");
+    
+    QString statusFileName = isApproved ? "approved.txt" : "rejected.txt";
+    QString filePath = dir.absoluteFilePath(
+        QString("records/supervisor/s1/s1_%1").arg(statusFileName)
+    );
+
+    QFile file(filePath);
+    if (file.open(QIODevice::Append | QIODevice::Text)) {
+        QTextStream out(&file);
+        out << record.ID << " - "
+            << record.leaveType << " - "
+            << record.fromDate << " - "
+            << record.toDate << " - "
+            << record.days << " - "
+            << record.reason << " - "
+            << QDate::currentDate().toString("yyyy-MM-dd") << "\n";
+        file.close();
+    }
 }
