@@ -45,23 +45,9 @@ bool LeaveApplication::apply()
     return true;
 }
 
-QString LeaveApplication::FolderSelection(QString id){
-     QString Folder;
-     if(id[0]=='g'){
-            Folder="guard";
-        }
-        else if (id[0] == 'e'){
-            Folder = "emp";
-        }
-        else if (id[0]=='d'){
-            Folder = "director";
-        }
-        else {
-            Folder = "supervisor";
-        }
-    return Folder;
 
-}
+//to be added in utils
+
 
 
 
@@ -277,4 +263,7 @@ bool LeaveApplication::handleCasualShortLeave()
     }
     return false;
 }
+
+
+
 

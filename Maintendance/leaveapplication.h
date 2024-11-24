@@ -7,15 +7,9 @@
 #include <QDate>
 
 
-struct LeaveRecord{
-    QString ID;
-    QString leaveType;
-    QString fromDate;
-    QString toDate;
-    QString days;
-    QString reason;
-    QString status;
-};
+
+
+
 
 class LeaveApplication
 {
@@ -51,7 +45,7 @@ public:
     {
         return ID;
     }
-    QString FolderSelection(QString id);
+
 };
 
 #endif // LEAVEAPPLICATION_H

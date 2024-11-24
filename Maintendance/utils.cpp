@@ -36,3 +36,93 @@ QString _generateApplicationID(QString ID)
 
     return applicationID;
 }
+
+LeaveRecord _getRecord(QString AID)
+{
+    LeaveRecord record;
+
+
+    QString baseDir = QCoreApplication::applicationDirPath();
+    QDir dir(baseDir);
+    dir.cd("../../..");
+
+    QString ID = AID.split('_').first();
+    QString Folder = FolderSelection(ID);
+
+
+    QString filePath = dir.absoluteFilePath(
+        QString("records/%1/%2/leaves/%3.txt").arg(Folder).arg(ID).arg(AID)
+        );
+
+    QFile file(filePath);
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qWarning() << "Failed to open file:" << filePath;
+        return record;  // Return an empty record in case of failure
+    }
+
+
+    QTextStream in(&file);
+    QString line = in.readLine();
+
+    QStringList fields = line.split(" - ");
+    if (fields.size() == 7)
+    {
+        record.ID = fields[0];
+        record.leaveType = fields[1];
+        record.fromDate = fields[2];
+        record.toDate = fields[3];
+        record.days = fields[4];
+        record.reason = fields[5];
+        record.status = fields[6];
+    }
+
+    file.close();
+    return record;
+}
+
+
+QString FolderSelection(QString id)
+{
+    QString Folder;
+    if(id[0]=='g'){
+        Folder="guard";
+    }
+    else if (id[0] == 'e'){
+        Folder = "emp";
+    }
+    else if (id[0]=='d'){
+        Folder = "director";
+    }
+    else {
+        Folder = "supervisor";
+    }
+    return Folder;
+
+}
+
+
+QString _getPosStr(int type)
+{
+    if (type == 0)
+    {
+        return "Casual";
+    }
+    else if (type == 1)
+    {
+        return "Earned";
+    }
+    else if (type == 2)
+    {
+        return "Official";
+    }
+    else if (type == 3)
+    {
+        return "Unpaid";
+    }
+    else
+    {
+        return "Unknown"; // In case the type is not valid
+    }
+}

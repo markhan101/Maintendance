@@ -68,12 +68,25 @@ void PendingLeavesTable::_displayList()
 }
 
 
-void PendingLeavesTable::_onRowSelected()
+void PendingLeavesTable::_onRowSelected(int row)
 {
     //open a new dialog box do somme
     //modify the vector stored in the supervisor class
 
+    QString selectedAID = ui->pendingLeaveTable->item(row, 1)->text();
+    QString selectedDate = ui->pendingLeaveTable->item(row, 2)->text();
+
+    // Create a PendingList object
+    PendingList pendingLeave;
+    pendingLeave.AID = selectedAID;
+    pendingLeave.date = selectedDate;
+
+    QString ID = selectedAID.split('_').first();
+
+
     LeaveDetailDialog leaveDetail(this);
+    leaveDetail._setSup(currentSup);
+    leaveDetail._displayLeaveInfo(pendingLeave, ID);
     leaveDetail.exec();
 
 }

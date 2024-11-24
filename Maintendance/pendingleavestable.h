@@ -21,7 +21,7 @@ public:
 
     void _setSup(Supervisor *);
     void _displayList();
-    void _onRowSelected();
+    void _onRowSelected(int row);
 
 private:
     Ui::PendingLeavesTable *ui;
