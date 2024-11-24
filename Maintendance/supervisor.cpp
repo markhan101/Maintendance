@@ -70,10 +70,7 @@ QVector<PendingList> Supervisor::_getPendingList() {
 
 void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
     QString ID = AID.split('_').first();
-    
-    
     LeaveRecord record = _getRecord(AID);
-    
     
     LeaveTypes type;
     if (record.leaveType == "0") type = LeaveTypes::Casual;
@@ -81,28 +78,31 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
     else if (record.leaveType == "2") type = LeaveTypes::Official;
     else type = LeaveTypes::Unpaid;
     
-    LeaveBalance* balance = new LeaveBalance(ID);
     
-    LeaveApplication* leaveApp = new LeaveApplication(
-        ID,
-        AID, 
-        type,
-        balance,
-        record.fromDate,
-        record.toDate,
-        record.reason,
-        QDate::currentDate().toString("yyyy-MM-dd"),
-        isApprove ? "approved" : "rejected",
-        record.days.toInt()
-    );
-
+    LeaveBalance* balance = nullptr;
+    LeaveApplication* leaveApp = nullptr;
     
     if (isApprove) {
+        balance = new LeaveBalance(ID);
+        leaveApp = new LeaveApplication(
+            ID,
+            AID, 
+            type,
+            balance,
+            record.fromDate,
+            record.toDate,
+            record.reason,
+            QDate::currentDate().toString("yyyy-MM-dd"),
+            "approved",
+            record.days.toInt()
+        );
+        
         balance->_updateLeaveBalance(type, record.days.toInt(), record.reason);
     }
 
+    
     addtofile(record, isApprove);
-
+    
     
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
@@ -131,7 +131,7 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
         }
     }
 
-   
+    
     QString folder = _getPreDir(ID);
     QString filePath = dir.absoluteFilePath(
         QString("records/%1/%2/%2_leaves.txt").arg(folder).arg(ID)
@@ -159,6 +159,7 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
         file.close();
     }
 
+    
     if (balance) delete balance;
     if (leaveApp) delete leaveApp;
 }
