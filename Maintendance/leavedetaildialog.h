@@ -26,6 +26,8 @@ private slots:
     void on_approveButton_clicked();
 
     void on_rejectButton_clicked();
+signals:
+    void LeaveProcessed();
 
 private:
     Ui::LeaveDetailDialog *ui;

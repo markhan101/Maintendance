@@ -38,16 +38,38 @@ void LeaveDetailDialog::_displayLeaveInfo(PendingList row, QString ID)
 
 void LeaveDetailDialog::on_approveButton_clicked()
 {
+ if (!CurrentSup) {
+        QMessageBox::warning(this, "Error", "Supervisor not set");
+        return;
+    }
 
     QString AID = ui->appIDDisplayLabel->text();
-    CurrentSup->_approveOrRejectLeave(AID,true);
+    CurrentSup->_approveOrRejectLeave(AID, true);
+
+     CurrentSup->_removePendingLeave(AID);
+
+    QMessageBox::information(this, "Success", "Leave application approved.");
+
+    emit LeaveProcessed(); 
+    close(); 
 
 }
 
 
 void LeaveDetailDialog::on_rejectButton_clicked()
 {
-    QString ID = ui->empIDDisplayLabel->text();
-    CurrentSup->_approveOrRejectLeave(ID,false);
+   if (!CurrentSup) {
+        QMessageBox::warning(this, "Error", "Supervisor not set");
+        return;
+    }
+
+    QString AID = ui->appIDDisplayLabel->text();
+    CurrentSup->_approveOrRejectLeave(AID, false);
+    CurrentSup->_removePendingLeave(AID);
+
+    QMessageBox::information(this, "Success", "Leave application rejected.");
+
+    emit LeaveProcessed();
+    close();  
 }
 

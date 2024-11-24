@@ -87,7 +87,9 @@ void PendingLeavesTable::_onRowSelected(int row)
     LeaveDetailDialog leaveDetail(this);
     leaveDetail._setSup(currentSup);
     leaveDetail._displayLeaveInfo(pendingLeave, ID);
+    connect(&leaveDetail, &LeaveDetailDialog::LeaveProcessed, this, &PendingLeavesTable::_displayList);
     leaveDetail.exec();
+    
 
 }
 
