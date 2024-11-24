@@ -39,10 +39,8 @@ void LeaveDetailDialog::_displayLeaveInfo(PendingList row, QString ID)
 void LeaveDetailDialog::on_approveButton_clicked()
 {
 
-    QString ID = ui->empIDDisplayLabel->text();
-    qDebug() << ID;
-    //sup will call appove function with the id passed to him
-    CurrentSup->_approveOrRejectLeave(ID,true);
+    QString AID = ui->appIDDisplayLabel->text();
+    CurrentSup->_approveOrRejectLeave(AID,true);
 
 }
 

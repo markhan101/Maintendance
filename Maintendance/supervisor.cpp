@@ -43,8 +43,11 @@ QVector<PendingList> Supervisor::_getPendingList()
 }
 
 
-void Supervisor::_approveOrRejectLeave(QString ID, bool isApprove)
+void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove)
 {
+
+    QString ID = AID.split('_').first();
+
 
 
 }
