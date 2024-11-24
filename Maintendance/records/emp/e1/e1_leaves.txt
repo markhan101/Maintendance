@@ -2,5 +2,7 @@ e1_6638db61 - 2 - 2024/12/02 - 2024/12/09 - 8 - something big - pending
 e1_dc2eb8ec - 2 - 2024/11/25 - 2024/11/25 - 1 - something very big - approved
 e1_9b6d7985 - 2 - 2024/11/25 - 2024/11/25 - 1 - hello to the future - approved
 e1_2b960e63 - 2 - 2024/11/25 - 2024/11/25 - 1 - jane do please - approved
-e1_5abd6291 - 3 - 2024/11/26 - 2024/11/26 - 1 - kiya matlab paise nai millayain gaye - pending
+e1_5abd6291 - 3 - 2024/11/26 - 2024/11/26 - 1 - kiya matlab paise nai millayain gaye - rejected
 e1_828895f5 - 2 - 2024/11/28 - 2024/11/30 - 3 - sab ja rahe hain - rejected
+e1_2517e049 - 2 - 2024/11/25 - 2024/11/25 - 1 - jane do bhai, sab ja rahe hain - approved
+e1_24e08f31 - 2 - 2024/11/25 - 2024/11/25 - 1 - jfklas; - rejected
