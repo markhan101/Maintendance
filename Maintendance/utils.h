@@ -54,4 +54,5 @@ QString FolderSelection(QString);
 
 QString _getPosStr(int);
 
+
 #endif // UTILS_H

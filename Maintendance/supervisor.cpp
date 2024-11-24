@@ -42,3 +42,9 @@ QVector<PendingList> Supervisor::_getPendingList()
     return pendingList;
 }
 
+
+void Supervisor::_approveOrRejectLeave(QString ID, bool isApprove)
+{
+
+
+}

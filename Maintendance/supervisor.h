@@ -17,6 +17,8 @@ public:
 
     QVector<PendingList>_getPendingList();
 
+    void _approveOrRejectLeave(QString, bool);
+
 
 
 private:

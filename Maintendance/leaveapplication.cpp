@@ -62,7 +62,7 @@ QVector<LeaveRecord>* LeaveApplication::_readApprovedApplication(QString id) {
     
     QString Folder = FolderSelection(id);
     QString filePath = dir.absoluteFilePath(
-        QString("records/%1/%2/%2_leave.txt").arg(Folder).arg(id)
+        QString("records/%1/%2/%2_leaves.txt").arg(Folder).arg(id)
     );
 
     QFile file(filePath);
@@ -118,7 +118,7 @@ QVector<LeaveRecord>* LeaveApplication::_readRejectedApplication(QString id)
     
     QString Folder = FolderSelection(id);
     QString filePath = dir.absoluteFilePath(
-        QString("records/%1/%2/%2_leave.txt").arg(Folder).arg(id)
+        QString("records/%1/%2/%2_leaves.txt").arg(Folder).arg(id)
     );
 
     QFile file(filePath);
@@ -192,7 +192,7 @@ bool LeaveApplication::handleOtherLeaveTypes(LeaveTypes type, int daysRequested)
        
         
         QString filePath = dir.absoluteFilePath(
-            QString("records/%1/%2/leaves/%3.txt").arg(Folder).arg(ID).arg(AID)
+            QString("records/%1/%2/%2_leaves.txt").arg(Folder).arg(ID)
         );
 
         QFile file(filePath);
@@ -242,12 +242,15 @@ bool LeaveApplication::handleCasualShortLeave()
         status = "approved";
         
         QString filePath = dir.absoluteFilePath(
-            QString("records/%1/%2/leaves/%3.txt").arg(Folder).arg(ID).arg(AID)
+            QString("records/%1/%2/%2_leaves.txt").arg(Folder).arg(ID)
         );
 
         QFile file(filePath);
 
-        file.open(QIODevice::Append | QIODevice::Text);
+        if(!file.open(QIODevice::Append | QIODevice::Text))
+        {
+            qDebug() << "ERROR shit cant be opened!";
+        }
 
         QTextStream out(&file);
         out << AID << " - ";

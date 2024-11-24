@@ -37,50 +37,55 @@ QString _generateApplicationID(QString ID)
     return applicationID;
 }
 
-LeaveRecord _getRecord(QString AID)
-{
-    LeaveRecord record;
-
-
-    QString baseDir = QCoreApplication::applicationDirPath();
-    QDir dir(baseDir);
-    dir.cd("../../..");
-
-    QString ID = AID.split('_').first();
-    QString Folder = FolderSelection(ID);
-
-
-    QString filePath = dir.absoluteFilePath(
-        QString("records/%1/%2/leaves/%3.txt").arg(Folder).arg(ID).arg(AID)
-        );
-
-    QFile file(filePath);
-
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    LeaveRecord _getRecord(QString AID)
     {
-        qWarning() << "Failed to open file:" << filePath;
-        return record;  // Return an empty record in case of failure
+        LeaveRecord record;
+
+
+        QString baseDir = QCoreApplication::applicationDirPath();
+        QDir dir(baseDir);
+        dir.cd("../../..");
+
+        QString ID = AID.split('_').first();
+        QString Folder = FolderSelection(ID);
+
+
+        QString filePath = dir.absoluteFilePath(
+            QString("records/%1/%2/%2_leaves.txt").arg(Folder).arg(ID)
+            );
+
+        QFile file(filePath);
+
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            qWarning() << "Failed to open file:" << filePath;
+            return record;  // Return an empty record in case of failure
+        }
+
+
+
+        QTextStream in(&file);
+
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            QStringList fields = line.split(" - ");
+
+            if (fields.size() == 7 && fields[0] == AID)
+            {
+                record.ID = fields[0];
+                record.leaveType = fields[1];
+                record.fromDate = fields[2];
+                record.toDate = fields[3];
+                record.days = fields[4];
+                record.reason = fields[5];
+                record.status = fields[6];
+                break;
+            }
+        }
+
+        file.close();
+        return record;
     }
-
-
-    QTextStream in(&file);
-    QString line = in.readLine();
-
-    QStringList fields = line.split(" - ");
-    if (fields.size() == 7)
-    {
-        record.ID = fields[0];
-        record.leaveType = fields[1];
-        record.fromDate = fields[2];
-        record.toDate = fields[3];
-        record.days = fields[4];
-        record.reason = fields[5];
-        record.status = fields[6];
-    }
-
-    file.close();
-    return record;
-}
 
 
 QString FolderSelection(QString id)

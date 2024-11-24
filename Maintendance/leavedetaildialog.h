@@ -22,6 +22,11 @@ public:
 
     void _displayLeaveInfo(PendingList, QString ID);
 
+private slots:
+    void on_approveButton_clicked();
+
+    void on_rejectButton_clicked();
+
 private:
     Ui::LeaveDetailDialog *ui;
     Supervisor *CurrentSup;

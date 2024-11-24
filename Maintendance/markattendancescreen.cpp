@@ -195,7 +195,8 @@ void MarkAttendanceScreen::on_MarkAbsent_clicked()
         }
         leaveFile.close();
 
-        if (hasApprovedLeave) {
+        if (hasApprovedLeave)
+        {
             QMessageBox::warning(this, "Leave Approved", 
                 "Employee has an approved leave on this date.");
             return;
