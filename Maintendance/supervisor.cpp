@@ -71,10 +71,10 @@ QVector<PendingList> Supervisor::_getPendingList() {
 void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
     QString ID = AID.split('_').first();
     
-    // 1. Get the leave record using the utility function
+    
     LeaveRecord record = _getRecord(AID);
     
-    // 2. Create a LeaveApplication instance with the record details
+    
     LeaveTypes type;
     if (record.leaveType == "0") type = LeaveTypes::Casual;
     else if (record.leaveType == "1") type = LeaveTypes::Earned;
@@ -129,7 +129,7 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
         }
     }
 
-    // Update the leave record in employee's file
+   
     QString folder = _getPreDir(ID);
     QString filePath = dir.absoluteFilePath(
         QString("records/%1/%2/%2_leaves.txt").arg(folder).arg(ID)

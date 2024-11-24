@@ -76,7 +76,7 @@ void PendingLeavesTable::_onRowSelected(int row)
     QString selectedAID = ui->pendingLeaveTable->item(row, 1)->text();
     QString selectedDate = ui->pendingLeaveTable->item(row, 2)->text();
 
-    // Create a PendingList object
+    
     PendingList pendingLeave;
     pendingLeave.AID = selectedAID;
     pendingLeave.date = selectedDate;
