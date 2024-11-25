@@ -12,33 +12,33 @@ struct PendingList
 class Supervisor : public Employee
 {
 public:
-    Supervisor(QString, QString, Position, AttendanceLog*, LeaveBalance*, bool);
+    Supervisor(QString, QString, Position, AttendanceLog *, LeaveBalance *, bool);
     virtual ~Supervisor();
 
-    virtual QVector<PendingList>_getPendingList();
+    virtual QVector<PendingList> _getPendingList();
 
     virtual void _approveOrRejectLeave(QString, bool);
-    void _removePendingLeave(QString& AID){
-        for (int i = 0; i < pendingList.size(); ++i) {
-            if (pendingList[i].AID == AID) {
-                    pendingList.remove(i);
-                    break;
-                }
+    void _removePendingLeave(QString &AID)
+    {
+        for (int i = 0; i < pendingList.size(); ++i)
+        {
+            if (pendingList[i].AID == AID)
+            {
+                pendingList.remove(i);
+                break;
+            }
         }
-
     }
-    virtual void addtofile(const LeaveRecord& record, bool isApproved);
+    virtual void addtofile(const LeaveRecord &record, bool isApproved);
+    void _updateAttendanceForLeave(const QString &ID, LeaveTypes type, const QDate &fromDate, const QDate &toDate);
 
     virtual bool isDirector()
     {
         return false;
     }
 
-
-
-
 private:
-    AttendanceLog* log;
+    AttendanceLog *log;
     QVector<PendingList> pendingList;
 };
 
