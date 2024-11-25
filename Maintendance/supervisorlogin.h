@@ -6,6 +6,7 @@
 #include "supervisor.h"
 #include "empattbysupdialogbox.h"
 #include "pendingleavestable.h"
+#include "director.h"
 
 namespace Ui {
 class SupervisorLogin;
@@ -19,6 +20,8 @@ public:
     explicit SupervisorLogin(QWidget *parent = nullptr);
     ~SupervisorLogin();
     void _setCurrentSup(Supervisor*);
+    void _setCurrentDir(Director *);
+    void _toggleButtons();
 
 private slots:
     void on_logOutButton_clicked();
@@ -32,6 +35,7 @@ private slots:
 private:
     Ui::SupervisorLogin *ui;
     Supervisor * currentSup;
+    Director * currentDir;
 
 
 signals:

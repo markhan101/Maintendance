@@ -3,7 +3,7 @@
 
 PendingLeavesTable::PendingLeavesTable(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::PendingLeavesTable)
+    , ui(new Ui::PendingLeavesTable), currentSup(nullptr), currentDir(nullptr)
 {
     ui->setupUi(this);
 }
@@ -18,6 +18,12 @@ void PendingLeavesTable::_setSup(Supervisor * sup)
     currentSup = sup;
 }
 
+void PendingLeavesTable::_setDir(Director * dir)
+{
+    currentDir = dir;
+}
+
+
 
 
 void PendingLeavesTable::_displayList()
@@ -26,8 +32,12 @@ void PendingLeavesTable::_displayList()
     ui->pendingLeaveTable->clearContents();
     ui->pendingLeaveTable->setRowCount(0);
 
+    QVector<PendingList> pendingLeaves;
+    if(currentDir)
+    pendingLeaves = currentDir->_getPendingList();
+    else
+    pendingLeaves = currentSup->_getPendingList();
 
-    QVector<PendingList> pendingLeaves = currentSup->_getPendingList();
     ui->pendingLeaveTable->setRowCount(pendingLeaves.size());
 
     for (int row = 0; row < pendingLeaves.size(); ++row)
@@ -70,28 +80,39 @@ void PendingLeavesTable::_displayList()
 
 void PendingLeavesTable::_onRowSelected(int row)
 {
-    //open a new dialog box do somme
-    //modify the vector stored in the supervisor class
-
+    // Retrieve selected leave information from the table
     QString selectedAID = ui->pendingLeaveTable->item(row, 1)->text();
     QString selectedDate = ui->pendingLeaveTable->item(row, 2)->text();
 
-    
+    // Store the selected leave in a PendingList structure
     PendingList pendingLeave;
     pendingLeave.AID = selectedAID;
     pendingLeave.date = selectedDate;
 
-    QString ID = selectedAID.split('_').first();
+    QString ID = selectedAID.split('_').first();  // Extract the ID from AID
 
+    LeaveDetailDialog leaveDetail(this);  // Create the leave detail dialog
 
-    LeaveDetailDialog leaveDetail(this);
-    leaveDetail._setSup(currentSup);
+    // Set either the supervisor or director in the leave detail dialog
+    if (currentSup)
+    {
+        leaveDetail._setSup(currentSup);  // Set the supervisor
+    }
+    else if (currentDir)
+    {
+        leaveDetail._setDir(currentDir);  // Set the director
+    }
+
+    // Display the leave information in the dialog
     leaveDetail._displayLeaveInfo(pendingLeave, ID);
-    connect(&leaveDetail, &LeaveDetailDialog::LeaveProcessed, this, &PendingLeavesTable::_displayList);
-    leaveDetail.exec();
-    
 
+    // Connect the LeaveProcessed signal to refresh the pending leave list after action
+    connect(&leaveDetail, &LeaveDetailDialog::LeaveProcessed, this, &PendingLeavesTable::_displayList);
+
+    // Show the dialog modally
+    leaveDetail.exec();
 }
+
 
 
 

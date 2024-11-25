@@ -165,7 +165,7 @@ void MarkAttendanceScreen::on_MarkAbsent_clicked()
     dir.cd("../../..");
 
     QString preDir = _getPreDir(id);
-    QString leaveFilePath = dir.absoluteFilePath("records/" + preDir + "/" + id + "/" + id + "_leave.txt");
+    QString leaveFilePath = dir.absoluteFilePath("records/" + preDir + "/" + id + "/" + id + "_leaves.txt");
 
     
     QFile leaveFile(leaveFilePath);

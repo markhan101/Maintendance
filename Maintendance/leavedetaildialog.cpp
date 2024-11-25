@@ -3,7 +3,7 @@
 
 LeaveDetailDialog::LeaveDetailDialog(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::LeaveDetailDialog)
+    , ui(new Ui::LeaveDetailDialog), currentSup(nullptr),currentDir(nullptr)
 {
     ui->setupUi(this);
 
@@ -14,9 +14,14 @@ LeaveDetailDialog::~LeaveDetailDialog()
     delete ui;
 }
 
-void LeaveDetailDialog::_setSup(Supervisor * sup)
-{
-    CurrentSup = sup;
+void LeaveDetailDialog::_setSup(Supervisor * sup) {
+    qDebug() << "Setting Supervisor: " << sup;
+    currentSup = sup;
+}
+
+void LeaveDetailDialog::_setDir(Director * dir) {
+    qDebug() << "Setting Director: " << dir;
+    currentDir = dir;
 }
 
 
@@ -38,34 +43,52 @@ void LeaveDetailDialog::_displayLeaveInfo(PendingList row, QString ID)
 
 void LeaveDetailDialog::on_approveButton_clicked()
 {
- if (!CurrentSup) {
-        QMessageBox::warning(this, "Error", "Supervisor not set");
+    QString AID = ui->appIDDisplayLabel->text();
+
+    if (currentSup)
+    {
+        currentSup->_approveOrRejectLeave(AID, true);  // Approve leave as Supervisor
+        currentSup->_removePendingLeave(AID);          // Remove from pending list
+    }
+    else if (currentDir)
+    {
+        currentDir->_approveOrRejectLeave(AID, true);  // Approve leave as Director
+        currentDir->_removePendingLeave(AID);          // Remove from pending list
+    }
+    else
+    {
+        QMessageBox::warning(this, "Error", "Neither Supervisor nor Director is set");
         return;
     }
 
-    QString AID = ui->appIDDisplayLabel->text();
-    CurrentSup->_approveOrRejectLeave(AID, true);
-
-     CurrentSup->_removePendingLeave(AID);
-
+    // Display success message and emit signal
     QMessageBox::information(this, "Success", "Leave application approved.");
-
-    emit LeaveProcessed(); 
-    close(); 
-
+    emit LeaveProcessed();  // Signal to update any lists/tables
+    this->close();  // Close the dialog
 }
+
 
 
 void LeaveDetailDialog::on_rejectButton_clicked()
 {
-   if (!CurrentSup) {
-        QMessageBox::warning(this, "Error", "Supervisor not set");
+    QString AID = ui->appIDDisplayLabel->text();
+    if (currentSup)
+    {
+        currentSup->_approveOrRejectLeave(AID, false);
+        currentSup->_removePendingLeave(AID);
+    }
+    else if (currentDir)
+    {
+        currentDir->_approveOrRejectLeave(AID, false);
+        currentDir->_removePendingLeave(AID);
+    }
+    else
+    {
+        QMessageBox::warning(this, "Error", "Neither Supervisor nor Director is set");
         return;
     }
 
-    QString AID = ui->appIDDisplayLabel->text();
-    CurrentSup->_approveOrRejectLeave(AID, false);
-    CurrentSup->_removePendingLeave(AID);
+
 
     QMessageBox::information(this, "Success", "Leave application rejected.");
 
