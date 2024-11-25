@@ -28,6 +28,8 @@ public:
 
     }
     void addtofile(const LeaveRecord& record, bool isApproved);
+    void _updateAttendanceForLeave(const QString& ID, LeaveTypes type, const QDate& fromDate, const QDate& toDate);
+
 
 
 

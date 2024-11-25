@@ -98,6 +98,9 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
         );
 
         balance->_updateLeaveBalance(type, record.days.toInt(), record.reason);
+        QDate fromDate = QDate::fromString(record.fromDate, "yyyy/MM/dd");
+        QDate toDate = QDate::fromString(record.toDate, "yyyy/MM/dd");
+        _updateAttendanceForLeave(ID, type, fromDate, toDate);
 
     }
 
@@ -187,6 +190,53 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove) {
     if (leaveApp) delete leaveApp;
 }
 
+
+void Supervisor::_updateAttendanceForLeave(const QString& ID, LeaveTypes type, const QDate& fromDate, const QDate& toDate) {
+    QString baseDir = QCoreApplication::applicationDirPath();
+    QDir dir(baseDir);
+    dir.cd("../../..");
+    
+    QString folder = _getPreDir(ID);
+    QString filePath = dir.absoluteFilePath(
+        QString("records/%1/%2/%2_attendancelogs.txt").arg(folder).arg(ID)
+    );
+    
+    QFile file(filePath);
+    if (!file.open(QIODevice::Append | QIODevice::Text)) {
+        qDebug() << "Could not open attendance log file:" << filePath;
+        return;
+    }
+
+    QTextStream out(&file);
+    QDate currentDate = fromDate;
+    
+    while (currentDate <= toDate) {
+        QString dayStr = _getDayStr(currentDate.dayOfWeek());
+        QString dateStr = currentDate.toString("yyyy/MM/dd");
+        
+        switch(type) {
+            case LeaveTypes::Casual:
+                // Present but no hours
+                out << dayStr << " - " << dateStr << " - " << "1" << " - " << "0" << "\n";
+                break;
+                
+            case LeaveTypes::Earned:
+            case LeaveTypes::Official:
+                            // Present with 8 hours
+                out << dayStr << " - " << dateStr << " - " << "1" << " - " << "8" << "\n";
+                break;
+                
+            case LeaveTypes::Unpaid:
+                // Marked as UL with no hours
+                out << dayStr << " - " << dateStr << " - " << "UL" << " - " << "0" << "\n";
+                break;
+        }
+        
+        currentDate = currentDate.addDays(1);
+    }
+    
+    file.close();
+}
 
 void Supervisor::addtofile(const LeaveRecord& record, bool isApproved) {
     QString baseDir = QCoreApplication::applicationDirPath();

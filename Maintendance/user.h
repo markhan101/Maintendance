@@ -14,6 +14,8 @@ public:
     QString _get_uID();
     void _set_uName(const QString name);
     QString _get_uName() const;
+    
+
 
 };
 

@@ -54,5 +54,7 @@ QString FolderSelection(QString);
 
 QString _getPosStr(int);
 
+QString _getDayStr(int dayOfWeek);
+
 
 #endif // UTILS_H
