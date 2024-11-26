@@ -3,12 +3,6 @@
 
 #include "employee.h"
 
-struct PendingList
-{
-    QString AID;
-    QString date;
-};
-
 class Supervisor : public Employee
 {
 public:

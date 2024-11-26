@@ -19,6 +19,11 @@ void LeaveDetailDialog::_setSup(Supervisor * sup)
     CurrentSup = sup;
 }
 
+void LeaveDetailDialog::_setDir(Director *dir)
+{
+    currentDir = dir;
+}
+
 
 void LeaveDetailDialog::_displayLeaveInfo(PendingList row, QString ID)
 {
@@ -38,18 +43,25 @@ void LeaveDetailDialog::_displayLeaveInfo(PendingList row, QString ID)
 
 void LeaveDetailDialog::on_approveButton_clicked()
 {
- if (!CurrentSup) {
-        QMessageBox::warning(this, "Error", "Supervisor not set");
+
+    QString AID = ui->appIDDisplayLabel->text();
+    if (CurrentSup)
+    {
+        CurrentSup->_approveOrRejectLeave(AID, true);
+        CurrentSup->_removePendingLeave(AID);
+    }
+    else if(currentDir)
+    {
+        currentDir->_approveOrRejectLeave(AID,true);
+        currentDir->_removePendingLeave(AID);
+    }
+    else
+    {
+        QMessageBox::warning(this,"Pointer Error", "Supervisor or Director pointer not set.");
         return;
     }
 
-    QString AID = ui->appIDDisplayLabel->text();
-    CurrentSup->_approveOrRejectLeave(AID, true);
-
-     CurrentSup->_removePendingLeave(AID);
-
     QMessageBox::information(this, "Success", "Leave application approved.");
-
     emit LeaveProcessed(); 
     close(); 
 
@@ -58,17 +70,25 @@ void LeaveDetailDialog::on_approveButton_clicked()
 
 void LeaveDetailDialog::on_rejectButton_clicked()
 {
-   if (!CurrentSup) {
-        QMessageBox::warning(this, "Error", "Supervisor not set");
+
+    QString AID = ui->appIDDisplayLabel->text();
+    if (CurrentSup)
+    {
+        CurrentSup->_approveOrRejectLeave(AID, false);
+        CurrentSup->_removePendingLeave(AID);
+    }
+    else if(currentDir)
+    {
+        currentDir->_approveOrRejectLeave(AID,false);
+        currentDir->_removePendingLeave(AID);
+    }
+    else
+    {
+        QMessageBox::warning(this,"Pointer Error", "Supervisor or Director pointer not set.");
         return;
     }
 
-    QString AID = ui->appIDDisplayLabel->text();
-    CurrentSup->_approveOrRejectLeave(AID, false);
-    CurrentSup->_removePendingLeave(AID);
-
     QMessageBox::information(this, "Success", "Leave application rejected.");
-
     emit LeaveProcessed();
     close();  
 }

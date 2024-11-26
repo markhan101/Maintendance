@@ -1,6 +1,4 @@
 #include "director.h"
-
-#include "Director.h"
 #include "leaveapplication.h"
 #include "utils.h"
 
@@ -11,7 +9,7 @@ Director::Director(QString ID, QString name, Position pos, AttendanceLog* att_lo
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
     dir.cd("../../..");
-    QString sfilePath = dir.absoluteFilePath("records/Director/s1/s1_pending.txt");
+    QString sfilePath = dir.absoluteFilePath("records/Director/d1/d1_pending.txt");
     QFile sFile(sfilePath);
     if (!sFile.open(QIODevice::ReadOnly))
     {
@@ -41,33 +39,9 @@ Director::~Director()
 }
 
 
-QVector<PendingList> Director::_getPendingList() {
-    pendingList.clear();
-
-    QString baseDir = QCoreApplication::applicationDirPath();
-    QDir dir(baseDir);
-    dir.cd("../../..");
-
-    QString sPendingPath = dir.absoluteFilePath("records/Director/s1/s1_pending.txt");
-    QFile sFile(sPendingPath);
-
-    if (sFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QTextStream in(&sFile);
-        while (!in.atEnd()) {
-            QString line = in.readLine();
-            QStringList parts = line.split(" - ");
-
-            if (parts.size() >= 2) {
-                PendingList pending;
-                pending.AID = parts[0].trimmed();
-                pending.date = parts[1].trimmed();
-                pendingList.push_back(pending);
-            }
-        }
-        sFile.close();
-    }
-
-    return pendingList;
+QVector<PendingList> Director::_getPendingList()
+{
+    return this->pendingList;
 }
 
 void Director::_approveOrRejectLeave(QString AID, bool isApprove) {
@@ -102,15 +76,6 @@ void Director::_approveOrRejectLeave(QString AID, bool isApprove) {
         balance->_updateLeaveBalance(type, record.days.toInt(), record.reason);
 
     }
-
-
-
-
-
-
-
-
-
 
     addtofile(record, isApprove);
 
@@ -182,7 +147,7 @@ void Director::addtofile(const LeaveRecord& record, bool isApproved) {
 
     QString statusFileName = isApproved ? "approved.txt" : "rejected.txt";
     QString filePath = dir.absoluteFilePath(
-        QString("records/Director/s1/s1_%1").arg(statusFileName)
+        QString("records/director/d1/d1_%1").arg(statusFileName)
         );
 
     QFile file(filePath);

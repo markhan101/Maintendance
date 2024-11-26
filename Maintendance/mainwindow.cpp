@@ -39,6 +39,7 @@ void MainWindow::_showLoginDialog()
                     return;
                 case Position::director:
                     _setupDirectorUI(userID);//needed to be done
+                    return;
                 default:
                     QMessageBox::critical(this, "Error", "Invalid user role!");
                    
@@ -96,7 +97,19 @@ void MainWindow::_setupSupervisorUI(QString id)
     supervisorLogin->show();
 }
 
-void MainWindow::_setupDirectorUI(QString id){
+void MainWindow::_setupDirectorUI(QString id)
+{
+    directorLogin = new DirectorLogin(this);
+
+    AttendanceLog* attLog = new AttendanceLog();
+    LeaveBalance* leaveBalance = new LeaveBalance(id);
+
+    Director* newDir = new Director(id, "random", Position::director, attLog, leaveBalance);
+    directorLogin->_setDirector(newDir);
+
+    //connect(supervisorLogin, &SupervisorLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
+    connect(directorLogin, &DirectorLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
+    directorLogin->show();
 
 }
 
@@ -121,6 +134,12 @@ void MainWindow::_handleEmitLogout()
         supervisorLogin->close();
         delete supervisorLogin;
         supervisorLogin = nullptr;
+    }
+    else if(directorLogin)
+    {
+        directorLogin->close();
+        delete directorLogin;
+        directorLogin = nullptr;
     }
 
     _showLoginDialog();

@@ -5,6 +5,7 @@
 #include <QDialog>
 
 #include "supervisor.h"
+#include "director.h"
 #include "leaveapplication.h"
 
 namespace Ui {
@@ -19,6 +20,7 @@ public:
     explicit LeaveDetailDialog(QWidget *parent = nullptr);
     ~LeaveDetailDialog();
     void _setSup(Supervisor* sup);
+    void _setDir(Director *dir);
 
     void _displayLeaveInfo(PendingList, QString ID);
 
@@ -32,6 +34,7 @@ signals:
 private:
     Ui::LeaveDetailDialog *ui;
     Supervisor *CurrentSup;
+    Director * currentDir;
 };
 
 #endif // LEAVEDETAILDIALOG_H

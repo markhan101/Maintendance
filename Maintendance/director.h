@@ -3,11 +3,7 @@
 
 #include "employee.h"
 
-struct PendingList
-{
-    QString AID;
-    QString date;
-};
+
 
 class Director : public Employee
 {

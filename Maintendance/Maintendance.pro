@@ -12,6 +12,7 @@ SOURCES += \
     attendanceentry.cpp \
     attendancelog.cpp \
     director.cpp \
+    directorlogin.cpp \
     empattbysupdialogbox.cpp \
     employee.cpp \
     generalemployeelogin.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     attendanceentry.h \
     attendancelog.h \
     director.h \
+    directorlogin.h \
     empattbysupdialogbox.h \
     employee.h \
     generalemployeelogin.h \
@@ -57,6 +59,7 @@ HEADERS += \
     viewattendance.h
 
 FORMS += \
+    directorlogin.ui \
     empattbysupdialogbox.ui \
     generalemployeelogin.ui \
     guardlogin.ui \

@@ -5,6 +5,7 @@
 #include <QDialog>
 
 #include "supervisor.h"
+#include "director.h"
 #include "leavedetaildialog.h"
 
 namespace Ui {
@@ -20,12 +21,14 @@ public:
     ~PendingLeavesTable();
 
     void _setSup(Supervisor *);
+    void _setDir(Director *);
     void _displayList();
     void _onRowSelected(int row);
 
 private:
     Ui::PendingLeavesTable *ui;
     Supervisor * currentSup;
+    Director * currentDir;
 
 
 };

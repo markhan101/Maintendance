@@ -37,6 +37,12 @@ struct LeaveRecord
     QString status;
 };
 
+struct PendingList
+{
+    QString AID;
+    QString date;
+};
+
 
 
 

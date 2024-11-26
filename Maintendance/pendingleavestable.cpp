@@ -3,7 +3,7 @@
 
 PendingLeavesTable::PendingLeavesTable(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::PendingLeavesTable)
+    , ui(new Ui::PendingLeavesTable),currentSup(nullptr), currentDir(nullptr)
 {
     ui->setupUi(this);
 }
@@ -17,6 +17,10 @@ void PendingLeavesTable::_setSup(Supervisor * sup)
 {
     currentSup = sup;
 }
+void PendingLeavesTable::_setDir(Director* dir)
+{
+    currentDir = dir;
+}
 
 
 
@@ -27,7 +31,12 @@ void PendingLeavesTable::_displayList()
     ui->pendingLeaveTable->setRowCount(0);
 
 
-    QVector<PendingList> pendingLeaves = currentSup->_getPendingList();
+    QVector<PendingList> pendingLeaves ;
+    if(currentSup)
+       pendingLeaves =  currentSup->_getPendingList();
+    else if (currentDir)
+        pendingLeaves = currentDir->_getPendingList();
+
     ui->pendingLeaveTable->setRowCount(pendingLeaves.size());
 
     for (int row = 0; row < pendingLeaves.size(); ++row)
@@ -85,7 +94,10 @@ void PendingLeavesTable::_onRowSelected(int row)
 
 
     LeaveDetailDialog leaveDetail(this);
-    leaveDetail._setSup(currentSup);
+    if(currentSup)
+        leaveDetail._setSup(currentSup);
+    else if (currentDir)
+        leaveDetail._setDir(currentDir);
     leaveDetail._displayLeaveInfo(pendingLeave, ID);
     connect(&leaveDetail, &LeaveDetailDialog::LeaveProcessed, this, &PendingLeavesTable::_displayList);
     leaveDetail.exec();
