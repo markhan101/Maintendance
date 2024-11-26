@@ -28,6 +28,7 @@ void GeneralEmployeeLogin::_setEmployee(Employee* emp)
 void GeneralEmployeeLogin::on_viewAttendanceButton_clicked()
 {
     if (generalEmp) {
+        displayAttendancePercentages();
         ViewAttendance viewAttendance (this);
         viewAttendance._setEmployee(generalEmp);
         viewAttendance._displayList();

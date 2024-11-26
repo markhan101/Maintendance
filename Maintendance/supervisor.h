@@ -17,7 +17,7 @@ public:
 
     virtual QVector<PendingList> _getPendingList();
 
-    virtual void _approveOrRejectLeave(QString, bool);
+   virtual void _approveOrRejectLeave(QString AID, bool isApprove);
     void _removePendingLeave(QString &AID)
     {
         for (int i = 0; i < pendingList.size(); ++i)
@@ -31,11 +31,13 @@ public:
     }
     virtual void addtofile(const LeaveRecord &record, bool isApproved);
     void _updateAttendanceForLeave(const QString &ID, LeaveTypes type, const QDate &fromDate, const QDate &toDate);
+    void _updateEmployeeLeaveStatus(const QString& ID, const QString& AID, bool isApproved);
 
     virtual bool isDirector()
     {
         return false;
     }
+    
 
 private:
     AttendanceLog *log;

@@ -11,7 +11,7 @@ public:
 
     QVector<PendingList>_getPendingList();
 
-    void _approveOrRejectLeave(QString, bool);
+    virtual void _approveOrRejectLeave(QString AID, bool isApprove) override;
     void addtofile(const LeaveRecord& record, bool isApproved);
 
     bool isDirector()

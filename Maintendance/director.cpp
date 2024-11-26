@@ -102,6 +102,8 @@ QVector<PendingList> Director::_getPendingList()
 // Override _approveOrRejectLeave for Director
 void Director::_approveOrRejectLeave(QString AID, bool isApprove)
 {
+    QString ID = AID.split('_').first();
+    LeaveRecord record = _getRecord(AID);
     // Custom logic for Director's approval/rejection, if any
     // Or call Supervisor's version if Director shares the same logic
     Supervisor::_approveOrRejectLeave(AID, isApprove);
