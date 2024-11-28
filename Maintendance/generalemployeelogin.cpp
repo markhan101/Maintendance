@@ -32,7 +32,7 @@ void GeneralEmployeeLogin::on_viewAttendanceButton_clicked()
         viewAttendance._setEmployee(generalEmp);
         viewAttendance._displayList();
         viewAttendance.exec();
-          displayAttendancePercentages();
+        
     } else {
         qDebug() << "Error GuardLogin has no currentGuard set";
     }
