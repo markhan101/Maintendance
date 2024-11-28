@@ -38,6 +38,7 @@ public:
     virtual void _getLeaveBalance();
     LeaveBalance* getLeaveBalance() const { return leaveBalance; }
 
+
 };
 
 #endif // EMPLOYEE_H

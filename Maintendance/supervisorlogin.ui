@@ -39,19 +39,6 @@
     <string>View Attendance</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="viewLeaveDetailsButton">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>380</y>
-     <width>180</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>View Leave Details</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="viewAbsenteeRecordsButton">
    <property name="geometry">
     <rect>
@@ -81,7 +68,7 @@
   <widget class="QPushButton" name="approveRejectLeaveButton">
    <property name="geometry">
     <rect>
-     <x>360</x>
+     <x>590</x>
      <y>460</y>
      <width>180</width>
      <height>50</height>

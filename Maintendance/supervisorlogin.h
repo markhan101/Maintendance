@@ -29,6 +29,10 @@ private slots:
 
     void on_approveRejectLeaveButton_clicked();
 
+
+
+    void on_viewAbsenteeRecordsButton_clicked();
+
 private:
     Ui::SupervisorLogin *ui;
     Supervisor * currentSup;

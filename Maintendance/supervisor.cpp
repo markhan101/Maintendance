@@ -228,13 +228,15 @@ void Supervisor::_updateAttendanceForLeave(const QString& ID, LeaveTypes type, c
         {
             case LeaveTypes::Casual:
             // Casual leave: present but no hours logged
-            out << dayStr << " - " << dateStr << " - " << "1" << " - " << "0" << "\n";
+            out << dayStr << " - " << dateStr << " - " << "CL" << " - " << "0" << "\n";
             break;
 
             case LeaveTypes::Earned:
+                out << dayStr << " - " << dateStr << " - " << "EL" << " - " << "8" << "\n";
+                break;
             case LeaveTypes::Official:
             // Earned/Official leave: present with full 8 hours logged
-            out << dayStr << " - " << dateStr << " - " << "1" << " - " << "8" << "\n";
+            out << dayStr << " - " << dateStr << " - " << "OL" << " - " << "8" << "\n";
             break;
 
             case LeaveTypes::Unpaid:

@@ -3,27 +3,6 @@
 Employee::Employee(QString id, QString name, Position position, AttendanceLog* attlog, LeaveBalance* leaveb)
     : User(id, name), pos(position), attLog(attlog), leaveBalance(leaveb)
 {
-}
-
-
-
-Employee::~Employee()
-{
-    delete attLog;
-    delete leaveBalance;
-}
-
-
-
-void Employee::_applyForLeave() {
-    // Logic for applying for leave
-}
-//std::vector<QString> Employee::_viewAttendance(QString uID) {
-    // Logic for viewing attendance
-//}
-
-
-AttendanceLog* Employee::_viewAttendance( ) {
     attLog = new AttendanceLog();
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
@@ -45,8 +24,6 @@ AttendanceLog* Employee::_viewAttendance( ) {
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         qDebug() << "ERRORRRRR.";
-        return attLog;
-
     }
     QTextStream in(&file);
     while (!in.atEnd())
@@ -71,6 +48,28 @@ AttendanceLog* Employee::_viewAttendance( ) {
     qDebug() << attLog;
 
     file.close();
+}
+
+
+
+Employee::~Employee()
+{
+    delete attLog;
+    delete leaveBalance;
+}
+
+
+
+void Employee::_applyForLeave() {
+    // Logic for applying for leave
+}
+//std::vector<QString> Employee::_viewAttendance(QString uID) {
+    // Logic for viewing attendance
+//}
+
+
+AttendanceLog* Employee::_viewAttendance( ) {
+
     return attLog;
 }
 

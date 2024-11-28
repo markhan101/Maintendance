@@ -59,3 +59,12 @@ void SupervisorLogin::on_approveRejectLeaveButton_clicked()
     leavesTable.exec();
 }
 
+
+
+
+
+void SupervisorLogin::on_viewAbsenteeRecordsButton_clicked()
+{
+    //Table will be displayed with all the emps with less attendance
+}
+
