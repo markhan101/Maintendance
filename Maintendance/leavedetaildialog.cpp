@@ -40,11 +40,10 @@ void LeaveDetailDialog::_displayLeaveInfo(PendingList row, QString ID)
 
 }
 
-
 void LeaveDetailDialog::on_approveButton_clicked()
 {
-
     QString AID = ui->appIDDisplayLabel->text();
+
     if (CurrentSup)
     {
         CurrentSup->_approveOrRejectLeave(AID, true);
@@ -52,26 +51,24 @@ void LeaveDetailDialog::on_approveButton_clicked()
     }
     else if(currentDir)
     {
-        currentDir->_approveOrRejectLeave(AID,true);
+        currentDir->_approveOrRejectLeave(AID, true);
         currentDir->_removePendingLeave(AID);
     }
     else
     {
-        QMessageBox::warning(this,"Pointer Error", "Supervisor or Director pointer not set.");
+        QMessageBox::warning(this, "Pointer Error", "Supervisor or Director pointer not set.");
         return;
     }
 
     QMessageBox::information(this, "Success", "Leave application approved.");
-    emit LeaveProcessed(); 
-    close(); 
-
+    emit LeaveProcessed();
+    hide();  // Hide instead of close
 }
-
 
 void LeaveDetailDialog::on_rejectButton_clicked()
 {
-
     QString AID = ui->appIDDisplayLabel->text();
+
     if (CurrentSup)
     {
         CurrentSup->_approveOrRejectLeave(AID, false);
@@ -79,17 +76,16 @@ void LeaveDetailDialog::on_rejectButton_clicked()
     }
     else if(currentDir)
     {
-        currentDir->_approveOrRejectLeave(AID,false);
+        currentDir->_approveOrRejectLeave(AID, false);
         currentDir->_removePendingLeave(AID);
     }
     else
     {
-        QMessageBox::warning(this,"Pointer Error", "Supervisor or Director pointer not set.");
+        QMessageBox::warning(this, "Pointer Error", "Supervisor or Director pointer not set.");
         return;
     }
 
     QMessageBox::information(this, "Success", "Leave application rejected.");
     emit LeaveProcessed();
-    close();  
+    hide();  // Hide instead of close
 }
-

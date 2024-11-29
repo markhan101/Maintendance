@@ -3,7 +3,10 @@
 
 PendingLeavesTable::PendingLeavesTable(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::PendingLeavesTable),currentSup(nullptr), currentDir(nullptr)
+    , ui(new Ui::PendingLeavesTable)
+    , currentSup(nullptr)
+    , currentDir(nullptr)
+    , leaveDetailDialog(nullptr)  // Initialize to nullptr
 {
     ui->setupUi(this);
 }
@@ -11,6 +14,19 @@ PendingLeavesTable::PendingLeavesTable(QWidget *parent)
 PendingLeavesTable::~PendingLeavesTable()
 {
     delete ui;
+    if (leaveDetailDialog) {
+        delete leaveDetailDialog;
+        leaveDetailDialog = nullptr;
+    }
+}
+
+void PendingLeavesTable::updateAfterProcess()
+{
+    if (leaveDetailDialog) {
+        leaveDetailDialog->deleteLater();  // Schedule for deletion
+        leaveDetailDialog = nullptr;
+    }
+    _displayList();
 }
 
 void PendingLeavesTable::_setSup(Supervisor * sup)
@@ -79,32 +95,33 @@ void PendingLeavesTable::_displayList()
 
 void PendingLeavesTable::_onRowSelected(int row)
 {
-    //open a new dialog box do somme
-    //modify the vector stored in the supervisor class
+    // If there's an existing dialog, clean it up
+    if (leaveDetailDialog) {
+        leaveDetailDialog->disconnect();  // Disconnect all signals
+        leaveDetailDialog->deleteLater();
+        leaveDetailDialog = nullptr;
+    }
 
     QString selectedAID = ui->pendingLeaveTable->item(row, 1)->text();
     QString selectedDate = ui->pendingLeaveTable->item(row, 2)->text();
-
-    
     PendingList pendingLeave;
     pendingLeave.AID = selectedAID;
     pendingLeave.date = selectedDate;
-
     QString ID = selectedAID.split('_').first();
 
+    leaveDetailDialog = new LeaveDetailDialog(this);
 
-    LeaveDetailDialog leaveDetail(this);
     if(currentSup)
-        leaveDetail._setSup(currentSup);
+        leaveDetailDialog->_setSup(currentSup);
     else if (currentDir)
-        leaveDetail._setDir(currentDir);
-    leaveDetail._displayLeaveInfo(pendingLeave, ID);
-    connect(&leaveDetail, &LeaveDetailDialog::LeaveProcessed, this, &PendingLeavesTable::_displayList);
-    leaveDetail.exec();
-    
+        leaveDetailDialog->_setDir(currentDir);
 
+    leaveDetailDialog->_displayLeaveInfo(pendingLeave, ID);
+
+    // Single connection for processing completion
+    connect(leaveDetailDialog, &LeaveDetailDialog::LeaveProcessed,
+            this, &PendingLeavesTable::updateAfterProcess,
+            Qt::QueuedConnection);
+
+    leaveDetailDialog->show();  // Use show() instead of exec()
 }
-
-
-
-
