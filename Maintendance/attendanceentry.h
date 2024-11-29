@@ -7,16 +7,16 @@ class AttendanceEntry
 private:
     QString day;
     QString attDate;
-    bool attendance;
+    QString attendance;
     double hours;
 
 public:
 
-    AttendanceEntry(QString , QString , bool , double);
+    AttendanceEntry(QString , QString , QString , double);
     QString _getDay() const { return day; }
-    bool _isPresent() const;
+    QString _isPresent() const;
     QString _getDate() const;
-    int _getHours() const { return hours; }
+    double _getHours() const { return hours; }
 
 };
 

@@ -12,7 +12,7 @@ private:
 
 public:
     AttendanceLog();
-    void _addEntry(QString day, QString date, bool attendance, int hours); // Update declaration
+    void _addEntry(QString day, QString date, QString attendance, int hours); // Update declaration
     void _addEntry(AttendanceEntry &entry);
     void _displayEntries();
     double _getAttendancePercentage() const;

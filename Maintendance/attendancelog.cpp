@@ -2,7 +2,7 @@
 
 AttendanceLog::AttendanceLog() {}
 
-void AttendanceLog::_addEntry(QString day, QString date, bool attendance, int hours)
+void AttendanceLog::_addEntry(QString day, QString date, QString attendance, int hours)
 {
     attEntries.emplace_back(day, date, attendance, hours);
 }

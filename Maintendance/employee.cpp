@@ -35,7 +35,7 @@ Employee::Employee(QString id, QString name, Position position, AttendanceLog* a
         {
             QString day = parts[0];
             QString date = parts[1];
-            bool isPresent = (parts[2].trimmed() == "1");
+            QString isPresent = (parts[2]);
             QString hoursStr = parts[3];
 
             int hours = hoursStr.toInt();
