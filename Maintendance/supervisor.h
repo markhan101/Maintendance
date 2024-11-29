@@ -6,7 +6,7 @@
 class Supervisor : public Employee
 {
 public:
-    Supervisor(QString, QString, Position, AttendanceLog*, LeaveBalance*);
+    Supervisor(QString, Position, AttendanceLog*, LeaveBalance*);
     virtual ~Supervisor();
 
     QVector<PendingList>_getPendingList();
@@ -23,6 +23,9 @@ public:
     }
     void addtofile(const LeaveRecord& record, bool isApproved);
     void _updateAttendanceForLeave(const QString& ID, LeaveTypes type, const QDate& fromDate, const QDate& toDate);
+
+    QVector<QString> _fetchEIDs();
+
 
 
 

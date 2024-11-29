@@ -3,6 +3,7 @@
 #include <vector>
 #include<QDate>
 #include "attendanceentry.h"
+#include <algorithm>
 
 
 class AttendanceLog
@@ -20,6 +21,10 @@ public:
     double _getMonthlyAttendancePercentage(const QDate& date) const;
     double _getWeeklyAttendancePercentage(const QDate& date) const;
     double _calculatePercentageForDateRange(const QDate& startDate, const QDate& endDate) const;
+    int _getSize()
+    {
+        return attEntries.size();
+    }
 
 };
 

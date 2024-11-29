@@ -22,7 +22,7 @@ public:
     ~EmpAttBySupDialogBox();
 
     void _setSup(Supervisor*);
-    void displayAllEmployeeAttendance();
+
 
 
 private slots:

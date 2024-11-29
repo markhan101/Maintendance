@@ -1,7 +1,7 @@
 #include "employee.h"
 
-Employee::Employee(QString id, QString name, Position position, AttendanceLog* attlog, LeaveBalance* leaveb)
-    : User(id, name), pos(position), attLog(attlog), leaveBalance(leaveb)
+Employee::Employee(QString id, Position position, AttendanceLog* attlog, LeaveBalance* leaveb)
+    : User(id), pos(position), attLog(attlog), leaveBalance(leaveb)
 {
     attLog = new AttendanceLog();
     QString baseDir = QCoreApplication::applicationDirPath();
@@ -47,6 +47,11 @@ Employee::Employee(QString id, QString name, Position position, AttendanceLog* a
 
     qDebug() << attLog;
 
+    if(attLog->_getSize() == 0)
+    {
+        attLog = {};
+    }
+
     file.close();
 }
 
@@ -60,7 +65,8 @@ Employee::~Employee()
 
 
 
-void Employee::_applyForLeave() {
+void Employee::_applyForLeave()
+{
     // Logic for applying for leave
 }
 //std::vector<QString> Employee::_viewAttendance(QString uID) {
@@ -68,7 +74,8 @@ void Employee::_applyForLeave() {
 //}
 
 
-AttendanceLog* Employee::_viewAttendance( ) {
+AttendanceLog* Employee::_viewAttendance()
+{
 
     return attLog;
 }

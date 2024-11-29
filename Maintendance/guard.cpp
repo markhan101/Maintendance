@@ -1,7 +1,7 @@
 #include "guard.h"
 
-Guard::Guard(QString ID, QString name, Position pos, AttendanceLog* att_log, LeaveBalance* leaveBal)
-    : Employee(ID, name, pos, att_log, leaveBal)
+Guard::Guard(QString ID, Position pos, AttendanceLog* att_log, LeaveBalance* leaveBal)
+    : Employee(ID, pos, att_log, leaveBal)
 {
 }
 

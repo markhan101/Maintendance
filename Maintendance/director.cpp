@@ -2,8 +2,8 @@
 #include "leaveapplication.h"
 #include "utils.h"
 
-Director::Director(QString ID, QString name, Position pos, AttendanceLog* att_log, LeaveBalance* lb)
-    : Employee(ID, name, pos, att_log, lb), log(nullptr)
+Director::Director(QString ID, Position pos, AttendanceLog* att_log, LeaveBalance* lb)
+    : Employee(ID, pos, att_log, lb), log(nullptr)
 {
     //read the pending list txt
     QString baseDir = QCoreApplication::applicationDirPath();

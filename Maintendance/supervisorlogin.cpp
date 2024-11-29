@@ -66,5 +66,10 @@ void SupervisorLogin::on_approveRejectLeaveButton_clicked()
 void SupervisorLogin::on_viewAbsenteeRecordsButton_clicked()
 {
     //Table will be displayed with all the emps with less attendance
+    ShortAttendanceTable shortAttTable(this);
+    shortAttTable._setSup(currentSup);
+    shortAttTable._populateTable();
+    shortAttTable.exec();
+
 }
 

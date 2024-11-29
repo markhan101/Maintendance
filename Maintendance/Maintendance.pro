@@ -27,6 +27,7 @@ SOURCES += \
     mainwindow.cpp \
     markattendancescreen.cpp \
     pendingleavestable.cpp \
+    shortattendancetable.cpp \
     supervisor.cpp \
     supervisorlogin.cpp \
     user.cpp \
@@ -52,6 +53,7 @@ HEADERS += \
     mainwindow.h \
     markattendancescreen.h \
     pendingleavestable.h \
+    shortattendancetable.h \
     supervisor.h \
     supervisorlogin.h \
     user.h \
@@ -69,6 +71,7 @@ FORMS += \
     mainwindow.ui \
     markattendancescreen.ui \
     pendingleavestable.ui \
+    shortattendancetable.ui \
     supervisorlogin.ui \
     viewattendance.ui
 

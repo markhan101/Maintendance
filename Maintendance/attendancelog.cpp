@@ -19,8 +19,39 @@ void AttendanceLog::_displayEntries()
 
 double AttendanceLog::_getAttendancePercentage()const
 {
+    // Define required hours per week
+    const double requiredHours = 8.0;
 
-    return true;
+    // Step 1: Sort the entries based on date
+    std::vector<AttendanceEntry> sortedEntries = attEntries;  // Create a copy to sort
+    std::sort(sortedEntries.begin(), sortedEntries.end(), [](const AttendanceEntry& a, const AttendanceEntry& b) {
+        return a._getDate() < b._getDate();  // Sort based on the date string
+    });
+
+    // Step 2: Calculate total hours worked
+    double totalHours = 0;
+    double totalPossibleHours = 0;
+
+    for (const auto& entry : sortedEntries)
+    {
+        // Only count attendance if the attendance value is "1", "EL", or "OL"
+        if (entry._isPresent() == "1" || entry._isPresent()== "EL" || entry._isPresent()== "OL")
+        {
+            totalHours += entry._getHours();  // Count the hours worked
+        }
+
+        // Always increment total possible hours
+        totalPossibleHours += requiredHours;  // Assuming 8 hours required per entry (or week)
+    }
+
+    // Step 3: Calculate the percentage
+    if (totalPossibleHours == 0)
+    {
+        return 0;  // Avoid division by zero
+    }
+
+    // Return the attendance percentage
+    return (totalHours / totalPossibleHours) * 100;
 }
 
 double AttendanceLog::_calculatePercentageForDateRange(const QDate& startDate, const QDate& endDate) const {

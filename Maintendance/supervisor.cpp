@@ -13,8 +13,8 @@
  * @param att_log - Pointer to Attendance Log
  * @param lb - Pointer to Leave Balance
  */
-Supervisor::Supervisor(QString ID, QString name, Position pos, AttendanceLog* att_log, LeaveBalance* lb)
-    : Employee(ID, name, pos, att_log, lb), log(nullptr)
+Supervisor::Supervisor(QString ID, Position pos, AttendanceLog* att_log, LeaveBalance* lb)
+    : Employee(ID, pos, att_log, lb), log(nullptr)
 {
     // Read the pending list from a text file located in the supervisor's directory.
     QString baseDir = QCoreApplication::applicationDirPath();
@@ -286,3 +286,50 @@ void Supervisor::addtofile(const LeaveRecord& record, bool isApproved)
         file.close();
     }
 }
+
+
+/**
+ * Fetches all the IDs of the employees in the system. In this case the employess are general employees and guards
+ *
+ * @return QVector of QString which will be the IDs of all the employees
+**/
+QVector<QString> Supervisor::_fetchEIDs()
+{
+    // Vector to hold employee IDs starting with 'e' or 'g'
+    QVector<QString> employeeIDs;
+
+    // Get the path to the users.txt file
+    QString baseDir = QCoreApplication::applicationDirPath();
+    QDir dir(baseDir);
+    dir.cd("../../..");
+
+    QString filePath = dir.absoluteFilePath("records/users.txt");
+
+    QFile file(filePath);
+    // If the file doesn't open, return an empty vector
+    if (!file.open(QIODevice::ReadOnly))
+    {
+        qDebug() << "Could not open users.txt for fetching EIDs for display:" << filePath;
+        return {};
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd())
+    {
+        QString line = in.readLine();
+        // Split the line at the '-' character to separate ID and password
+        QStringList parts = line.split('-');
+        if (parts.size() == 2) {
+            QString id = parts[0];  // Get the ID part
+            // Only append IDs that start with 'e' or 'g'
+            if (id.startsWith('e') || id.startsWith('g')) {
+                employeeIDs.append(id);
+            }
+        }
+    }
+
+    file.close();
+
+    return employeeIDs;
+}
+

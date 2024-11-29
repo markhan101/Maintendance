@@ -8,7 +8,7 @@
 class Director : public Employee
 {
 public:
-    Director(QString, QString, Position, AttendanceLog*, LeaveBalance*);
+    Director(QString, Position, AttendanceLog*, LeaveBalance*);
     virtual ~Director();
 
     QVector<PendingList>_getPendingList();

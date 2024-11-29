@@ -1,5 +1,4 @@
 g1-guard123
-g4-abcd1
 e1-emp123
 e2-e221
 d1-dir123
