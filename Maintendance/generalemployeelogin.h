@@ -51,7 +51,7 @@ private slots:
 
 
 
-        delete log;
+      //  delete log;
     }
 };
 
