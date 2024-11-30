@@ -64,7 +64,7 @@ Employee::~Employee()
 }
 
 
-QVector<LeaveRecord> Employee::getPendingApplications() {
+QVector<LeaveRecord> Employee::_getAllApplications() {
     QVector<LeaveRecord> pendingLeaves;
     
     
@@ -89,28 +89,26 @@ QVector<LeaveRecord> Employee::getPendingApplications() {
         QString line = in.readLine();
         QStringList parts = line.split(" - ");
         
-       
-        if (parts.size() >= 7 && parts[6].trimmed() == "pending") {
-            LeaveRecord record;
-            record.ID = parts[0];  
-            
-            
-            switch(parts[1].toInt()) {
-                case 0: record.leaveType = "Casual"; break;
-                case 1: record.leaveType = "Earned"; break;
-                case 2: record.leaveType = "Official"; break;
-                case 3: record.leaveType = "Unpaid"; break;
-                default: record.leaveType = "Unknown";
-            }
-            
-            record.fromDate = parts[2];
-            record.toDate = parts[3];
-            record.days = parts[4];
-            record.reason = parts[5];
-            record.status = parts[6];
-            
-            pendingLeaves.append(record);
+        LeaveRecord record;
+        record.ID = parts[0];
+
+
+        switch(parts[1].toInt())
+        {
+            case 0: record.leaveType = "Casual"; break;
+            case 1: record.leaveType = "Earned"; break;
+            case 2: record.leaveType = "Official"; break;
+            case 3: record.leaveType = "Unpaid"; break;
+            default: record.leaveType = "Unknown";
         }
+
+        record.fromDate = parts[2];
+        record.toDate = parts[3];
+        record.days = parts[4];
+        record.reason = parts[5];
+        record.status = parts[6];
+
+        pendingLeaves.append(record);
     }
     
     file.close();

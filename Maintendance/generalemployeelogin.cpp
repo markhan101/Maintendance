@@ -65,3 +65,15 @@ void GeneralEmployeeLogin::on_requestLeaveButton_clicked()
         qDebug() << "Error: GeneralEmployeeLogin has no employee set";
     }
 }
+
+void GeneralEmployeeLogin::on_viewApplicationButton_clicked()
+{
+    if (generalEmp)
+    {
+        EmpPendingTable emp(this);
+        emp._setEmp(generalEmp);
+        emp._populateTable();
+        emp.exec();
+    }
+}
+

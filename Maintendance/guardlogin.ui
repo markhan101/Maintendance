@@ -78,6 +78,19 @@
     <string>Logout</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="viewLeavesButton">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>520</y>
+     <width>180</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>View Leaves</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

@@ -5,6 +5,7 @@
 #include "employee.h"
 #include "viewattendance.h"
 #include "leaveapplicationform.h"
+#include "emppendingtable.h"
 
 namespace Ui {
 class GeneralEmployeeLogin;
@@ -53,6 +54,7 @@ private slots:
 
       //  delete log;
     }
+    void on_viewApplicationButton_clicked();
 };
 
 #endif // GENERALEMPLOYEELOGIN_H

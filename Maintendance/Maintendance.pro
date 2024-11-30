@@ -15,6 +15,7 @@ SOURCES += \
     directorlogin.cpp \
     empattbysupdialogbox.cpp \
     employee.cpp \
+    emppendingtable.cpp \
     generalemployeelogin.cpp \
     guard.cpp \
     guardlogin.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
     directorlogin.h \
     empattbysupdialogbox.h \
     employee.h \
+    emppendingtable.h \
     generalemployeelogin.h \
     guard.h \
     guardlogin.h \
@@ -63,6 +65,7 @@ HEADERS += \
 FORMS += \
     directorlogin.ui \
     empattbysupdialogbox.ui \
+    emppendingtable.ui \
     generalemployeelogin.ui \
     guardlogin.ui \
     leaveapplicationform.ui \

@@ -63,3 +63,12 @@ void GuardLogin::on_requestLeaveButton_clicked()
 
 }
 
+
+void GuardLogin::on_viewLeavesButton_clicked()
+{
+    EmpPendingTable empPendtable(this);
+    empPendtable._setEmp(static_cast<Employee*>(currentGuard));
+    empPendtable._populateTable();
+    empPendtable.exec();
+}
+

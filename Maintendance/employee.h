@@ -37,7 +37,7 @@ public:
    // virtual AttendanceLog *_viewAttendance(QString);
     virtual void _getAttendanceRecord();
     virtual void _getLeaveBalance();
-    QVector<LeaveRecord> getPendingApplications();
+    QVector<LeaveRecord> _getAllApplications();
     LeaveBalance* getLeaveBalance() const { return leaveBalance; }
 
 

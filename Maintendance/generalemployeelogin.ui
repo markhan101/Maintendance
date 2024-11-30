@@ -16,10 +16,10 @@
   <widget class="QGraphicsView" name="genEmpPic">
    <property name="geometry">
     <rect>
-     <x>315</x>
-     <y>140</y>
-     <width>270</width>
-     <height>200</height>
+     <x>10</x>
+     <y>10</y>
+     <width>51</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="whatsThis">
@@ -81,6 +81,25 @@
    </property>
    <property name="text">
     <string>Logout</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="viewApplicationButton">
+   <property name="geometry">
+    <rect>
+     <x>351</x>
+     <y>400</y>
+     <width>200</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>View Applications</string>
    </property>
   </widget>
  </widget>
