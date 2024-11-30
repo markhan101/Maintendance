@@ -62,5 +62,11 @@ QString _getPosStr(int);
 
 QString _getDayStr(int dayOfWeek);
 
+struct LeaveBalanceRecord {
+    QString leaveType;
+    int balance;
+    QString employeeId;
+};
+
 
 #endif // UTILS_H

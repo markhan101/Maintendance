@@ -33,9 +33,11 @@ public:
     virtual ~Employee();
     void _applyForLeave();
     AttendanceLog *_viewAttendance () ;
+    QVector<LeaveBalanceRecord> getLeaveBalances() const;
    // virtual AttendanceLog *_viewAttendance(QString);
     virtual void _getAttendanceRecord();
     virtual void _getLeaveBalance();
+    QVector<LeaveRecord> getPendingApplications();
     LeaveBalance* getLeaveBalance() const { return leaveBalance; }
 
 
