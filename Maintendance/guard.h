@@ -27,6 +27,7 @@ public:
 
 private:
     AttendanceLog *log;
+    bool _isAttendanceMarked(const QString& id, const QString& date);
 
 };
 
