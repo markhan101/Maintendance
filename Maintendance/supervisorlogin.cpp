@@ -62,14 +62,12 @@ void SupervisorLogin::on_approveRejectLeaveButton_clicked()
 
 
 
-
 void SupervisorLogin::on_viewAbsenteeRecordsButton_clicked()
 {
-    //Table will be displayed with all the emps with less attendance
-    ShortAttendanceTable shortAttTable(this);
-    shortAttTable._setSup(currentSup);
-    shortAttTable._populateTable();
-    shortAttTable.exec();
-
+    ShortAttendanceTable* shortAttTable = new ShortAttendanceTable(this);
+    shortAttTable->setAttribute(Qt::WA_DeleteOnClose);
+    shortAttTable->_setSup(currentSup);
+    shortAttTable->_populateTable();
+    shortAttTable->exec();
 }
 

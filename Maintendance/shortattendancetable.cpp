@@ -22,7 +22,6 @@ void ShortAttendanceTable::_setSup(Supervisor* sup)
 void ShortAttendanceTable::_populateTable() {
     // Create vectors of pointers instead of objects
     QVector<Employee*> emps;
-    QVector<Guard*> guards;
     QVector<QString> eIDs = currentSup->_fetchEIDs();
 
     for (const QString &id : eIDs) {
@@ -33,7 +32,6 @@ void ShortAttendanceTable::_populateTable() {
         if (id.startsWith('g')) {
             // Create and store Guard pointer
             Guard* newGuard = new Guard(id, Position::guard, attLog, leaveBalance);
-            guards.append(newGuard);
             emps.append(newGuard);  // Guards are also employees
         } else {
             // Create and store Employee pointer
@@ -48,7 +46,7 @@ void ShortAttendanceTable::_populateTable() {
 
     for (int row = 0; row < emps.size(); ++row) {
         Employee* emp = emps[row];
-        AttendanceLog* log = emp->_viewAttendance();  // Use -> instead of . for pointers
+        AttendanceLog* log = emp->_viewAttendance();
         QDate currentDate = QDate::currentDate();
 
         double monthlyPercent = log->_getMonthlyAttendancePercentage(currentDate);
@@ -81,8 +79,7 @@ void ShortAttendanceTable::_populateTable() {
         ui->shortLeaveTable->setItem(row, 2, weeklyItem);
     }
 
-    // Cleanup
-    qDeleteAll(emps);  // This will delete both regular employees and guards
+
 
     // Table formatting
     ui->shortLeaveTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
