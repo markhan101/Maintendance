@@ -33,7 +33,7 @@ public:
     virtual ~Employee();
     void _applyForLeave();
     AttendanceLog *_viewAttendance () ;
-    QVector<LeaveBalanceRecord> getLeaveBalances() const;
+    QVector<LeaveBalanceRecord> getLeaveBalances();
    // virtual AttendanceLog *_viewAttendance(QString);
     virtual void _getAttendanceRecord();
     virtual void _getLeaveBalance();

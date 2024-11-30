@@ -146,7 +146,7 @@ void Employee::_getLeaveBalance() {
 }
 
 
-QVector<LeaveBalanceRecord> Employee::getLeaveBalances() const {
+QVector<LeaveBalanceRecord> Employee::getLeaveBalances() {
     QVector<LeaveBalanceRecord> balances;
     
     if (!leaveBalance) return balances;
