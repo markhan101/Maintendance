@@ -172,6 +172,19 @@
     </property>
    </widget>
   </widget>
+  <widget class="QPushButton" name="approveButton">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>600</y>
+     <width>171</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

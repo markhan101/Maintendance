@@ -158,3 +158,9 @@ void EmpPendingTable::filterTable()
     ui->leaveTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
+
+void EmpPendingTable::on_closeButton_clicked()
+{
+    accept();
+}
+

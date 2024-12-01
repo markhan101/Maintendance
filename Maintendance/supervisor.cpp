@@ -286,10 +286,3 @@ void Supervisor::addtofile(const LeaveRecord& record, bool isApproved)
         file.close();
     }
 }
-
-
-/**
- * Fetches all the IDs of the employees in the system. In this case the employess are general employees and guards
- *
- * @return QVector of QString which will be the IDs of all the employees
-**/

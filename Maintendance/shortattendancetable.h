@@ -22,6 +22,9 @@ public:
     void _setSup(Supervisor*);
     void _populateTable();
 
+private slots:
+    void on_backButton_clicked();
+
 private:
     Ui::ShortAttendanceTable *ui;
     Supervisor * currentSup;

@@ -48,3 +48,9 @@ void EmpAttBySupDialogBox::on_viewButton_clicked()
 }
 
 
+
+void EmpAttBySupDialogBox::on_backButton_clicked()
+{
+    accept();
+}
+

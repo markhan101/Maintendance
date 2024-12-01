@@ -91,3 +91,9 @@ void ShortAttendanceTable::_populateTable() {
 
 
 
+
+void ShortAttendanceTable::on_backButton_clicked()
+{
+    this->reject();
+}
+

@@ -192,3 +192,9 @@ void MarkAttendanceScreen::on_MarkAbsent_clicked()
     if (_howToMark(false))
         this->close();
 }
+
+void MarkAttendanceScreen::on_approveButton_clicked()
+{
+    reject();
+}
+

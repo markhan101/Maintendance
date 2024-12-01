@@ -28,6 +28,8 @@ private slots:
     void on_approveButton_clicked();
 
     void on_rejectButton_clicked();
+    void on_backButton_clicked();
+
 signals:
     void LeaveProcessed();
 

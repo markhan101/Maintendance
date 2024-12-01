@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module Supervisor-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="210" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="34" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="75" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="2.800" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.453" level="0" />
+<weighted_methods_per_class_unity value="7" level="0" />
+<weighted_methods_per_class_visibility value="7" level="0" />
+<depth_of_inheritance_tree value="2" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="11" level="0" />
+<IF4 value="784" level="1" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="576" level="2" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="supervisor.h" line="7" />
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>Supervisor(QString,Position,AttendanceLog *,LeaveBalance *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="supervisor.h" line="10" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="supervisor.cpp" line="16" />
+</extent>
+<lines_of_code value="26" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="19" level="0" />
+<lines_of_code_per_line_of_comment value="1.368" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_approveOrRejectLeave(QString,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="supervisor.h" line="15" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="supervisor.cpp" line="77" />
+</extent>
+<lines_of_code value="93" level="1" />
+<McCabes_cyclomatic_complexity value="17" level="1" />
+<lines_of_comment value="23" level="0" />
+<lines_of_code_per_line_of_comment value="4.043" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.739" level="0" />
+</member_function>
+<member_function>
+<name>_getPendingList()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="supervisor.h" line="13" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="supervisor.cpp" line="65" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_removePendingLeave(QString &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="supervisor.h" line="16" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_updateAttendanceForLeave(const QString &amp;,LeaveTypes,const QDate &amp;,const QDate &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="supervisor.h" line="26" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="supervisor.cpp" line="200" />
+</extent>
+<lines_of_code value="41" level="1" />
+<McCabes_cyclomatic_complexity value="8" level="0" />
+<lines_of_comment value="14" level="0" />
+<lines_of_code_per_line_of_comment value="2.929" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.571" level="0" />
+</member_function>
+<member_function>
+<name>addtofile(const LeaveRecord &amp;,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="supervisor.h" line="25" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="supervisor.cpp" line="260" />
+</extent>
+<lines_of_code value="24" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="3.000" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~Supervisor()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="supervisor.h" line="11" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="supervisor.cpp" line="53" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>Supervisor</name>
+<client_module>
+<name>EmpAttBySupDialogBox</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="empattbysupdialogbox.cpp" line="16" />
+</extent>
+<name>LeaveDetailDialog</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="leavedetaildialog.cpp" line="31" />
+</extent>
+<name>ShortAttendanceTable</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="shortattendancetable.cpp" line="16" />
+</extent>
+<name>SupervisorLogin</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisorlogin.cpp" line="20" />
+</extent>
+</client_module>
+<supplier_module>
+<name>AttendanceLog</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.h" line="10" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="supervisor.h" line="37" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.cpp" line="16" />
+</extent>
+<name>Employee</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="supervisor.h" line="7" />
+</extent>
+<name>LeaveBalance</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.h" line="10" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.cpp" line="16" />
+</extent>
+<name>QDate</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.h" line="26" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.h" line="26" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.cpp" line="200" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.cpp" line="200" />
+</extent>
+<name>QString</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="supervisor.h" line="10" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="supervisor.h" line="15" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.h" line="16" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.h" line="26" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="supervisor.cpp" line="16" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="supervisor.cpp" line="77" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.cpp" line="200" />
+</extent>
+<name>QVector</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="supervisor.h" line="38" />
+</extent>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="supervisor.h" line="15" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="supervisor.h" line="25" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="supervisor.cpp" line="77" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="supervisor.cpp" line="260" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

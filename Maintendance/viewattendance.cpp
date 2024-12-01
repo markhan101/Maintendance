@@ -150,3 +150,9 @@ void ViewAttendance::_displayList()
 
 
 
+
+void ViewAttendance::on_goBackButton_clicked()
+{
+    this->reject();
+}
+

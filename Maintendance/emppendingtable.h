@@ -22,6 +22,8 @@ public:
 private slots:
     void filterTable();
 
+    void on_closeButton_clicked();
+
 private:
     Ui::EmpPendingTable *ui;
     Employee *currentEmp;

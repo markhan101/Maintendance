@@ -28,6 +28,8 @@ public:
 private slots:
     void on_viewButton_clicked();
 
+    void on_backButton_clicked();
+
 private:
     Ui::EmpAttBySupDialogBox *ui;
     Supervisor *currentSup;

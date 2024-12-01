@@ -13,7 +13,6 @@
   <property name="windowTitle">
    <string>Leave Application Form</string>
   </property>
-  <!-- Form Heading -->
   <widget class="QLabel" name="formHeadingLabel">
    <property name="geometry">
     <rect>
@@ -27,7 +26,6 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:700;&quot;&gt;Leave Form&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <!-- Type of Leave -->
   <widget class="QLabel" name="typeOfLeaveLabel">
    <property name="geometry">
     <rect>
@@ -51,46 +49,26 @@
     </rect>
    </property>
    <item>
-
     <property name="text">
-
      <string>Casual</string>
-
     </property>
-
    </item>
-
    <item>
-
     <property name="text">
-
      <string>Earned</string>
-
     </property>
-
    </item>
-
    <item>
-
     <property name="text">
-
      <string>Official</string>
-
     </property>
-
    </item>
-
    <item>
-
     <property name="text">
-
      <string>Unpaid</string>
-
     </property>
-
    </item>
   </widget>
-  <!-- From Date -->
   <widget class="QLabel" name="fromDateLabel">
    <property name="geometry">
     <rect>
@@ -114,7 +92,6 @@
     </rect>
    </property>
   </widget>
-  <!-- To Date -->
   <widget class="QLabel" name="toDateLabel">
    <property name="geometry">
     <rect>
@@ -138,7 +115,6 @@
     </rect>
    </property>
   </widget>
-  <!-- Reason -->
   <widget class="QLabel" name="reasonLabel">
    <property name="geometry">
     <rect>
@@ -162,7 +138,6 @@
     </rect>
    </property>
   </widget>
-  <!-- Confirm Button -->
   <widget class="QPushButton" name="applyConfirmButton">
    <property name="geometry">
     <rect>
@@ -174,6 +149,19 @@
    </property>
    <property name="text">
     <string>Apply</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>500</y>
+     <width>150</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
    </property>
   </widget>
  </widget>

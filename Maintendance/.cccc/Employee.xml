@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module Employee-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="136" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="18" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="9" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="15.111" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="2.000" level="0" />
+<weighted_methods_per_class_unity value="10" level="0" />
+<weighted_methods_per_class_visibility value="10" level="0" />
+<depth_of_inheritance_tree value="1" level="0" />
+<number_of_children value="3" level="0" />
+<coupling_between_objects value="9" level="0" />
+<IF4 value="400" level="1" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="400" level="2" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="36" level="1" />
+<IF4_concrete_per_member_function value="********" level="2" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="employee.h" line="22" />
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>Employee()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="employee.h" line="30" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>Employee(QString,Position,AttendanceLog *,LeaveBalance *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="employee.h" line="31" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="employee.cpp" line="3" />
+</extent>
+<lines_of_code value="40" level="1" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="20.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_applyForLeave()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="employee.h" line="34" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="employee.cpp" line="123" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getAllApplications()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="employee.h" line="40" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="employee.cpp" line="67" />
+</extent>
+<lines_of_code value="39" level="1" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>_getAttendanceRecord()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="employee.h" line="38" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="employee.cpp" line="138" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getLeaveBalance()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="employee.h" line="39" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="employee.cpp" line="142" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_viewAttendance()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="employee.h" line="35" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="employee.cpp" line="132" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getLeaveBalance()</name>
+<extent>
+<description>definition</description>
+<source_reference file="employee.h" line="41" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>getLeaveBalances()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="employee.h" line="36" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="employee.cpp" line="147" />
+</extent>
+<lines_of_code value="26" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~Employee()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="employee.h" line="33" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="employee.cpp" line="60" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>Employee</name>
+<client_module>
+<name>Director</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="director.h" line="8" />
+</extent>
+<name>EmpPendingTable</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="emppendingtable.cpp" line="24" />
+</extent>
+<name>GeneralEmployeeLogin</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="generalemployeelogin.cpp" line="24" />
+</extent>
+<name>Guard</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="guard.h" line="21" />
+</extent>
+<name>Supervisor</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="supervisor.h" line="7" />
+</extent>
+</client_module>
+<supplier_module>
+<name>AttendanceLog</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>has by reference</description>
+<source_reference file="employee.h" line="26" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="employee.h" line="31" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="employee.cpp" line="3" />
+</extent>
+<name>LeaveBalance</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>has by reference</description>
+<source_reference file="employee.h" line="27" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="employee.h" line="31" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="employee.cpp" line="3" />
+</extent>
+<name>QString</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="employee.h" line="31" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="employee.cpp" line="3" />
+</extent>
+<name>User</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="employee.h" line="22" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

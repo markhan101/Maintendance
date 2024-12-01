@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module AttendanceLog-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="65" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="17" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="17" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="3.824" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.000" level="0" />
+<weighted_methods_per_class_unity value="8" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="7" level="0" />
+<IF4 value="144" level="1" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="144" level="2" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="attendancelog.h" line="9" />
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>AttendanceLog()</name>
+<extent>
+<description>definition</description>
+<source_reference file="attendancelog.cpp" line="3" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_addEntry(AttendanceEntry &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="attendancelog.cpp" line="10" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_addEntry(QString,QString,QString,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="attendancelog.cpp" line="5" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_calculatePercentageForDateRange(const QDate &amp;,const QDate &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="attendancelog.cpp" line="57" />
+</extent>
+<lines_of_code value="16" level="0" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="2.333" level="0" />
+</member_function>
+<member_function>
+<name>_displayEntries()</name>
+<extent>
+<description>definition</description>
+<source_reference file="attendancelog.cpp" line="15" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getAttendancePercentage()</name>
+<extent>
+<description>definition</description>
+<source_reference file="attendancelog.cpp" line="20" />
+</extent>
+<lines_of_code value="23" level="0" />
+<McCabes_cyclomatic_complexity value="8" level="0" />
+<lines_of_comment value="12" level="0" />
+<lines_of_code_per_line_of_comment value="1.917" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.667" level="0" />
+</member_function>
+<member_function>
+<name>_getMonthlyAttendancePercentage(const QDate &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="attendancelog.cpp" line="80" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getWeeklyAttendancePercentage(const QDate &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="attendancelog.cpp" line="86" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>AttendanceLog</name>
+<client_module>
+<name>Director</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="director.h" line="11" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="director.h" line="33" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="director.cpp" line="14" />
+</extent>
+<name>Employee</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>has by reference</description>
+<source_reference file="employee.h" line="26" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="employee.h" line="31" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="employee.cpp" line="3" />
+</extent>
+<name>Guard</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="guard.h" line="24" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="guard.h" line="29" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="guard.cpp" line="4" />
+</extent>
+<name>Supervisor</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.h" line="10" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="supervisor.h" line="37" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="supervisor.cpp" line="16" />
+</extent>
+</client_module>
+<supplier_module>
+<name>AttendanceEntry</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="attendancelog.cpp" line="10" />
+</extent>
+<name>QDate</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="attendancelog.cpp" line="57" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="attendancelog.cpp" line="57" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="attendancelog.cpp" line="80" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="attendancelog.cpp" line="86" />
+</extent>
+<name>QString</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="attendancelog.cpp" line="5" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="attendancelog.cpp" line="5" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="attendancelog.cpp" line="5" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
