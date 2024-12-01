@@ -26,6 +26,8 @@ private slots:
     void _onRowSelected(int row);
     void updateAfterProcess();  // New slot for updating after processing
 
+    void on_closeButton_clicked();
+
 private:
     Ui::PendingLeavesTable *ui;
     Supervisor * currentSup;

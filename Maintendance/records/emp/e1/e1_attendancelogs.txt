@@ -219,3 +219,4 @@ Thursday - 2025/05/29 - UL - 0
 Friday - 2025/05/30 - UL - 0
 Saturday - 2024/11/30 - UL - 9
 
+Sunday - 2024/12/01 - 0 - 0

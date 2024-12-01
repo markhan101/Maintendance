@@ -125,3 +125,9 @@ void PendingLeavesTable::_onRowSelected(int row)
 
     leaveDetailDialog->show();  // Use show() instead of exec()
 }
+
+void PendingLeavesTable::on_closeButton_clicked()
+{
+    accept();
+}
+
