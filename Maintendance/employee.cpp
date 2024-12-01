@@ -49,7 +49,7 @@ Employee::Employee(QString id, Position position, AttendanceLog* attlog, LeaveBa
 
     if(attLog->_getSize() == 0)
     {
-        attLog = {};
+        attLog = {0};
     }
 
     file.close();

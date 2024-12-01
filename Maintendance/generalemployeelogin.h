@@ -6,6 +6,7 @@
 #include "viewattendance.h"
 #include "leaveapplicationform.h"
 #include "emppendingtable.h"
+#include <QTimer>
 
 namespace Ui {
 class GeneralEmployeeLogin;
@@ -25,6 +26,10 @@ private:
     Ui::GeneralEmployeeLogin *ui;
     Employee *generalEmp;
 
+    QString fullMessage;
+    int currentCharIndex;
+    QTimer *typingTimer;
+
 
 signals:
     void emitLogout();
@@ -33,7 +38,8 @@ private slots:
     void on_viewAttendanceButton_clicked();
     void on_viewLeaveBalanceButton_clicked();
     void on_requestLeaveButton_clicked();
-    void displayAttendancePercentages() {
+    void displayAttendancePercentages()
+    {
         if (!generalEmp) return;
 
         AttendanceLog* log = generalEmp->_viewAttendance();
@@ -55,6 +61,9 @@ private slots:
       //  delete log;
     }
     void on_viewApplicationButton_clicked();
+
+    void updateLeaveBalanceUI();
+    void updateWelcomeMessage();
 };
 
 #endif // GENERALEMPLOYEELOGIN_H

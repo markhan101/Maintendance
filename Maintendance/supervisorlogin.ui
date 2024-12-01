@@ -16,10 +16,10 @@
   <widget class="QGraphicsView" name="graphicsView">
    <property name="geometry">
     <rect>
-     <x>322</x>
-     <y>90</y>
-     <width>256</width>
-     <height>192</height>
+     <x>10</x>
+     <y>10</y>
+     <width>61</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -89,6 +89,19 @@
    </property>
    <property name="text">
     <string>Logout</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="welcomeLabel">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>170</y>
+     <width>641</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
    </property>
   </widget>
  </widget>

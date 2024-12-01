@@ -6,6 +6,7 @@
 #include <director.h>
 #include "empattbysupdialogbox.h"
 #include "pendingleavestable.h"
+#include <QTimer>
 
 namespace Ui {
 class DirectorLogin;
@@ -24,12 +25,18 @@ public:
 private:
     Ui::DirectorLogin *ui;
     Director * currentDir;
+
+    QString fullMessage;
+    int currentCharIndex;
+    QTimer *typingTimer;
 signals:
     void emitLogout();
 private slots:
     void on_Logout_clicked();
     void on_viewEmpAttButton_clicked();
     void on_approveRejectButton_clicked();
+
+    void updateWelcomeMessage();
 };
 
 #endif // DIRECTORLOGIN_H

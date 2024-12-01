@@ -20,7 +20,7 @@ void EmpAttBySupDialogBox::_setSup(Supervisor* sup)
 
 void EmpAttBySupDialogBox::on_viewButton_clicked()
 {
- QString ID = ui->EmpIDTextEdit->toPlainText();
+ QString ID = ui->EmpIDTextEdit->text();
     
     if (ID.isEmpty()) {
         QMessageBox::warning(this, "Error", "Please enter an Employee ID");

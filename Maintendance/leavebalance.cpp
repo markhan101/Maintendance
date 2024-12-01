@@ -67,6 +67,7 @@ void LeaveBalance::_updateLeaveBalance(LeaveTypes type, int days, QString reason
 {
     balance[type] -= days;
     saveBalanceToFile(reason);
+    qDebug() << balance[type];
 }
 
 int LeaveBalance::_getLeaveBalance(LeaveTypes type)

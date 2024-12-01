@@ -22,7 +22,7 @@ void ShortAttendanceTable::_setSup(Supervisor* sup)
 void ShortAttendanceTable::_populateTable() {
     // Create vectors of pointers instead of objects
     QVector<Employee*> emps;
-    QVector<QString> eIDs = currentSup->_fetchEIDs();
+    QVector<QString> eIDs = _fetchEIDs();
 
     for (const QString &id : eIDs) {
         // Create AttendanceLog and LeaveBalance for each Employee/Guard

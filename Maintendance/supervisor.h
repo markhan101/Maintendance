@@ -2,6 +2,7 @@
 #define SUPERVISOR_H
 
 #include "employee.h"
+#include "utils.h"
 
 class Supervisor : public Employee
 {
@@ -24,7 +25,7 @@ public:
     void addtofile(const LeaveRecord& record, bool isApproved);
     void _updateAttendanceForLeave(const QString& ID, LeaveTypes type, const QDate& fromDate, const QDate& toDate);
 
-    QVector<QString> _fetchEIDs();
+   // QVector<QString> _fetchEIDs();
 
 
 

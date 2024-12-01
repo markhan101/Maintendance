@@ -7,6 +7,8 @@
 #include "empattbysupdialogbox.h"
 #include "pendingleavestable.h"
 #include "shortattendancetable.h"
+#include <QTimer>
+
 
 namespace Ui {
 class SupervisorLogin;
@@ -32,9 +34,15 @@ private slots:
 
     void on_viewAbsenteeRecordsButton_clicked();
 
+    void updateWelcomeMessage();
+
 private:
     Ui::SupervisorLogin *ui;
     Supervisor * currentSup;
+
+    QString fullMessage;
+    int currentCharIndex;
+    QTimer *typingTimer;
 
 
 signals:

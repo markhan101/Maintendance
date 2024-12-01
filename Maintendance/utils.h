@@ -68,5 +68,7 @@ struct LeaveBalanceRecord {
     QString employeeId;
 };
 
+QVector<QString> _fetchEIDs();
+
 
 #endif // UTILS_H
