@@ -99,7 +99,7 @@ void Director::_approveOrRejectLeave(QString AID, bool isApprove) {
             record.days.toInt()
             );
 
-        balance->_updateLeaveBalance(type, record.days.toInt(), record.reason); // Update the leave balance
+        balance->_updateLeaveBalance(type, record.days.toInt()); // Update the leave balance
     }
 
     addtofile(record, isApprove); // Record the leave status in the appropriate file

@@ -251,7 +251,7 @@ bool LeaveApplication::handleCasualShortLeave()
     // Check if casual leave balance is sufficient
     if (balance->_getLeaveBalance(LeaveTypes::Casual) >= days)
     {
-        balance->_updateLeaveBalance(LeaveTypes::Casual, days, reason);
+        balance->_updateLeaveBalance(LeaveTypes::Casual, days);
 
         QString baseDir = QCoreApplication::applicationDirPath();
         QDir dir(baseDir);

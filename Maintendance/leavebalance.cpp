@@ -85,10 +85,10 @@ void LeaveBalance::loadBalanceFromFile(){
  * @param days The number of days to subtract from the balance.
  * @param reason The reason for the leave (used in the balance file).
  */
-void LeaveBalance::_updateLeaveBalance(LeaveTypes type, int days, QString reason)
+void LeaveBalance::_updateLeaveBalance(LeaveTypes type, int days)
 {
     balance[type] -= days;  // Deduct the specified number of days from the balance
-    saveBalanceToFile(reason); // Save the updated balance to the file
+    saveBalanceToFile(); // Save the updated balance to the file
     qDebug() << "Updated leave balance for type" << type << "new balance:" << balance[type];
 }
 
@@ -103,14 +103,7 @@ int LeaveBalance::_getLeaveBalance(LeaveTypes type)
     return balance[type];  // Return the balance for the given leave type
 }
 
-/**
- * @brief Placeholder for displaying the leave balance.
- * This function can be implemented to connect with the UI.
- */
-void LeaveBalance::displayLeaveBalance()
-{
-    // To be implemented and connected with UI for displaying balance
-}
+
 
 /**
  * @brief Saves the current leave balance to the corresponding file.
@@ -119,7 +112,7 @@ void LeaveBalance::displayLeaveBalance()
  * @param Reason The reason for saving the balance (used for auditing).
  * @return bool Returns true if the file was successfully saved, false otherwise.
  */
-bool LeaveBalance::saveBalanceToFile(QString Reason) {
+bool LeaveBalance::saveBalanceToFile() {
     QString baseDir = QCoreApplication::applicationDirPath();
     QDir dir(baseDir);
     dir.cd("../../..");

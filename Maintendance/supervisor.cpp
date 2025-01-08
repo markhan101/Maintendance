@@ -106,7 +106,7 @@ void Supervisor::_approveOrRejectLeave(QString AID, bool isApprove)
             );
 
         // Update leave balance and attendance logs
-        balance->_updateLeaveBalance(type, record.days.toInt(), record.reason);
+        balance->_updateLeaveBalance(type, record.days.toInt());
         QDate fromDate = QDate::fromString(record.fromDate, "yyyy/MM/dd");
         QDate toDate = QDate::fromString(record.toDate, "yyyy/MM/dd");
         _updateAttendanceForLeave(ID, type, fromDate, toDate);
