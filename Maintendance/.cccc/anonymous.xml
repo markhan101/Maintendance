@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module anonymous-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="227" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="57" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="8" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="28.375" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="7.125" level="1" />
+<weighted_methods_per_class_unity value="60" level="0" />
+<weighted_methods_per_class_visibility value="57" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="0" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>DirectorLogin(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="directorlogin.h" line="20" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>EmpAttBySupDialogBox(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="empattbysupdialogbox.h" line="21" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>EmpPendingTable(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="emppendingtable.h" line="16" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>FolderSelection(QString)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="utils.h" line="59" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="utils.cpp" line="90" />
+</extent>
+<lines_of_code value="18" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GeneralEmployeeLogin(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="generalemployeelogin.h" line="21" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>GuardLogin(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="guardlogin.h" line="22" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>LeaveApplicationForm(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leaveapplicationform.h" line="26" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>LeaveDetailDialog(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leavedetaildialog.h" line="20" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>LoginDialog(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="logindialog.h" line="23" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>MarkAttendanceScreen(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="markattendancescreen.h" line="20" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>PendingLeavesTable(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="pendingleavestable.h" line="19" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ShortAttendanceTable(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="shortattendancetable.h" line="20" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>SupervisorLogin(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="supervisorlogin.h" line="22" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ViewAttendance(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="viewattendance.h" line="21" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_calculateHours()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="markattendancescreen.h" line="27" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_displayLeaveInfo(PendingList,QString)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leavedetaildialog.h" line="25" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_displayList()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="pendingleavestable.h" line="23" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="viewattendance.h" line="27" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_displayList(vector)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="viewattendance.h" line="26" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_fetchEIDs()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="utils.h" line="71" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="utils.cpp" line="155" />
+</extent>
+<lines_of_code value="29" level="0" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="4.833" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.167" level="0" />
+</member_function>
+<member_function>
+<name>_generateApplicationID(QString)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="utils.h" line="55" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="utils.cpp" line="28" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getAttendanceDate(QDate)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="markattendancescreen.h" line="22" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getDateStr(QDate)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="utils.h" line="51" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="utils.cpp" line="16" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getDayStr(int)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="utils.h" line="63" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="utils.cpp" line="135" />
+</extent>
+<lines_of_code value="19" level="0" />
+<McCabes_cyclomatic_complexity value="15" level="1" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>_getFromDate(QDate)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leaveapplicationform.h" line="30" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getHours(QString)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="markattendancescreen.h" line="23" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getPosStr(int)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="utils.h" line="61" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="utils.cpp" line="110" />
+</extent>
+<lines_of_code value="24" level="0" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="24.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="9.000" level="1" />
+</member_function>
+<member_function>
+<name>_getPosition()</name>
+<extent>
+<description>definition</description>
+<source_reference file="logindialog.h" line="25" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getPreDir(QString)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="utils.h" line="49" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="utils.cpp" line="3" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>_getReason()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leaveapplicationform.h" line="32" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getRecord(QString)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="utils.h" line="57" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="utils.cpp" line="39" />
+</extent>
+<lines_of_code value="37" level="1" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="37.000" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="7.000" level="1" />
+</member_function>
+<member_function>
+<name>_getToDate(QDate)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leaveapplicationform.h" line="31" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getTypeOfLeave(QString)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leaveapplicationform.h" line="29" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getUserID()</name>
+<extent>
+<description>definition</description>
+<source_reference file="logindialog.h" line="26" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_getUserPos()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="viewattendance.h" line="28" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_howToMark(bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="markattendancescreen.h" line="26" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_populateTable()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="emppendingtable.h" line="20" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="shortattendancetable.h" line="23" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_sanitizeInput(QString)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="utils.h" line="53" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="utils.cpp" line="22" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_setCurrentSup(Supervisor *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="supervisorlogin.h" line="24" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_setDir(Director *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leavedetaildialog.h" line="23" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="pendingleavestable.h" line="22" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_setDirector(Director *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="directorlogin.h" line="23" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_setEmp(Employee *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="emppendingtable.h" line="19" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_setEmployee(Employee *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="generalemployeelogin.h" line="23" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="leaveapplicationform.h" line="33" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="viewattendance.h" line="24" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_setGuard(Guard *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leaveapplicationform.h" line="28" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="markattendancescreen.h" line="24" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="viewattendance.h" line="23" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_setMinToTime(QTime)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="markattendancescreen.h" line="25" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_setSup(Supervisor *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="empattbysupdialogbox.h" line="24" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="leavedetaildialog.h" line="22" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="pendingleavestable.h" line="21" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="shortattendancetable.h" line="22" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="viewattendance.h" line="25" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>_updateToDateMinimum(QDate)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leaveapplicationform.h" line="34" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>main(...)</name>
+<extent>
+<description>definition</description>
+<source_reference file="main.cpp" line="5" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>setupTitleAnimation()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="logindialog.h" line="27" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~DirectorLogin()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="directorlogin.h" line="21" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~EmpAttBySupDialogBox()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="empattbysupdialogbox.h" line="22" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~EmpPendingTable()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="emppendingtable.h" line="17" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~GeneralEmployeeLogin()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="generalemployeelogin.h" line="22" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~LeaveApplicationForm()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leaveapplicationform.h" line="27" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~LeaveDetailDialog()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="leavedetaildialog.h" line="21" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~LoginDialog()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="logindialog.h" line="24" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~MarkAttendanceScreen()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="markattendancescreen.h" line="21" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~PendingLeavesTable()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="pendingleavestable.h" line="20" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~ShortAttendanceTable()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="shortattendancetable.h" line="21" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~SupervisorLogin()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="supervisorlogin.h" line="23" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~ViewAttendance()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="viewattendance.h" line="22" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>anonymous</name>
+<client_module>
+</client_module>
+<supplier_module>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

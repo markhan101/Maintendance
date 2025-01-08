@@ -2,6 +2,9 @@
 #define EMPATTBYSUPDIALOGBOX_H
 
 #include <QWidget>
+#include <QDialog>
+#include <QTableWidget>
+#include <QHeaderView>
 #include "supervisor.h"
 #include "viewattendance.h"
 #include "utils.h"
@@ -21,12 +24,16 @@ public:
     void _setSup(Supervisor*);
 
 
+
 private slots:
     void on_viewButton_clicked();
+
+    void on_backButton_clicked();
 
 private:
     Ui::EmpAttBySupDialogBox *ui;
     Supervisor *currentSup;
+    double calculateEmployeeAttendance(const QString& empId);
 
 };
 

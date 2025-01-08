@@ -26,6 +26,9 @@ public:
     void _displayList(std::vector<QString>);
     void _displayList();
     Position _getUserPos();
+private slots:
+    void on_goBackButton_clicked();
+
 private:
     Ui::ViewAttendance *ui;
 

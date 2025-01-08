@@ -37,6 +37,12 @@ struct LeaveRecord
     QString status;
 };
 
+struct PendingList
+{
+    QString AID;
+    QString date;
+};
+
 
 
 
@@ -55,6 +61,14 @@ QString FolderSelection(QString);
 QString _getPosStr(int);
 
 QString _getDayStr(int dayOfWeek);
+
+struct LeaveBalanceRecord {
+    QString leaveType;
+    int balance;
+    QString employeeId;
+};
+
+QVector<QString> _fetchEIDs();
 
 
 #endif // UTILS_H

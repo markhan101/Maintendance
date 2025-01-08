@@ -9,3 +9,9 @@ Thursday - 2024/08/15 - 1 - 8
 Wednesday - 2024/03/13 - 0 - 8
 Monday - 2024/04/01 - 0 - 0
 Tuesday - 2023/11/21 - 1 - 10
+Thursday - 2024/12/05 - OL - 8
+Monday - 2025/01/13 - EL - 8
+Tuesday - 2025/01/14 - EL - 8
+Wednesday - 2025/01/15 - EL - 8
+Thursday - 2025/01/16 - EL - 8
+Friday - 2025/01/17 - EL - 8

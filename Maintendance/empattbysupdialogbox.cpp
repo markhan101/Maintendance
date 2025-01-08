@@ -20,17 +20,37 @@ void EmpAttBySupDialogBox::_setSup(Supervisor* sup)
 
 void EmpAttBySupDialogBox::on_viewButton_clicked()
 {
-    QString ID = ui->EmpIDTextEdit->toPlainText();
-    if(!_sanitizeInput(ID))
-    {
-        QMessageBox::warning(this,"Wrong ID","Please make sure the correct ID is entered.");
+ QString ID = ui->EmpIDTextEdit->text();
+    
+    if (ID.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Please enter an Employee ID");
         return;
     }
-    Employee * emp = new Employee(ID, "random", Position::normal_employee,{},{});
-    ViewAttendance viewAttendance (this);
-    viewAttendance._setEmployee(emp);
-    viewAttendance. _displayList();
-    viewAttendance.exec();
+    
+    if (!_sanitizeInput(ID)) {
+        QMessageBox::warning(this, "Wrong ID", "Please make sure the correct ID is entered.");
+        return;
+    }
 
+    // Create employee object to view attendance
+    AttendanceLog* attLog = new AttendanceLog();
+    LeaveBalance* leaveBalance = new LeaveBalance(ID);
+    Employee* emp = new Employee(ID, Position::normal_employee, attLog, leaveBalance);
+    
+    // Display attendance using existing ViewAttendance dialog
+    ViewAttendance viewAttendance(this);
+    viewAttendance._setEmployee(emp);
+    viewAttendance._displayList();
+    viewAttendance.exec();
+    
+    delete emp;
+
+}
+
+
+
+void EmpAttBySupDialogBox::on_backButton_clicked()
+{
+    accept();
 }
 

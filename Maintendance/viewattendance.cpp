@@ -114,16 +114,31 @@ void ViewAttendance::_displayList()
         ui->attendanceTable->setItem(row, 2, hoursItem);
 
 
-        QTableWidgetItem* presentItem = new QTableWidgetItem(entry._isPresent() ? "Yes" : "No");
+        QTableWidgetItem* presentItem = new QTableWidgetItem();
+        QString status = entry._isPresent();  // Assuming getAttendanceStatus() returns a QString like "1", "0", "UL", "EL", "CL", "OL"
         presentItem->setFlags(presentItem->flags() & ~Qt::ItemIsEditable);
         ui->attendanceTable->setItem(row, 3, presentItem);
-        if (entry._isPresent())
-        {
+
+        if (status == "1") {
+            presentItem->setText("Yes");
             presentItem->setForeground(QBrush(Qt::green));  // Set text color to green for "Yes"
-        } else
-        {
-            presentItem->setForeground(QBrush(Qt::red));    // Set text color to red for "No"
+        } else if (status == "0") {
+            presentItem->setText("No");
+            presentItem->setForeground(QBrush(Qt::red));  // Set text color to red for "No"
+        } else if (status == "UL") {
+            presentItem->setText("UL");
+            presentItem->setForeground(QBrush(Qt::blue));  // Set text color to blue for "UL"
+        } else if (status == "EL") {
+            presentItem->setText("EL");
+            presentItem->setForeground(QBrush(Qt::yellow));  // Set text color to yellow for "EL"
+        } else if (status == "CL") {
+            presentItem->setText("CL");
+            presentItem->setForeground(QBrush(Qt::magenta));  // Set text color to magenta for "CL"
+        } else if (status == "OL") {
+            presentItem->setText("OL");
+            presentItem->setForeground(QBrush(Qt::cyan));  // Set text color to cyan for "OL"
         }
+
         presentItem->setTextAlignment(Qt::AlignCenter);
     }
 
@@ -134,4 +149,10 @@ void ViewAttendance::_displayList()
 
 
 
+
+
+void ViewAttendance::on_goBackButton_clicked()
+{
+    this->reject();
+}
 

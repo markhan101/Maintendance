@@ -6,6 +6,11 @@
 #include <QSqlQuery>
 #include "utils.h"
 #include "loginpass.h"
+#include <QPropertyAnimation>
+#include <QSequentialAnimationGroup>
+#include <QGraphicsOpacityEffect>
+#include <QTimer>
+#include <QParallelAnimationGroup>
 
 namespace Ui {
     class LoginDialog;
@@ -19,6 +24,7 @@ public:
     ~LoginDialog();
     Position _getPosition() const { return userPosition; }
     QString _getUserID() const { return userID; }
+    void setupTitleAnimation();
 
 private slots:
     void on_loginButton_clicked();
@@ -29,6 +35,9 @@ private:
     Position userPosition;
     QString userID;
     bool _validateCredentials(const QString& username, const QString& password);
+    QPropertyAnimation *slideAnimation;
+    QPropertyAnimation *fadeAnimation;
+    QGraphicsOpacityEffect *opacityEffect;
 };
 
 #endif // LOGINDIALOG_H

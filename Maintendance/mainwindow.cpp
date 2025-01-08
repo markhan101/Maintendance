@@ -59,7 +59,7 @@ void MainWindow::_setupGuardUI(QString id)
     AttendanceLog* attLog = new AttendanceLog();
     LeaveBalance* leaveBalance = new LeaveBalance(id);
 
-    Guard* newGuard = new Guard(id, "random", Position::guard, attLog, leaveBalance);
+    Guard* newGuard = new Guard(id, Position::guard, attLog, leaveBalance);
     guardlogin->setCurrentGuard(newGuard);
 
     connect(guardlogin, &GuardLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
@@ -74,7 +74,7 @@ void MainWindow::_setupEmployeeUI(QString id)
     AttendanceLog* attLog = new AttendanceLog();
     LeaveBalance* leaveBalance = new LeaveBalance(id);
 
-    Employee* newEmp = new Employee(id, "random", Position::normal_employee, attLog, leaveBalance);
+    Employee* newEmp = new Employee(id, Position::normal_employee, attLog, leaveBalance);
     genEmpLogin->_setEmployee(newEmp);
 
     connect(genEmpLogin, &GeneralEmployeeLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
@@ -89,7 +89,7 @@ void MainWindow::_setupSupervisorUI(QString id)
     AttendanceLog* attLog = new AttendanceLog();
     LeaveBalance* leaveBalance = new LeaveBalance(id);
 
-    Supervisor* newSup = new Supervisor(id, "random", Position::supervisor, attLog, leaveBalance,true);
+    Supervisor* newSup = new Supervisor(id, Position::supervisor, attLog, leaveBalance);
     supervisorLogin->_setCurrentSup(newSup);
 
     connect(supervisorLogin, &SupervisorLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
@@ -99,17 +99,17 @@ void MainWindow::_setupSupervisorUI(QString id)
 
 void MainWindow::_setupDirectorUI(QString id)
 {
-    supervisorLogin = new SupervisorLogin(this);
+    directorLogin = new DirectorLogin(this);
 
     AttendanceLog* attLog = new AttendanceLog();
     LeaveBalance* leaveBalance = new LeaveBalance(id);
 
-    Director* newDir = new Director(id, "random", Position::supervisor, attLog, leaveBalance,false);
-    supervisorLogin->_setCurrentDir(newDir);
+    Director* newDir = new Director(id, Position::director, attLog, leaveBalance);
+    directorLogin->_setDirector(newDir);
 
-    connect(supervisorLogin, &SupervisorLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
-
-    supervisorLogin->show();
+    //connect(supervisorLogin, &SupervisorLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
+    connect(directorLogin, &DirectorLogin::emitLogout, this, &MainWindow::_handleEmitLogout);
+    directorLogin->show();
 
 }
 
@@ -134,6 +134,12 @@ void MainWindow::_handleEmitLogout()
         supervisorLogin->close();
         delete supervisorLogin;
         supervisorLogin = nullptr;
+    }
+    else if(directorLogin)
+    {
+        directorLogin->close();
+        delete directorLogin;
+        directorLogin = nullptr;
     }
 
     _showLoginDialog();

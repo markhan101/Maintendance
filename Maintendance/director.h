@@ -3,10 +3,12 @@
 
 #include "supervisor.h"
 
-class Director : public Supervisor
+
+
+class Director : public Employee
 {
 public:
-    Director(QString, QString, Position, AttendanceLog*, LeaveBalance*, bool);
+    Director(QString, Position, AttendanceLog*, LeaveBalance*);
     virtual ~Director();
 
     QVector<PendingList>_getPendingList();

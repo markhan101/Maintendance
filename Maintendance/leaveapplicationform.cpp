@@ -154,10 +154,8 @@ void LeaveApplicationForm::on_applyConfirmButton_clicked()
 
 
 
-
-
-
-
-
-
+void LeaveApplicationForm::on_backButton_clicked()
+{
+    this->close();
+}
 

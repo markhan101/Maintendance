@@ -21,6 +21,7 @@
 #include "guardlogin.h"
 #include "generalemployeelogin.h"
 #include "supervisorlogin.h"
+#include "directorlogin.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -46,6 +47,7 @@ private:
     GuardLogin *guardlogin;
     GeneralEmployeeLogin *genEmpLogin;
     SupervisorLogin *supervisorLogin;
+    DirectorLogin *directorLogin;
 
     void _setupGuardUI(QString);
     void _setupEmployeeUI(QString);

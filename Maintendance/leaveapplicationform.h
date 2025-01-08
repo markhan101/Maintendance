@@ -36,7 +36,9 @@ public:
 
 private slots:
     void on_applyConfirmButton_clicked();
-   
+
+
+    void on_backButton_clicked();
 
 private:
     Ui::LeaveApplicationForm *ui;

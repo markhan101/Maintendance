@@ -1,4 +1,4 @@
-casual-10
-earned-21
-official-18
+casual-5
+earned-16
+official-17
 unpaid-11

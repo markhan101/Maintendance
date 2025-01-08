@@ -20,7 +20,7 @@ public:
     explicit LeaveDetailDialog(QWidget *parent = nullptr);
     ~LeaveDetailDialog();
     void _setSup(Supervisor* sup);
-    void _setDir(Director *);
+    void _setDir(Director *dir);
 
     void _displayLeaveInfo(PendingList, QString ID);
 
@@ -28,13 +28,15 @@ private slots:
     void on_approveButton_clicked();
 
     void on_rejectButton_clicked();
+    void on_backButton_clicked();
+
 signals:
     void LeaveProcessed();
 
 private:
     Ui::LeaveDetailDialog *ui;
-    Supervisor *currentSup;
-    Director *currentDir;
+    Supervisor *CurrentSup;
+    Director * currentDir;
 };
 
 #endif // LEAVEDETAILDIALOG_H

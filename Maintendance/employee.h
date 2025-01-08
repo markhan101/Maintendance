@@ -28,15 +28,18 @@ private:
 
 public:
     Employee();
-    Employee(QString, QString, Position, AttendanceLog*, LeaveBalance*);
+    Employee(QString, Position, AttendanceLog*, LeaveBalance*);
 
     virtual ~Employee();
     void _applyForLeave();
-    AttendanceLog *_viewAttendance();
+    AttendanceLog *_viewAttendance () ;
+    QVector<LeaveBalanceRecord> getLeaveBalances();
    // virtual AttendanceLog *_viewAttendance(QString);
     virtual void _getAttendanceRecord();
     virtual void _getLeaveBalance();
+    QVector<LeaveRecord> _getAllApplications();
     LeaveBalance* getLeaveBalance() const { return leaveBalance; }
+
 
 };
 

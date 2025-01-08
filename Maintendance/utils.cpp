@@ -21,9 +21,8 @@ QString _getDateStr(QDate date)
 
 bool _sanitizeInput(QString id)
 {
-    if (id[0] == 'e' || id[0] == 'g' || id[0] == 's' || id[0] == 'd')
-        return true;
-    return false;
+    QVector<QString> eids = _fetchEIDs();
+    return eids.contains(id);
 }
 
 QString _generateApplicationID(QString ID)
@@ -150,4 +149,45 @@ QString _getDayStr(int dayOfWeek) {
         return "Sunday";
     }
     return "";
+}
+
+
+QVector<QString> _fetchEIDs()
+{
+    // Vector to hold employee IDs starting with 'e' or 'g'
+    QVector<QString> employeeIDs;
+
+    // Get the path to the users.txt file
+    QString baseDir = QCoreApplication::applicationDirPath();
+    QDir dir(baseDir);
+    dir.cd("../../..");
+
+    QString filePath = dir.absoluteFilePath("records/users.txt");
+
+    QFile file(filePath);
+    // If the file doesn't open, return an empty vector
+    if (!file.open(QIODevice::ReadOnly))
+    {
+        qDebug() << "Could not open users.txt for fetching EIDs for display:" << filePath;
+        return {};
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd())
+    {
+        QString line = in.readLine();
+        // Split the line at the '-' character to separate ID and password
+        QStringList parts = line.split('-');
+        if (parts.size() == 2) {
+            QString id = parts[0];  // Get the ID part
+            // Only append IDs that start with 'e' or 'g'
+            if (id.startsWith('e') || id.startsWith('g')) {
+                employeeIDs.append(id);
+            }
+        }
+    }
+
+    file.close();
+
+    return employeeIDs;
 }

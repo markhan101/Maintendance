@@ -2,17 +2,12 @@
 #define SUPERVISOR_H
 
 #include "employee.h"
-
-struct PendingList
-{
-    QString AID;
-    QString date;
-};
+#include "utils.h"
 
 class Supervisor : public Employee
 {
 public:
-    Supervisor(QString, QString, Position, AttendanceLog *, LeaveBalance *, bool);
+    Supervisor(QString, Position, AttendanceLog*, LeaveBalance*);
     virtual ~Supervisor();
 
     virtual QVector<PendingList> _getPendingList();
@@ -29,9 +24,15 @@ public:
             }
         }
     }
-    virtual void addtofile(const LeaveRecord &record, bool isApproved);
-    void _updateAttendanceForLeave(const QString &ID, LeaveTypes type, const QDate &fromDate, const QDate &toDate);
-    void _updateEmployeeLeaveStatus(const QString& ID, const QString& AID, bool isApproved);
+    void addtofile(const LeaveRecord& record, bool isApproved);
+    void _updateAttendanceForLeave(const QString& ID, LeaveTypes type, const QDate& fromDate, const QDate& toDate);
+
+   // QVector<QString> _fetchEIDs();
+
+
+
+
+
 
     virtual bool isDirector()
     {

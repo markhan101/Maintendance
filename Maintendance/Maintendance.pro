@@ -12,8 +12,10 @@ SOURCES += \
     attendanceentry.cpp \
     attendancelog.cpp \
     director.cpp \
+    directorlogin.cpp \
     empattbysupdialogbox.cpp \
     employee.cpp \
+    emppendingtable.cpp \
     generalemployeelogin.cpp \
     guard.cpp \
     guardlogin.cpp \
@@ -26,6 +28,7 @@ SOURCES += \
     mainwindow.cpp \
     markattendancescreen.cpp \
     pendingleavestable.cpp \
+    shortattendancetable.cpp \
     supervisor.cpp \
     supervisorlogin.cpp \
     user.cpp \
@@ -37,8 +40,10 @@ HEADERS += \
     attendanceentry.h \
     attendancelog.h \
     director.h \
+    directorlogin.h \
     empattbysupdialogbox.h \
     employee.h \
+    emppendingtable.h \
     generalemployeelogin.h \
     guard.h \
     guardlogin.h \
@@ -50,6 +55,7 @@ HEADERS += \
     mainwindow.h \
     markattendancescreen.h \
     pendingleavestable.h \
+    shortattendancetable.h \
     supervisor.h \
     supervisorlogin.h \
     user.h \
@@ -57,7 +63,9 @@ HEADERS += \
     viewattendance.h
 
 FORMS += \
+    directorlogin.ui \
     empattbysupdialogbox.ui \
+    emppendingtable.ui \
     generalemployeelogin.ui \
     guardlogin.ui \
     leaveapplicationform.ui \
@@ -66,6 +74,7 @@ FORMS += \
     mainwindow.ui \
     markattendancescreen.ui \
     pendingleavestable.ui \
+    shortattendancetable.ui \
     supervisorlogin.ui \
     viewattendance.ui
 
